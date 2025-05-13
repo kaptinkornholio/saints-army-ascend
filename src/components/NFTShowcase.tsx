@@ -8,23 +8,22 @@ const NFTShowcase: React.FC = () => {
     {
       id: 1,
       image: "https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/223.png",
-      title: "Divine Guardian"
+      title: "SAINT NEOS ARMY SERIES"
     },
     {
       id: 2,
       image: "https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/707.png",
-      title: "Celestial Protector"
+      title: "SAINT NEOS ARMY SERIES"
     },
     {
       id: 3,
       image: "https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/Virtual%20reality%20with%20space%20elements%20Neon%20Instagram%20Post.png",
-      title: "Ethereal Saint"
+      title: "ONE ARMY SERIES"
     },
     {
       id: 4,
       image: "https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/Untitled%20design%20(3).png",
-      title: "Holy Defender"
-    }
+      title: "SAINT NESO ARMY SERIES" 
   ];
 
   const [hoveredId, setHoveredId] = useState<number | null>(null);
