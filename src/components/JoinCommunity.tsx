@@ -45,7 +45,7 @@ const JoinCommunity: React.FC = () => {
             <h2 className="cosmic-title text-3xl md:text-4xl mb-4">Join the #OneArmy Movement</h2>
             <p className="text-white/80 max-w-2xl mx-auto">
               Struggling to find NFTs with meaning? Most lack soul and community. 
-              Zeok's Azriel Grace series delivers divine art that evolves with #OneArmy—mint yours and join the revolution.
+              SAINTS ARMY NFT is divine art that evolves with #OneArmy—mint yours and join the revolution.
             </p>
           </div>
           
