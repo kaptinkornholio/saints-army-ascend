@@ -17,14 +17,14 @@ const AboutZeok: React.FC = () => {
             <div className="w-full md:w-2/5 cosmic-card p-4 animate-float">
               <div className="relative aspect-square overflow-hidden rounded-lg glow-border">
                 <img 
-                  src="/Virtual reality with space elements Neon Instagram Post (2).png" 
+                  src="https://github.com/kaptinkornholio/saints-army-ascend/blob/main/Virtual%20reality%20with%20space%20elements%20Neon%20Instagram%20Post%20(2).png" 
                   alt="Zeok - General of the SAINT NEOS ARMY"
                   className="object-cover w-full h-full"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-saints-dark to-transparent opacity-50"></div>
                 <div className="absolute bottom-0 left-0 right-0 p-4 text-center">
-                  <span className="font-orbitron text-saints-gold text-lg">Zeok</span>
-                  <p className="text-white/80 text-sm">General of SAINT NEOS ARMY</p>
+                  <span className="font-orbitron text-saints-gold text-lg">ZEOK</span>
+                  <p className="text-white/80 text-sm">GENERAL OF SAINTS ARMY NFT</p>
                 </div>
               </div>
             </div>
@@ -33,15 +33,23 @@ const AboutZeok: React.FC = () => {
               <h2 className="cosmic-title text-3xl md:text-4xl mb-6">About Zeok</h2>
               <div className="space-y-4 text-white/80">
                 <p>
-                  I'm Zeok, General of the SAINT NEOS ARMY. My mission? To forge a digital universe where art transcends, 
-                  community thrives, and every Saint shapes our legacy.
+                  I'm Zeok, General of the SAINTS ARMY NFT. The core theme of our NFT project is divine unity and 
+                  digital freedom through the SAINTS ARMY NFT concept. We're building a blessed ecosystem where the 
+                  #ONEARMY movement stands for God-given rights of free speech and the sacred exchange of ideas without
+                   censorship or persecution.
                 </p>
                 <p>
-                  As a visionary in NFTs, web development, and AI-driven creativity, I'm passionate about building 
-                  a community that co-creates dynamic NFTs and champions free speech.
+                  SAINTS ARMY NFT represents a divine unity of digital warriors committed to freedom of expression 
+                  and community empowerment through blockchain technology.
                 </p>
                 <p>
-                  The Zeok NFT collection is our battleground—join #OneArmy and create with us.
+                  "In unity we find strength. In freedom we find purpose. In the blockchain we find eternity."
+                                                   — GENERAL ZEOK
+                  Unlike mercenary projects that enter the NFT space seeking only profit, the SAINTS ARMY NFT 
+                  serves a spiritual calling. Each transaction on the blockchain—free from the taxation of worldly
+                  systems—represents another step toward complete digital liberation and higher enlightenment.
+
+Join us in the divine mission
                 </p>
                 <div className="pt-6">
                   <Button 

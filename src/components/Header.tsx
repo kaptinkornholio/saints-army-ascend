@@ -23,7 +23,7 @@ const Header: React.FC = () => {
           <div className="hidden md:flex space-x-6 items-center">
             <a href="#about" className="font-orbitron text-white hover:text-saints-gold transition-colors">About</a>
             <a href="#join" className="font-orbitron text-white hover:text-saints-gold transition-colors">Join</a>
-            <a href="https://one-army-battle-map.lovable.app/" className="font-orbitron text-white hover:text-saints-gold transition-colors">Roadmap</a>
+            <a href="COMING SOON" className="font-orbitron text-white hover:text-saints-gold transition-colors">Roadmap</a>
             <Button 
               className="btn-primary"
               onClick={() => window.open("https://magiceden.io/marketplace/saint_neos_army?status=%22magic_eden%22", "_blank")}
