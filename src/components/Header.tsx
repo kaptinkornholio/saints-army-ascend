@@ -110,7 +110,7 @@ const Header: React.FC = () => {
           >
             <div className="w-12 h-12 relative overflow-hidden rounded-full ring-2 ring-saints-gold ring-offset-2 ring-offset-saints-dark animate-pulse-glow">
               <img 
-                src="/223.png" 
+                src="https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/223.png" 
                 alt="Saints Army Logo" 
                 className="w-full h-full object-cover"
               />
@@ -161,7 +161,7 @@ const Header: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            Join : SAINTS ARMY NFT: Unleash Divine Art with #OneArmy
+            SAINTS ARMY NFT: Unleash Divine Art 
           </motion.h1>
           
           <motion.p 
@@ -170,7 +170,7 @@ const Header: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            Discover the : SAINTS ARMY NFT, where ethereal masterpieces evolve with our community. Become a Saint, shape the future, and own the divine.
+            Discover the : SAINTS ARMY NFT, where ethereal masterpieces evolve with our community. Become a Saint, shape the future, andanda own the divine.
           </motion.p>
           
           <motion.div
@@ -188,8 +188,8 @@ const Header: React.FC = () => {
                 className="btn-primary text-lg px-8 py-6 glow-border flex items-center gap-3 w-full sm:w-auto"
                 onClick={() => window.open("https://magiceden.io/marketplace/saint_neos_army?status=%22magic_eden%22", "_blank")}
               >
-                <img src="/Magic-Eden-Logo.jpg" alt="Magic Eden" className="w-7 h-7 rounded-full" />
-                <span className="font-extrabold">BUY OR TRADE : SAINTS ARMY NFT NOW</span>
+                <img src="https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/Magic-Eden-Logo.jpg" alt="Magic Eden" className="w-7 h-7 rounded-full" />
+                <span className="font-extrabold">BUY OR TRADE : SAINTS ARukebox MY NFT NOW</span>
               </Button>
             </motion.div>
             
