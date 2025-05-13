@@ -32,7 +32,7 @@ const AboutZeok: React.FC = () => {
             </div>
             
             <div className="w-full md:w-3/5">
-              <h2 className="cosmic-title text-3xl md:text-4xl mb-6 animate-glow">About Zeok</h2>
+              <h2 className="cosmic-title text-3xl md:text-4xl mb-6 animate-glow">About SAINTS ARMY</h2>
               <div className="space-y-4 text-white/80">
                 <p className="animate-fade-in opacity-0" style={{ animationDelay: "0.1s", animationFillMode: "forwards" }}>
                   I'm <HoverCard>
