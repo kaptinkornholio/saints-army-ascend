@@ -24,7 +24,7 @@ const NFTShowcase: React.FC = () => {
       id: 4,
       image: "https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/Untitled%20design%20(3).png",
       title: "SAINT NESO ARMY SERIES" 
-  ];
+  };
 
   const [hoveredId, setHoveredId] = useState<number | null>(null);
 
