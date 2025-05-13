@@ -1,11 +1,90 @@
 
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 
 const Header: React.FC = () => {
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  
+  // Digital matrix background effect
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+    
+    let width = window.innerWidth;
+    let height = window.innerHeight;
+    
+    canvas.width = width;
+    canvas.height = height;
+    
+    const fontSize = 14;
+    const columns = Math.floor(width / fontSize);
+    const drops: number[] = [];
+    
+    for (let i = 0; i < columns; i++) {
+      drops[i] = Math.random() * -height;
+    }
+    
+    // Matrix characters - using a combination of letters and numbers 
+    const matrix = "01SAINTS0ARMY1NFT0DIVINE01ART0ZEOK".split("");
+    
+    function draw() {
+      // Semi-transparent black background to show trail
+      ctx.fillStyle = "rgba(0, 0, 0, 0.04)";
+      ctx.fillRect(0, 0, width, height);
+      
+      ctx.fillStyle = "#00c4ff"; // Matrix color matching the site theme
+      ctx.font = `${fontSize}px monospace`;
+      
+      for (let i = 0; i < drops.length; i++) {
+        const text = matrix[Math.floor(Math.random() * matrix.length)];
+        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+        
+        // Randomly reset some drops to the top
+        if (drops[i] * fontSize > height && Math.random() > 0.975) {
+          drops[i] = 0;
+        }
+        
+        // Move drop down
+        drops[i]++;
+      }
+    }
+    
+    const interval = setInterval(draw, 35);
+    
+    const handleResize = () => {
+      width = window.innerWidth;
+      height = window.innerHeight;
+      canvas.width = width;
+      canvas.height = height;
+      const newColumns = Math.floor(width / fontSize);
+      
+      // Reset drops array to match new width
+      while (drops.length < newColumns) {
+        drops.push(Math.random() * -height);
+      }
+      drops.length = newColumns;
+    };
+    
+    window.addEventListener('resize', handleResize);
+    
+    return () => {
+      clearInterval(interval);
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+  
   return (
     <header className="relative w-full overflow-hidden py-8">
+      {/* Matrix digital background */}
+      <canvas 
+        ref={canvasRef} 
+        className="absolute top-0 left-0 w-full h-full z-0 opacity-30"
+      />
+      
       {/* Background elements */}
       <div className="absolute top-0 left-0 w-full h-full -z-10">
         <div className="absolute top-1/4 left-1/3 w-64 h-64 bg-saints-purple/30 rounded-full filter blur-3xl animate-pulse-glow"></div>
