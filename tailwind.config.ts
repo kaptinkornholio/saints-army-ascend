@@ -109,6 +109,10 @@ export default {
 					'0%, 100%': { transform: 'translateY(0)' },
 					'50%': { transform: 'translateY(-10px)' }
 				},
+				'rotate-slow': {
+					'0%': { transform: 'rotate(0deg)' },
+					'100%': { transform: 'rotate(360deg)' }
+				},
 				'fade-in': {
 					'0%': { opacity: '0', transform: 'translateY(20px)' },
 					'100%': { opacity: '1', transform: 'translateY(0)' }
@@ -120,6 +124,32 @@ export default {
 					'50%': { 
 						textShadow: '0 0 10px rgba(178, 0, 255, 0.8), 0 0 20px rgba(0, 196, 255, 0.6)'
 					}
+				},
+				'shimmer': {
+					'0%': { backgroundPosition: '-200% 0' },
+					'100%': { backgroundPosition: '200% 0' }
+				},
+				'aurora': {
+					'0%, 100%': { 
+						backgroundPosition: '0% 50%'
+					},
+					'50%': { 
+						backgroundPosition: '100% 50%'
+					}
+				},
+				'bounce-subtle': {
+					'0%, 100%': { 
+						transform: 'translateY(0)'
+					},
+					'50%': { 
+						transform: 'translateY(-8px)'
+					}
+				},
+				'ping-slow': {
+					'75%, 100%': {
+						transform: 'scale(1.5)',
+						opacity: '0'
+					}
 				}
 			},
 			animation: {
@@ -127,12 +157,18 @@ export default {
 				'accordion-up': 'accordion-up 0.2s ease-out',
 				'pulse-glow': 'pulse-glow 2s infinite',
 				'float': 'float 6s ease-in-out infinite',
+				'rotate-slow': 'rotate-slow 12s linear infinite',
 				'fade-in': 'fade-in 1s ease-out',
-				'glow': 'glow 3s infinite'
+				'glow': 'glow 3s infinite',
+				'shimmer': 'shimmer 3s infinite linear',
+				'aurora': 'aurora 5s ease infinite',
+				'bounce-subtle': 'bounce-subtle 3s ease-in-out infinite',
+				'ping-slow': 'ping-slow 2s cubic-bezier(0, 0, 0.2, 1) infinite'
 			},
 			backgroundImage: {
 				'stars': "url('/stars-bg.png')",
-				'gradient-cosmic': 'linear-gradient(to right, rgba(178, 0, 255, 0.2), rgba(0, 196, 255, 0.2))'
+				'gradient-cosmic': 'linear-gradient(to right, rgba(178, 0, 255, 0.2), rgba(0, 196, 255, 0.2))',
+				'gradient-gold-purple': 'linear-gradient(to right, rgba(255, 215, 0, 0.7), rgba(178, 0, 255, 0.7))'
 			}
 		}
 	},
