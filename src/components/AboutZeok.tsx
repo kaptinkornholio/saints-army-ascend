@@ -44,7 +44,9 @@ const AboutZeok: React.FC = () => {
                 </p>
                 <p>
                   "In unity we find strength. In freedom we find purpose. In the blockchain we find eternity."
-                                                   — GENERAL ZEOK
+                  — GENERAL ZEOK
+                </p>
+                <p>                                   
                   Unlike mercenary projects that enter the NFT space seeking only profit, the SAINTS ARMY NFT 
                   serves a spiritual calling. Each transaction on the blockchain—free from the taxation of worldly
                   systems—represents another step toward complete digital liberation and higher enlightenment.
