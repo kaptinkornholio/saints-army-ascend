@@ -2,26 +2,26 @@
 import React from 'react';
 
 const NFTShowcase: React.FC = () => {
-  // Sample NFT images for showcase
+  // Real NFT images from GitHub repository
   const showcaseNFTs = [
     {
       id: 1,
-      image: "https://via.placeholder.com/500x500/1A1A1A/FFD700?text=SAINTS+NFT+1",
+      image: "/223.png",
       title: "Divine Guardian"
     },
     {
       id: 2,
-      image: "https://via.placeholder.com/500x500/1A1A1A/00C4FF?text=SAINTS+NFT+2",
+      image: "/707.png",
       title: "Celestial Protector"
     },
     {
       id: 3,
-      image: "https://via.placeholder.com/500x500/1A1A1A/B200FF?text=SAINTS+NFT+3",
+      image: "/Virtual reality with space elements Neon Instagram Post.png",
       title: "Ethereal Saint"
     },
     {
       id: 4,
-      image: "https://via.placeholder.com/500x500/1A1A1A/FFD700?text=SAINTS+NFT+4",
+      image: "/Untitled design (3).png",
       title: "Holy Defender"
     }
   ];

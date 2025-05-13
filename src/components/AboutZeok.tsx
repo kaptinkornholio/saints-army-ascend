@@ -17,7 +17,7 @@ const AboutZeok: React.FC = () => {
             <div className="w-full md:w-2/5 cosmic-card p-4 animate-float">
               <div className="relative aspect-square overflow-hidden rounded-lg glow-border">
                 <img 
-                  src="https://pbs.twimg.com/media/GJBC4UMXkAAcPuH?format=jpg&name=medium" 
+                  src="/Virtual reality with space elements Neon Instagram Post (2).png" 
                   alt="Zeok - General of the SAINT NEOS ARMY"
                   className="object-cover w-full h-full"
                 />
