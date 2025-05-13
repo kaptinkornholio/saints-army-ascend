@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 
 const NFTShowcase: React.FC = () => {
-  // Real NFT images from GitHub repository using raw URLs
+  // Fixed missing closing bracket in array
   const showcaseNFTs = [
     {
       id: 1,
@@ -23,8 +23,9 @@ const NFTShowcase: React.FC = () => {
     {
       id: 4,
       image: "https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/Untitled%20design%20(3).png",
-      title: "SAINT NESO ARMY SERIES" 
-  };
+      title: "SAINT NEOS ARMY SERIES"
+    } // Added closing bracket
+  ];
 
   const [hoveredId, setHoveredId] = useState<number | null>(null);
 
@@ -48,7 +49,7 @@ const NFTShowcase: React.FC = () => {
       {/* Animated background */}
       <div className="absolute inset-0 -z-10">
         {[...Array(3)].map((_, i) => (
-          <div 
+          <div
             key={i}
             className={`absolute rounded-full bg-gradient-to-r ${
               i % 2 === 0 ? 'from-saints-gold/10 to-saints-purple/5' : 'from-saints-purple/10 to-saints-blue/5'
@@ -68,7 +69,7 @@ const NFTShowcase: React.FC = () => {
       </div>
 
       <div className="container mx-auto px-4">
-        <motion.h2 
+        <motion.h2
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
@@ -77,8 +78,8 @@ const NFTShowcase: React.FC = () => {
         >
           Featured NFTs
         </motion.h2>
-        
-        <motion.div 
+
+        <motion.div
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"
           variants={container}
           initial="hidden"
@@ -86,7 +87,7 @@ const NFTShowcase: React.FC = () => {
           viewport={{ once: true, amount: 0.3 }}
         >
           {showcaseNFTs.map((nft) => (
-            <motion.div 
+            <motion.div
               key={nft.id}
               variants={item}
               className="cosmic-card p-6 rounded-xl relative overflow-hidden group"
@@ -95,32 +96,33 @@ const NFTShowcase: React.FC = () => {
             >
               <div className="absolute inset-0 bg-gradient-to-br from-saints-gold/5 to-saints-purple/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               <div className="absolute -inset-0.5 bg-gradient-to-r from-saints-purple to-saints-blue opacity-0 group-hover:opacity-20 rounded-xl blur-sm transition-opacity duration-500"></div>
-              
+
               <div className="relative z-10">
                 <div className="aspect-square overflow-hidden rounded-lg mb-6 glow-border">
                   <div className="relative w-full h-full">
-                    <img 
-                      src={nft.image} 
-                      alt={nft.title} 
+                    <img
+                      src={nft.image}
+                      alt={nft.title}
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                      loading="lazy" // Added for performance
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-saints-dark to-transparent opacity-50"></div>
                   </div>
                 </div>
-                
+
                 <h3 className="font-orbitron font-bold text-xl text-saints-gold text-center mb-3 relative">
                   {nft.title}
                   <span className="block h-0.5 w-0 bg-saints-gold group-hover:w-full transition-all duration-700 mt-2 mx-auto"></span>
                 </h3>
-                
+
                 <div className="mt-3 flex justify-center">
                   <span className="text-xs bg-saints-purple/40 text-white rounded-full px-4 py-1.5 border border-saints-purple/20 backdrop-blur-sm shadow-glow-sm transform transition-transform duration-500 group-hover:scale-110">
                     SAINTS ARMY COLLECTION
                   </span>
                 </div>
-                
+
                 <div className="mt-5 pt-4 border-t border-saints-purple/20 opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-500">
-                  <button 
+                  <button
                     onClick={() => window.open("https://magiceden.io/marketplace/saint_neos_army?status=%22magic_eden%22", "_blank")}
                     className="w-full py-2 bg-saints-purple/30 hover:bg-saints-purple/50 text-white rounded-lg border border-saints-purple/30 transition-colors duration-300 text-sm font-orbitron"
                   >
@@ -128,8 +130,8 @@ const NFTShowcase: React.FC = () => {
                   </button>
                 </div>
               </div>
-              
-              <div 
+
+              <div
                 className="absolute top-2 right-2 w-16 h-16 bg-gradient-to-br from-saints-purple to-saints-blue rounded-full opacity-0 group-hover:opacity-100 filter blur-xl transition-opacity duration-500"
                 style={{
                   transform: 'translateZ(0)'
@@ -138,17 +140,17 @@ const NFTShowcase: React.FC = () => {
             </motion.div>
           ))}
         </motion.div>
-        
-        <motion.div 
+
+        <motion.div
           className="text-center mt-16"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.5 }}
           viewport={{ once: true }}
         >
-          <a 
-            href="https://magiceden.io/marketplace/saint_neos_army?status=%22magic_eden%22" 
-            target="_blank" 
+          <a
+            href="https://magiceden.io/marketplace/saint_neos_army?status=%22magic_eden%22"
+            target="_blank"
             rel="noopener noreferrer"
             className="inline-block relative overflow-hidden group"
           >
