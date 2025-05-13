@@ -1,12 +1,42 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+
+import React, { useEffect } from 'react';
+import Header from '@/components/Header';
+import AboutZeok from '@/components/AboutZeok';
+import NFTShowcase from '@/components/NFTShowcase';
+import JoinCommunity from '@/components/JoinCommunity';
+import CTAFooter from '@/components/CTAFooter';
 
 const Index = () => {
+  useEffect(() => {
+    // Update the document title
+    document.title = "SAINTS ARMY NFT | Unleash Divine Art with #OneArmy";
+    
+    // Update meta description
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) {
+      metaDescription.setAttribute('content', 'Join SAINTS ARMY NFT where ethereal masterpieces evolve with our community. Become a Saint, shape the future, and own divine art.');
+    }
+    
+    // Update OpenGraph tags
+    const ogTitle = document.querySelector('meta[property="og:title"]');
+    const ogDesc = document.querySelector('meta[property="og:description"]');
+    
+    if (ogTitle) {
+      ogTitle.setAttribute('content', 'SAINTS ARMY NFT | Unleash Divine Art with #OneArmy');
+    }
+    
+    if (ogDesc) {
+      ogDesc.setAttribute('content', 'Join SAINTS ARMY NFT where ethereal masterpieces evolve with our community. Become a Saint, shape the future, and own divine art.');
+    }
+  }, []);
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-gray-600">Start building your amazing project here!</p>
-      </div>
+    <div className="min-h-screen bg-saints-dark text-white overflow-hidden">
+      <Header />
+      <AboutZeok />
+      <NFTShowcase />
+      <JoinCommunity />
+      <CTAFooter />
     </div>
   );
 };

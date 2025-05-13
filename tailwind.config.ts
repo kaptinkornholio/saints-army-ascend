@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -61,12 +62,23 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
+				},
+				// Saints Army NFT custom colors
+				saints: {
+					dark: "#1A1A1A",
+					gold: "#FFD700",
+					purple: "#B200FF",
+					blue: "#00C4FF"
 				}
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
 				md: 'calc(var(--radius) - 2px)',
 				sm: 'calc(var(--radius) - 4px)'
+			},
+			fontFamily: {
+				orbitron: ['Orbitron', 'sans-serif'],
+				montserrat: ['Montserrat', 'sans-serif']
 			},
 			keyframes: {
 				'accordion-down': {
@@ -84,11 +96,43 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				'pulse-glow': {
+					'0%, 100%': { 
+						boxShadow: '0 0 10px 2px rgba(178, 0, 255, 0.3), 0 0 20px 4px rgba(0, 196, 255, 0.2)'
+					},
+					'50%': { 
+						boxShadow: '0 0 15px 3px rgba(178, 0, 255, 0.5), 0 0 30px 6px rgba(0, 196, 255, 0.3)'
+					}
+				},
+				'float': {
+					'0%, 100%': { transform: 'translateY(0)' },
+					'50%': { transform: 'translateY(-10px)' }
+				},
+				'fade-in': {
+					'0%': { opacity: '0', transform: 'translateY(20px)' },
+					'100%': { opacity: '1', transform: 'translateY(0)' }
+				},
+				'glow': {
+					'0%, 100%': { 
+						textShadow: '0 0 5px rgba(178, 0, 255, 0.5), 0 0 10px rgba(0, 196, 255, 0.3)'
+					},
+					'50%': { 
+						textShadow: '0 0 10px rgba(178, 0, 255, 0.8), 0 0 20px rgba(0, 196, 255, 0.6)'
+					}
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'pulse-glow': 'pulse-glow 2s infinite',
+				'float': 'float 6s ease-in-out infinite',
+				'fade-in': 'fade-in 1s ease-out',
+				'glow': 'glow 3s infinite'
+			},
+			backgroundImage: {
+				'stars': "url('/stars-bg.png')",
+				'gradient-cosmic': 'linear-gradient(to right, rgba(178, 0, 255, 0.2), rgba(0, 196, 255, 0.2))'
 			}
 		}
 	},
