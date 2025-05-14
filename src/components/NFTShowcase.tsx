@@ -1,9 +1,9 @@
 
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import NFTRotator from './NFTRotator';
 
 const NFTShowcase: React.FC = () => {
-  // Fixed missing closing bracket in array
   const showcaseNFTs = [
     {
       id: 1,
@@ -24,7 +24,7 @@ const NFTShowcase: React.FC = () => {
       id: 4,
       image: "https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/Untitled%20design%20(3).png",
       title: "SAINT NEOS ARMY SERIES"
-    } // Added closing bracket
+    }
   ];
 
   const [hoveredId, setHoveredId] = useState<number | null>(null);
@@ -45,7 +45,7 @@ const NFTShowcase: React.FC = () => {
   };
 
   return (
-    <section className="py-20 relative overflow-hidden">
+    <section className="py-20 relative overflow-hidden" data-scroll-section>
       {/* Animated background */}
       <div className="absolute inset-0 -z-10">
         {[...Array(3)].map((_, i) => (
@@ -75,6 +75,8 @@ const NFTShowcase: React.FC = () => {
           transition={{ duration: 0.7 }}
           viewport={{ once: true }}
           className="cosmic-title text-3xl md:text-5xl mb-12 text-center"
+          data-scroll
+          data-scroll-speed="1"
         >
           Featured NFTs
         </motion.h2>
@@ -93,30 +95,25 @@ const NFTShowcase: React.FC = () => {
               className="cosmic-card p-6 rounded-xl relative overflow-hidden group"
               onMouseEnter={() => setHoveredId(nft.id)}
               onMouseLeave={() => setHoveredId(null)}
+              data-scroll
+              data-scroll-speed={nft.id % 2 === 0 ? "0.3" : "0.5"}
             >
               <div className="absolute inset-0 bg-gradient-to-br from-saints-gold/5 to-saints-purple/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               <div className="absolute -inset-0.5 bg-gradient-to-r from-saints-purple to-saints-blue opacity-0 group-hover:opacity-20 rounded-xl blur-sm transition-opacity duration-500"></div>
 
               <div className="relative z-10">
-                <div className="aspect-square overflow-hidden rounded-lg mb-6 glow-border">
-                  <div className="relative w-full h-full">
-                    <img
-                      src={nft.image}
-                      alt={nft.title}
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                      loading="lazy" // Added for performance
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-saints-dark to-transparent opacity-50"></div>
-                  </div>
+                {/* Use the 3D NFT rotator for enhanced visuals */}
+                <div className="mb-6">
+                  <NFTRotator image={nft.image} title={nft.title} />
                 </div>
 
-                <h3 className="font-orbitron font-bold text-xl text-saints-gold text-center mb-3 relative">
+                <h3 className="font-orbitron font-extrabold text-xl bg-clip-text text-transparent bg-gradient-to-r from-saints-gold via-white to-saints-blue text-center mb-3 relative">
                   {nft.title}
-                  <span className="block h-0.5 w-0 bg-saints-gold group-hover:w-full transition-all duration-700 mt-2 mx-auto"></span>
+                  <span className="block h-0.5 w-0 bg-gradient-to-r from-saints-purple via-saints-gold to-saints-blue group-hover:w-full transition-all duration-700 mt-2 mx-auto"></span>
                 </h3>
 
                 <div className="mt-3 flex justify-center">
-                  <span className="text-xs bg-saints-purple/40 text-white rounded-full px-4 py-1.5 border border-saints-purple/20 backdrop-blur-sm shadow-glow-sm transform transition-transform duration-500 group-hover:scale-110">
+                  <span className="text-xs bg-saints-purple/40 text-white rounded-full px-4 py-1.5 border border-saints-purple/20 backdrop-blur-sm shadow-[0_0_10px_rgba(178,0,255,0.4)] transform transition-transform duration-500 group-hover:scale-110 group-hover:shadow-[0_0_15px_rgba(178,0,255,0.6)]">
                     SAINTS ARMY COLLECTION
                   </span>
                 </div>
@@ -124,7 +121,7 @@ const NFTShowcase: React.FC = () => {
                 <div className="mt-5 pt-4 border-t border-saints-purple/20 opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-500">
                   <button
                     onClick={() => window.open("https://magiceden.io/marketplace/saint_neos_army?status=%22magic_eden%22", "_blank")}
-                    className="w-full py-2 bg-saints-purple/30 hover:bg-saints-purple/50 text-white rounded-lg border border-saints-purple/30 transition-colors duration-300 text-sm font-orbitron"
+                    className="w-full py-2 bg-saints-purple/30 hover:bg-saints-purple/50 text-white rounded-lg border border-saints-purple/30 transition-all duration-300 text-sm font-orbitron hover:shadow-[0_0_15px_rgba(178,0,255,0.5)]"
                   >
                     View Details
                   </button>
@@ -154,7 +151,7 @@ const NFTShowcase: React.FC = () => {
             rel="noopener noreferrer"
             className="inline-block relative overflow-hidden group"
           >
-            <span className="relative z-10 inline-block bg-gradient-to-r from-saints-purple to-saints-blue text-white font-orbitron font-bold py-4 px-10 rounded-md transition-all duration-300 border border-saints-purple/30">
+            <span className="relative z-10 inline-block bg-gradient-to-r from-saints-purple to-saints-blue text-white font-orbitron font-bold py-4 px-10 rounded-md transition-all duration-300 border border-saints-purple/30 hover:shadow-[0_0_20px_rgba(178,0,255,0.6)]">
               View Full Collection
             </span>
             <span className="absolute inset-0 bg-gradient-to-r from-saints-gold to-saints-blue opacity-0 group-hover:opacity-30 transition-opacity duration-500"></span>

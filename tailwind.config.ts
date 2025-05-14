@@ -78,7 +78,10 @@ export default {
 			},
 			fontFamily: {
 				orbitron: ['Orbitron', 'sans-serif'],
-				montserrat: ['Montserrat', 'sans-serif']
+				montserrat: ['Montserrat', 'sans-serif'],
+				rajdhani: ['Rajdhani', 'sans-serif'],
+				audiowide: ['Audiowide', 'cursive'],
+				syncopate: ['Syncopate', 'sans-serif']
 			},
 			keyframes: {
 				'accordion-down': {
@@ -150,6 +153,37 @@ export default {
 						transform: 'scale(1.5)',
 						opacity: '0'
 					}
+				},
+				'3d-rotate': {
+					'0%': { 
+						transform: 'rotateY(0deg)' 
+					},
+					'25%': { 
+						transform: 'rotateY(5deg)' 
+					},
+					'50%': { 
+						transform: 'rotateY(0deg)' 
+					},
+					'75%': { 
+						transform: 'rotateY(-5deg)' 
+					},
+					'100%': { 
+						transform: 'rotateY(0deg)' 
+					}
+				},
+				'holographic': {
+					'0%': { 
+						backgroundPosition: '0% 50%',
+						opacity: '0.5'
+					},
+					'50%': { 
+						backgroundPosition: '100% 50%',
+						opacity: '0.8'
+					},
+					'100%': { 
+						backgroundPosition: '0% 50%',
+						opacity: '0.5'
+					}
 				}
 			},
 			animation: {
@@ -163,7 +197,9 @@ export default {
 				'shimmer': 'shimmer 3s infinite linear',
 				'aurora': 'aurora 5s ease infinite',
 				'bounce-subtle': 'bounce-subtle 3s ease-in-out infinite',
-				'ping-slow': 'ping-slow 2s cubic-bezier(0, 0, 0.2, 1) infinite'
+				'ping-slow': 'ping-slow 2s cubic-bezier(0, 0, 0.2, 1) infinite',
+				'3d-rotate': '3d-rotate 6s ease-in-out infinite',
+				'holographic': 'holographic 4s ease infinite'
 			},
 			backgroundImage: {
 				'stars': "url('/stars-bg.png')",

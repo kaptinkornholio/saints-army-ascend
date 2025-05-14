@@ -5,6 +5,8 @@ import AboutZeok from '@/components/AboutZeok';
 import NFTShowcase from '@/components/NFTShowcase';
 import JoinCommunity from '@/components/JoinCommunity';
 import CTAFooter from '@/components/CTAFooter';
+import SmoothScroll, { ParallaxSection } from '@/components/SmoothScroll';
+import { motion } from 'framer-motion';
 
 const Index = () => {
   useEffect(() => {
@@ -28,15 +30,79 @@ const Index = () => {
     if (ogDesc) {
       ogDesc.setAttribute('content', 'Join SAINTS ARMY NFT where ethereal masterpieces evolve with our community. Become a Saint, shape the future, and own divine art.');
     }
+    
+    // Add smooth scrolling behavior
+    document.documentElement.style.scrollBehavior = 'smooth';
+    
+    return () => {
+      document.documentElement.style.scrollBehavior = '';
+    };
   }, []);
+
+  // Animation variants for section transitions
+  const fadeIn = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: { 
+        duration: 0.8,
+        ease: [0.22, 1, 0.36, 1]
+      }
+    }
+  };
 
   return (
     <div className="min-h-screen bg-saints-dark text-white overflow-hidden">
-      <Header />
-      <AboutZeok />
-      <NFTShowcase />
-      <JoinCommunity />
-      <CTAFooter />
+      <SmoothScroll>
+        {/* Fixed position elements */}
+        <div className="fixed top-0 left-0 w-full h-full -z-20 bg-gradient-to-b from-black to-saints-dark"></div>
+        
+        {/* Content sections with parallax */}
+        <Header />
+        
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={fadeIn}
+        >
+          <ParallaxSection speed={0.2}>
+            <AboutZeok />
+          </ParallaxSection>
+        </motion.div>
+        
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={fadeIn}
+        >
+          <ParallaxSection speed={0.4}>
+            <NFTShowcase />
+          </ParallaxSection>
+        </motion.div>
+        
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={fadeIn}
+        >
+          <ParallaxSection speed={0.3}>
+            <JoinCommunity />
+          </ParallaxSection>
+        </motion.div>
+        
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={fadeIn}
+        >
+          <CTAFooter />
+        </motion.div>
+      </SmoothScroll>
     </div>
   );
 };

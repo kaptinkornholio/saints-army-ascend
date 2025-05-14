@@ -8,10 +8,11 @@ import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
+import ParticleBackground from "./components/ParticleBackground";
 
 const queryClient = new QueryClient();
 
-// Loading animation component
+// Enhanced loading animation component
 const LoadingScreen = () => (
   <div className="fixed inset-0 bg-saints-dark flex items-center justify-center z-50">
     <div className="relative">
@@ -22,11 +23,27 @@ const LoadingScreen = () => (
       <div className="absolute -bottom-10 left-1/2 transform -translate-x-1/2 whitespace-nowrap">
         <span className="text-white/70 font-orbitron text-sm animate-pulse">Loading Experience...</span>
       </div>
+      
+      {/* Add loading particles */}
+      {[...Array(5)].map((_, i) => (
+        <div 
+          key={i}
+          className="absolute w-2 h-2 bg-saints-gold rounded-full"
+          style={{
+            top: '50%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
+            boxShadow: '0 0 10px #FFD700, 0 0 20px #FFD700',
+            animation: `spin-around ${2 + i * 0.5}s linear infinite`,
+            animationDelay: `${i * 0.2}s`,
+          }}
+        ></div>
+      ))}
     </div>
   </div>
 );
 
-// Page transition wrapper
+// Enhanced page transition wrapper
 const PageTransition = ({ children }: { children: React.ReactNode }) => {
   const location = useLocation();
   
@@ -37,7 +54,7 @@ const PageTransition = ({ children }: { children: React.ReactNode }) => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
-        transition={{ duration: 0.4 }}
+        transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
       >
         {children}
       </motion.div>
@@ -50,7 +67,6 @@ const AppRoutes = () => {
     <PageTransition>
       <Routes>
         <Route path="/" element={<Index />} />
-        {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
         <Route path="*" element={<NotFound />} />
       </Routes>
     </PageTransition>
@@ -75,6 +91,7 @@ const App = () => {
           <LoadingScreen />
         ) : (
           <BrowserRouter>
+            <ParticleBackground />
             <AppRoutes />
           </BrowserRouter>
         )}

@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 const Header: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   
-  // Digital matrix background effect
+  // Enhanced digital matrix background effect
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -28,20 +28,43 @@ const Header: React.FC = () => {
       drops[i] = Math.random() * -height;
     }
     
-    // Matrix characters - using a combination of letters and numbers 
-    const matrix = "01SAINTS0ARMY1NFT0DIVINE01ART0ZEOK".split("");
+    // Enhanced matrix characters with more variety
+    const matrix = "01SAINTS0ARMY1NFT0DIVINE01ART0ZEOK#@$%^&*()!".split("");
+    
+    // Array of colors for variety
+    const colors = [
+      '#00c4ff', // Primary blue
+      '#b200ff', // Primary purple
+      '#ffd700', // Gold
+      '#00ff66', // Green accent
+      '#ff00cc'  // Pink accent
+    ];
+    
+    // Get a random color from colors array
+    const getRandomColor = () => {
+      return colors[Math.floor(Math.random() * colors.length)];
+    };
     
     function draw() {
       // Semi-transparent black background to show trail
-      ctx.fillStyle = "rgba(0, 0, 0, 0.04)";
+      ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
       ctx.fillRect(0, 0, width, height);
       
-      ctx.fillStyle = "#00c4ff"; // Matrix color matching the site theme
-      ctx.font = `${fontSize}px monospace`;
-      
       for (let i = 0; i < drops.length; i++) {
+        // Use a mix of colors for more visual interest
+        ctx.fillStyle = drops[i] % 10 === 0 ? getRandomColor() : '#00c4ff'; 
+        ctx.font = `${fontSize}px monospace`;
+        
         const text = matrix[Math.floor(Math.random() * matrix.length)];
         ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+        
+        // Add glowing effect to some characters
+        if (Math.random() > 0.99) {
+          ctx.shadowColor = getRandomColor();
+          ctx.shadowBlur = 10;
+          ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+          ctx.shadowBlur = 0;
+        }
         
         // Randomly reset some drops to the top
         if (drops[i] * fontSize > height && Math.random() > 0.975) {
@@ -79,7 +102,7 @@ const Header: React.FC = () => {
   
   return (
     <header className="relative w-full overflow-hidden py-8">
-      {/* Matrix digital background */}
+      {/* Enhanced Matrix digital background */}
       <canvas 
         ref={canvasRef} 
         className="absolute top-0 left-0 w-full h-full z-0 opacity-30"
@@ -87,17 +110,17 @@ const Header: React.FC = () => {
       
       {/* Background elements */}
       <div className="absolute top-0 left-0 w-full h-full -z-10">
-        <div className="absolute top-1/4 left-1/3 w-64 h-64 bg-saints-purple/30 rounded-full filter blur-3xl animate-pulse-glow"></div>
-        <div className="absolute bottom-1/4 right-1/3 w-80 h-80 bg-saints-blue/30 rounded-full filter blur-3xl animate-pulse delay-1000"></div>
+        <div className="absolute top-1/4 left-1/3 w-64 h-64 bg-gradient-to-br from-saints-purple/40 to-saints-blue/30 rounded-full filter blur-3xl animate-pulse-glow"></div>
+        <div className="absolute bottom-1/4 right-1/3 w-80 h-80 bg-gradient-to-br from-saints-gold/30 to-saints-purple/30 rounded-full filter blur-3xl animate-pulse-glow delay-1000"></div>
         <motion.div 
           className="absolute top-0 left-0 w-full h-full"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1.5 }}
         >
-          <div className="absolute top-10 left-1/4 w-2 h-2 bg-white rounded-full animate-ping-slow"></div>
+          <div className="absolute top-10 left-1/4 w-2 h-2 bg-saints-gold rounded-full animate-ping-slow"></div>
           <div className="absolute top-1/3 right-1/4 w-1 h-1 bg-white rounded-full animate-ping-slow"></div>
-          <div className="absolute bottom-1/4 left-1/5 w-1.5 h-1.5 bg-white rounded-full animate-ping-slow"></div>
+          <div className="absolute bottom-1/4 left-1/5 w-1.5 h-1.5 bg-saints-blue rounded-full animate-ping-slow"></div>
         </motion.div>
       </div>
       
@@ -154,9 +177,9 @@ const Header: React.FC = () => {
           </div>
         </nav>
         
-        <div className="max-w-3xl mx-auto text-center mb-16">
+        <div className="max-w-3xl mx-auto text-center mb-16" data-scroll data-scroll-speed="0.3">
           <motion.h1 
-            className="cosmic-title text-4xl md:text-6xl lg:text-7xl mb-6 font-black tracking-tight"
+            className="cosmic-title text-4xl md:text-6xl lg:text-7xl mb-6 font-black tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-saints-gold via-saints-purple to-saints-blue"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
@@ -165,12 +188,12 @@ const Header: React.FC = () => {
           </motion.h1>
           
           <motion.p 
-            className="cosmic-subtitle text-lg md:text-xl mb-12 font-bold tracking-wide text-white/90"
+            className="cosmic-subtitle text-lg md:text-xl mb-12 font-extrabold tracking-wide bg-clip-text text-transparent bg-gradient-to-r from-white via-white/90 to-white/70"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            Discover the : SAINTS ARMY NFT, where ethereal masterpieces evolve with our community. Become a Saint, shape the future, andanda own the divine.
+            Discover the SAINTS ARMY NFT, where ethereal masterpieces evolve with our community. Become a Saint, shape the future, and own the divine.
           </motion.p>
           
           <motion.div
@@ -185,11 +208,11 @@ const Header: React.FC = () => {
               whileTap={{ scale: 0.95 }}
             >
               <Button 
-                className="btn-primary text-lg px-8 py-6 glow-border flex items-center gap-3 w-full sm:w-auto"
+                className="btn-primary text-lg px-8 py-6 shadow-[0_0_15px_rgba(255,215,0,0.4)] hover:shadow-[0_0_25px_rgba(255,215,0,0.6)] flex items-center gap-3 w-full sm:w-auto"
                 onClick={() => window.open("https://magiceden.io/marketplace/saint_neos_army?status=%22magic_eden%22", "_blank")}
               >
                 <img src="https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/Magic-Eden-Logo.jpg" alt="Magic Eden" className="w-7 h-7 rounded-full" />
-                <span className="font-extrabold">BUY OR TRADE : SAINTS ARukebox MY NFT NOW</span>
+                <span className="font-extrabold">BUY OR TRADE : SAINTS ARMY NFT NOW</span>
               </Button>
             </motion.div>
             
@@ -199,7 +222,7 @@ const Header: React.FC = () => {
               whileTap={{ scale: 0.95 }}
             >
               <Button 
-                className="btn-secondary text-lg px-8 py-6 glow-border flex items-center gap-3 w-full sm:w-auto"
+                className="btn-secondary text-lg px-8 py-6 shadow-[0_0_15px_rgba(178,0,255,0.4)] hover:shadow-[0_0_25px_rgba(178,0,255,0.6)] flex items-center gap-3 w-full sm:w-auto"
                 onClick={() => window.open("https://one-army-battle-map.lovable.app/", "_blank")}
               >
                 <span className="font-extrabold">VIEW ROADMAP</span>
