@@ -8,8 +8,11 @@ import CTAFooter from '@/components/CTAFooter';
 import DropCountdown from '@/components/DropCountdown'; 
 import SmoothScroll, { ParallaxSection } from '@/components/SmoothScroll';
 import { motion } from 'framer-motion';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 const Index = () => {
+  const isMobile = useIsMobile();
+  
   useEffect(() => {
     // Update the document title
     document.title = "SAINTS ARMY NFT | Unleash Divine Art with #OneArmy";
@@ -72,7 +75,7 @@ const Index = () => {
           viewport={{ once: true }}
           variants={fadeIn}
         >
-          <ParallaxSection speed={0.2}>
+          <ParallaxSection speed={isMobile ? 0 : 0.2}>
             <AboutZeok />
           </ParallaxSection>
         </motion.div>
@@ -84,8 +87,8 @@ const Index = () => {
           viewport={{ once: true }}
           variants={fadeIn}
         >
-          <ParallaxSection speed={0.3}>
-            <div className="max-w-6xl mx-auto px-4 py-20">
+          <ParallaxSection speed={isMobile ? 0 : 0.3}>
+            <div className="max-w-6xl mx-auto px-4 py-12 md:py-20">
               <DropCountdown targetDate={dropDate} />
             </div>
           </ParallaxSection>
@@ -97,7 +100,7 @@ const Index = () => {
           viewport={{ once: true }}
           variants={fadeIn}
         >
-          <ParallaxSection speed={0.4}>
+          <ParallaxSection speed={isMobile ? 0 : 0.4}>
             <NFTShowcase />
           </ParallaxSection>
         </motion.div>
@@ -108,7 +111,7 @@ const Index = () => {
           viewport={{ once: true }}
           variants={fadeIn}
         >
-          <ParallaxSection speed={0.3}>
+          <ParallaxSection speed={isMobile ? 0 : 0.3}>
             <JoinCommunity />
           </ParallaxSection>
         </motion.div>

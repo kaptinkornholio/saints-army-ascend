@@ -1,106 +1,99 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Facebook, Twitter, Instagram, Linkedin } from "lucide-react";
+import { Facebook, Twitter, Instagram, Github, Linkedin } from 'lucide-react';
+import { useIsMobile } from '@/hooks/use-mobile';
 
-const SocialMediaBar: React.FC = () => {
-  const socialLinks = [
-    { icon: <Twitter size={22} />, url: "https://twitter.com", color: "#1DA1F2" },
-    { icon: <Facebook size={22} />, url: "https://facebook.com", color: "#4267B2" },
-    { icon: <Instagram size={22} />, url: "https://instagram.com", color: "#E1306C" },
-    { icon: <Linkedin size={22} />, url: "https://linkedin.com", color: "#0077B5" }
-  ];
+interface SocialMediaBarProps {
+  position?: 'side' | 'bottom';
+}
 
-  const containerVariants = {
+const SocialMediaBar: React.FC<SocialMediaBarProps> = ({ position = 'side' }) => {
+  const isMobile = useIsMobile();
+  const actualPosition = position === 'side' && !isMobile ? 'side' : 'bottom';
+  
+  // Shared icon styling
+  const iconClasses = "w-5 h-5 text-white/80 hover:text-saints-gold transition-colors duration-300";
+  
+  // Animation variants for social icons
+  const container = {
     hidden: { opacity: 0 },
-    visible: {
+    show: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1
+        staggerChildren: 0.1,
+        delayChildren: 0.3,
       }
     }
   };
-
-  const itemVariants = {
+  
+  const item = {
     hidden: { y: 20, opacity: 0 },
-    visible: { 
+    show: { 
       y: 0, 
       opacity: 1,
-      transition: { 
-        type: "spring",
-        stiffness: 300,
-        damping: 20
-      }
-    },
-    hover: { 
-      scale: 1.2,
-      rotate: [0, -10, 10, -10, 0],
       transition: {
+        type: "spring",
+        stiffness: 260,
+        damping: 20,
         duration: 0.5
       }
     }
   };
   
+  const socialLinks = [
+    { Icon: Facebook, url: 'https://facebook.com', color: '#1877F2' },
+    { Icon: Twitter, url: 'https://twitter.com', color: '#1DA1F2' },
+    { Icon: Instagram, url: 'https://instagram.com', color: '#E4405F' },
+    { Icon: Github, url: 'https://github.com', color: '#181717' },
+    { Icon: Linkedin, url: 'https://linkedin.com', color: '#0A66C2' }
+  ];
+
+  // Conditional styling based on position
+  const barStyle = actualPosition === 'side' 
+    ? "fixed left-4 top-1/2 transform -translate-y-1/2 flex flex-col gap-4 z-40"
+    : "fixed bottom-0 left-0 right-0 flex justify-center gap-6 py-3 px-4 backdrop-blur-md bg-saints-dark/70 border-t border-saints-purple/20 z-40";
+
   return (
     <motion.div 
-      className="fixed left-5 top-1/2 transform -translate-y-1/2 flex flex-col space-y-6 z-40"
-      variants={containerVariants}
+      className={barStyle}
       initial="hidden"
-      animate="visible"
-      style={{ filter: 'drop-shadow(0 0 10px rgba(0,0,0,0.5))' }}
+      animate="show"
+      variants={container}
     >
-      {socialLinks.map((socialLink, index) => (
+      {socialLinks.map(({ Icon, url, color }, index) => (
         <motion.a
           key={index}
-          href={socialLink.url}
+          href={url}
           target="_blank"
-          rel="noreferrer"
-          className="w-12 h-12 flex items-center justify-center rounded-full bg-saints-dark border border-saints-purple/50 hover:border-saints-gold transition-all duration-300"
-          variants={itemVariants}
-          whileHover="hover"
-          style={{ boxShadow: `0 0 15px rgba(178, 0, 255, 0.3)` }}
+          rel="noopener noreferrer"
+          variants={item}
+          whileHover={{ 
+            scale: 1.2, 
+            rotate: [0, -10, 10, -5, 0],
+            transition: { duration: 0.5 }
+          }}
+          className={`${actualPosition === 'side' 
+            ? 'p-2.5 rounded-full bg-saints-purple/20 hover:bg-saints-purple/40' 
+            : 'p-2 hover:text-saints-gold'} 
+            transition-all duration-300`}
         >
-          <motion.div 
-            className="text-saints-gold"
-            initial={{ rotate: 0 }}
-            whileHover={{ 
-              rotate: [0, -10, 10, -10, 0],
-              scale: 1.2,
-              transition: { 
-                duration: 0.5,
-                repeat: Infinity,
-                repeatType: "loop" 
-              }
-            }}
-          >
-            {socialLink.icon}
-          </motion.div>
-
-          {/* Tooltip */}
-          <motion.span
-            className="absolute left-full ml-4 px-3 py-1 min-w-max rounded-md bg-saints-dark border border-saints-purple/50 text-white text-sm font-orbitron pointer-events-none"
-            initial={{ opacity: 0, x: -10 }}
-            whileHover={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.2, delay: 0.1 }}
-          >
-            Follow us on {socialLink.url.split('https://')[1].split('.com')[0]}
-          </motion.span>
-          
-          {/* Animated ring */}
-          <motion.div
-            className="absolute inset-0 rounded-full border-2 border-saints-gold opacity-0"
-            whileHover={{ 
-              opacity: [0, 0.5, 0],
-              scale: [1, 1.4, 1],
-              transition: { 
-                duration: 1.5, 
-                repeat: Infinity,
-                repeatType: "loop" 
-              }
-            }}
+          <Icon 
+            className={iconClasses} 
+            style={{ transition: 'color 0.3s, transform 0.3s' }}
           />
         </motion.a>
       ))}
+      
+      {/* Add a subtle separator line if positioned on the side */}
+      {actualPosition === 'side' && (
+        <motion.div 
+          className="mt-2 w-px h-20 bg-gradient-to-b from-saints-purple/0 via-saints-purple/30 to-saints-gold/50 mx-auto"
+          initial={{ scaleY: 0, opacity: 0 }}
+          animate={{ scaleY: 1, opacity: 1 }}
+          transition={{ delay: 1, duration: 0.7 }}
+        />
+      )}
     </motion.div>
   );
 };

@@ -13,39 +13,45 @@ import DynamicHeader from "./components/DynamicHeader";
 import InteractiveBackground from "./components/InteractiveBackground";
 import SocialMediaBar from "./components/SocialMediaBar";
 import MicroInteractions from "./components/MicroInteractions";
+import { useIsMobile } from "./hooks/use-mobile";
+import { toast } from "./components/ui/use-toast";
 
 const queryClient = new QueryClient();
 
-// Enhanced loading animation component
-const LoadingScreen = () => (
-  <div className="fixed inset-0 bg-saints-dark flex items-center justify-center z-50">
-    <div className="relative">
-      <div className="w-24 h-24 rounded-full border-4 border-saints-purple/30 border-t-saints-gold animate-spin"></div>
-      <div className="absolute inset-0 flex items-center justify-center">
-        <span className="text-saints-gold font-orbitron text-lg animate-pulse">SAINTS</span>
+// Enhanced loading animation component with responsive design
+const LoadingScreen = () => {
+  const isMobile = useIsMobile();
+  
+  return (
+    <div className="fixed inset-0 bg-saints-dark flex items-center justify-center z-50">
+      <div className="relative">
+        <div className={`${isMobile ? 'w-16 h-16' : 'w-24 h-24'} rounded-full border-4 border-saints-purple/30 border-t-saints-gold animate-spin`}></div>
+        <div className="absolute inset-0 flex items-center justify-center">
+          <span className={`text-saints-gold font-orbitron ${isMobile ? 'text-sm' : 'text-lg'} animate-pulse`}>SAINTS</span>
+        </div>
+        <div className="absolute -bottom-10 left-1/2 transform -translate-x-1/2 whitespace-nowrap">
+          <span className="text-white/70 font-orbitron text-sm animate-pulse">Loading Experience...</span>
+        </div>
+        
+        {/* Add loading particles */}
+        {[...Array(5)].map((_, i) => (
+          <div 
+            key={i}
+            className="absolute w-2 h-2 bg-saints-gold rounded-full"
+            style={{
+              top: '50%',
+              left: '50%',
+              transform: 'translate(-50%, -50%)',
+              boxShadow: '0 0 10px #FFD700, 0 0 20px #FFD700',
+              animation: `spin-around ${2 + i * 0.5}s linear infinite`,
+              animationDelay: `${i * 0.2}s`,
+            }}
+          ></div>
+        ))}
       </div>
-      <div className="absolute -bottom-10 left-1/2 transform -translate-x-1/2 whitespace-nowrap">
-        <span className="text-white/70 font-orbitron text-sm animate-pulse">Loading Experience...</span>
-      </div>
-      
-      {/* Add loading particles */}
-      {[...Array(5)].map((_, i) => (
-        <div 
-          key={i}
-          className="absolute w-2 h-2 bg-saints-gold rounded-full"
-          style={{
-            top: '50%',
-            left: '50%',
-            transform: 'translate(-50%, -50%)',
-            boxShadow: '0 0 10px #FFD700, 0 0 20px #FFD700',
-            animation: `spin-around ${2 + i * 0.5}s linear infinite`,
-            animationDelay: `${i * 0.2}s`,
-          }}
-        ></div>
-      ))}
     </div>
-  </div>
-);
+  );
+};
 
 // Enhanced page transition wrapper
 const PageTransition = ({ children }: { children: React.ReactNode }) => {
@@ -68,6 +74,7 @@ const PageTransition = ({ children }: { children: React.ReactNode }) => {
 
 const AppRoutes = () => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const isMobile = useIsMobile();
   
   useEffect(() => {
     const handleScroll = () => {
@@ -82,7 +89,7 @@ const AppRoutes = () => {
   return (
     <>
       <DynamicHeader isScrolled={isScrolled} />
-      <SocialMediaBar />
+      <SocialMediaBar position={isMobile ? "bottom" : "side"} />
       <PageTransition>
         <Routes>
           <Route path="/" element={<Index />} />
@@ -98,7 +105,14 @@ const App = () => {
   
   useEffect(() => {
     // Simulate loading time for an impressive entry
-    const timer = setTimeout(() => setLoading(false), 2000);
+    const timer = setTimeout(() => {
+      setLoading(false);
+      // Welcome toast when the app loads
+      setTimeout(() => {
+        toast.info("Welcome to Saints Army NFT Experience");
+      }, 1000);
+    }, 2000);
+    
     return () => clearTimeout(timer);
   }, []);
   
@@ -106,7 +120,7 @@ const App = () => {
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
         <Toaster />
-        <Sonner />
+        <Sonner position="bottom-center" theme="dark" />
         {loading ? (
           <LoadingScreen />
         ) : (

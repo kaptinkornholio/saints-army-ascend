@@ -1,10 +1,157 @@
+
 #root {
-  max-width: 1280px;
+  max-width: 100%;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 0;
   text-align: center;
+  overflow-x: hidden;
 }
 
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+@media (min-width: 640px) {
+  .container {
+    padding: 0 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    padding: 0 2rem;
+  }
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2rem !important;
+  }
+  
+  h2 {
+    font-size: 1.75rem !important;
+  }
+  
+  h3 {
+    font-size: 1.5rem !important;
+  }
+  
+  .btn-primary, .btn-secondary {
+    font-size: 0.875rem;
+    padding: 0.75rem 1.25rem;
+  }
+  
+  .mobile-hidden {
+    display: none;
+  }
+  
+  .mobile-stack {
+    flex-direction: column !important;
+  }
+  
+  .mobile-full-width {
+    width: 100% !important;
+  }
+  
+  .mobile-center {
+    text-align: center !important;
+    justify-content: center !important;
+  }
+  
+  .mobile-spacing {
+    margin: 1rem 0 !important;
+  }
+}
+
+/* Enhanced animations for hover effects */
+.hover-glow:hover {
+  filter: drop-shadow(0 0 8px rgba(178,0,255,0.7)) drop-shadow(0 0 16px rgba(0,196,255,0.4));
+  transform: scale(1.05);
+  transition: all 0.3s ease;
+}
+
+/* Shimmer animations for buttons and interactive elements */
+.shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.shimmer::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    to bottom right, 
+    rgba(255,255,255,0) 0%, 
+    rgba(255,255,255,0) 40%, 
+    rgba(255,255,255,0.3) 50%, 
+    rgba(255,255,255,0) 60%, 
+    rgba(255,255,255,0) 100%
+  );
+  transform: rotate(45deg);
+  animation: shimmerAnimation 3s linear infinite;
+}
+
+@keyframes shimmerAnimation {
+  0% {
+    transform: rotate(45deg) translate(-100%, -100%);
+  }
+  100% {
+    transform: rotate(45deg) translate(100%, 100%);
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(26, 26, 26, 0.8);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #B200FF, #00C4FF);
+  border-radius: 10px;
+  border: 2px solid rgba(26, 26, 26, 0.8);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, #FFD700, #B200FF);
+}
+
+/* Enhanced focus states for accessibility */
+:focus {
+  outline: 2px solid rgba(178, 0, 255, 0.5);
+  outline-offset: 2px;
+}
+
+/* Ripple effect styles */
+.ripple-effect {
+  position: absolute;
+  border-radius: 50%;
+  transform: scale(0);
+  background: rgba(255, 215, 0, 0.4);
+  animation: ripple 0.6s linear;
+  pointer-events: none;
+}
+
+@keyframes ripple {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+/* Logo animations */
 .logo {
   height: 6em;
   padding: 1.5em;
@@ -39,4 +186,35 @@
 
 .read-the-docs {
   color: #888;
+}
+
+/* Mobile responsiveness improvements */
+@media (max-width: 640px) {
+  body {
+    font-size: 14px;
+  }
+  
+  .container {
+    padding: 0 1rem;
+  }
+  
+  /* Mobile typography adjustments */
+  h1.cosmic-title {
+    font-size: 2rem !important;
+    line-height: 1.2;
+  }
+  
+  h2.cosmic-title {
+    font-size: 1.5rem !important;
+  }
+  
+  .cosmic-subtitle {
+    font-size: 1rem !important;
+  }
+  
+  /* Button adjustments */
+  .btn-primary, .btn-secondary {
+    padding: 0.75rem 1rem;
+    font-size: 0.875rem;
+  }
 }

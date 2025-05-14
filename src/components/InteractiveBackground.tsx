@@ -1,9 +1,11 @@
 
 import React, { useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 const InteractiveBackground: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
+  const isMobile = useIsMobile();
   
   useEffect(() => {
     if (!containerRef.current) return;
@@ -11,14 +13,18 @@ const InteractiveBackground: React.FC = () => {
     // Create interactive elements
     const container = containerRef.current;
     const elements: HTMLDivElement[] = [];
-    const numElements = 15;
+    
+    // Reduce the number of elements on mobile for better performance
+    const numElements = isMobile ? 8 : 15;
     
     for (let i = 0; i < numElements; i++) {
       const element = document.createElement('div');
       element.className = 'absolute rounded-full shadow-lg';
       
-      // Randomize size between 50px and 200px
-      const size = Math.floor(Math.random() * 150) + 50;
+      // Randomize size between 50px and 200px, smaller on mobile
+      const maxSize = isMobile ? 100 : 200;
+      const minSize = isMobile ? 30 : 50;
+      const size = Math.floor(Math.random() * (maxSize - minSize)) + minSize;
       element.style.width = `${size}px`;
       element.style.height = `${size}px`;
       
@@ -43,8 +49,11 @@ const InteractiveBackground: React.FC = () => {
       container.appendChild(element);
       elements.push(element);
       
-      // Add animation
-      const duration = Math.random() * 15 + 10;
+      // Add animation, slower on mobile to avoid performance issues
+      const duration = isMobile ? 
+        Math.random() * 20 + 15 : // Slower on mobile
+        Math.random() * 15 + 10;  // Normal on desktop
+      
       element.style.transition = `transform ${duration}s ease-in-out, filter ${duration / 2}s ease-in-out`;
       
       setInterval(() => {
@@ -55,8 +64,10 @@ const InteractiveBackground: React.FC = () => {
       }, duration * 1000);
     }
     
-    // Mouse move effect
+    // Mouse move effect, disabled on mobile for better performance
     const handleMouseMove = (e: MouseEvent) => {
+      if (isMobile) return; // Skip on mobile
+      
       const { clientX, clientY } = e;
       
       elements.forEach((element, i) => {
@@ -82,17 +93,21 @@ const InteractiveBackground: React.FC = () => {
       });
     };
     
-    document.addEventListener('mousemove', handleMouseMove);
+    if (!isMobile) {
+      document.addEventListener('mousemove', handleMouseMove);
+    }
     
     return () => {
-      document.removeEventListener('mousemove', handleMouseMove);
+      if (!isMobile) {
+        document.removeEventListener('mousemove', handleMouseMove);
+      }
       elements.forEach(element => {
         if (container.contains(element)) {
           container.removeChild(element);
         }
       });
     };
-  }, []);
+  }, [isMobile]);
   
   return (
     <div ref={containerRef} className="fixed inset-0 w-full h-full overflow-hidden pointer-events-none">
