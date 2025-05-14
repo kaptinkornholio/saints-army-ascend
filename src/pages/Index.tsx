@@ -5,6 +5,7 @@ import AboutZeok from '@/components/AboutZeok';
 import NFTShowcase from '@/components/NFTShowcase';
 import JoinCommunity from '@/components/JoinCommunity';
 import CTAFooter from '@/components/CTAFooter';
+import DropCountdown from '@/components/DropCountdown'; 
 import SmoothScroll, { ParallaxSection } from '@/components/SmoothScroll';
 import { motion } from 'framer-motion';
 
@@ -52,6 +53,10 @@ const Index = () => {
     }
   };
 
+  // Set drop date to 30 days from now
+  const dropDate = new Date();
+  dropDate.setDate(dropDate.getDate() + 30);
+
   return (
     <div className="min-h-screen bg-saints-dark text-white overflow-hidden">
       <SmoothScroll>
@@ -69,6 +74,20 @@ const Index = () => {
         >
           <ParallaxSection speed={0.2}>
             <AboutZeok />
+          </ParallaxSection>
+        </motion.div>
+        
+        {/* Add countdown timer */}
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={fadeIn}
+        >
+          <ParallaxSection speed={0.3}>
+            <div className="max-w-6xl mx-auto px-4 py-20">
+              <DropCountdown targetDate={dropDate} />
+            </div>
           </ParallaxSection>
         </motion.div>
         

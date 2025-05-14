@@ -9,6 +9,10 @@ import { AnimatePresence, motion } from "framer-motion";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import ParticleBackground from "./components/ParticleBackground";
+import DynamicHeader from "./components/DynamicHeader";
+import InteractiveBackground from "./components/InteractiveBackground";
+import SocialMediaBar from "./components/SocialMediaBar";
+import MicroInteractions from "./components/MicroInteractions";
 
 const queryClient = new QueryClient();
 
@@ -63,13 +67,29 @@ const PageTransition = ({ children }: { children: React.ReactNode }) => {
 };
 
 const AppRoutes = () => {
+  const [isScrolled, setIsScrolled] = useState(false);
+  
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+      setIsScrolled(scrollPosition > 80);
+    };
+    
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+  
   return (
-    <PageTransition>
-      <Routes>
-        <Route path="/" element={<Index />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-    </PageTransition>
+    <>
+      <DynamicHeader isScrolled={isScrolled} />
+      <SocialMediaBar />
+      <PageTransition>
+        <Routes>
+          <Route path="/" element={<Index />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </PageTransition>
+    </>
   );
 };
 
@@ -92,6 +112,8 @@ const App = () => {
         ) : (
           <BrowserRouter>
             <ParticleBackground />
+            <InteractiveBackground />
+            <MicroInteractions />
             <AppRoutes />
           </BrowserRouter>
         )}
