@@ -1,4 +1,3 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -106,7 +105,7 @@
   }
 
   body {
-    @apply bg-saints-dark text-foreground font-rajdhani;
+    @apply bg-saints-dark text-foreground font-montserrat;
     background: linear-gradient(to bottom, #1A1A1A, #0A0A0A);
     background-attachment: fixed;
     background-size: cover;
@@ -127,9 +126,15 @@
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-audiowide;
+    @apply font-audiowide font-normal;
+    letter-spacing: 0.02em;
   }
 
+  p, span, div, li {
+    @apply font-montserrat;
+    letter-spacing: 0.01em;
+  }
+  
   /* Enhanced animated cursor styling */
   html {
     cursor: url("data:image/svg+xml,%3Csvg width='32' height='32' viewBox='0 0 32 32' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='16' cy='16' r='14' stroke='%23FFD700' stroke-width='2' stroke-opacity='0.7'/%3E%3Ccircle cx='16' cy='16' r='6' fill='%23B200FF' fill-opacity='0.7'/%3E%3Ccircle cx='16' cy='16' r='2' fill='%2300C4FF' fill-opacity='0.9'/%3E%3C/svg%3E"), auto;
@@ -197,7 +202,12 @@
   }
 
   .cosmic-subtitle {
-    @apply font-rajdhani text-white/90 font-bold;
+    @apply font-montserrat text-white/90 font-bold;
+  }
+
+  /* Mobile optimized text */
+  .mobile-text {
+    @apply font-montserrat text-white/90 font-medium leading-relaxed tracking-wide;
   }
 
   /* Borders */
