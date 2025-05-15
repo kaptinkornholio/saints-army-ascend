@@ -16,7 +16,7 @@ const NFTShowcase: React.FC = () => {
     },
     {
       id: 3,
-      image: "https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/1747175468549.png",
+      image: "https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/CyberLink_Galaxy_A_digital_illustration_shoot_from_a_frontal_camera_640a9d23-dc16-480d-9029-f17ea3097702.png",
       title: "SAINTS ARMY"
     },
     {
