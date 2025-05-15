@@ -15,7 +15,7 @@ const Index = () => {
   
   useEffect(() => {
     // Update the document title
-    document.title = "SAINTS ARMY NFT | Unleash Divine Art with #OneArmy";
+    document.title = "SAINTS ARMY NFT | Unleash Divine Art with #SAINTSARMY";
     
     // Update meta description
     const metaDescription = document.querySelector('meta[name="description"]');
