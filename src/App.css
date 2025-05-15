@@ -1,4 +1,3 @@
-
 #root {
   max-width: 100%;
   margin: 0 auto;
@@ -26,18 +25,22 @@
   }
 }
 
-/* Mobile optimizations */
+/* Enhanced Mobile optimizations */
 @media (max-width: 768px) {
   h1 {
-    font-size: 2rem !important;
-  }
-  
-  h2 {
     font-size: 1.75rem !important;
   }
   
-  h3 {
+  h2 {
     font-size: 1.5rem !important;
+  }
+  
+  h3 {
+    font-size: 1.25rem !important;
+  }
+  
+  p, li {
+    font-size: 0.9rem !important;
   }
   
   .btn-primary, .btn-secondary {
@@ -46,7 +49,7 @@
   }
   
   .mobile-hidden {
-    display: none;
+    display: none !important;
   }
   
   .mobile-stack {
@@ -64,6 +67,19 @@
   
   .mobile-spacing {
     margin: 1rem 0 !important;
+  }
+  
+  .mobile-padding {
+    padding: 1rem !important;
+  }
+  
+  .mobile-small-text {
+    font-size: 0.8rem !important;
+  }
+  
+  .mobile-tight-spacing {
+    padding: 0.5rem !important;
+    margin: 0.5rem !important;
   }
 }
 

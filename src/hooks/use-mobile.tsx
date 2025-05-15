@@ -10,7 +10,7 @@ export const BREAKPOINTS = {
 
 // Hook for detecting if the current viewport is mobile sized
 export function useIsMobile() {
-  const [isMobile, setIsMobile] = React.useState<boolean | undefined>(undefined);
+  const [isMobile, setIsMobile] = React.useState<boolean>(false);
 
   React.useEffect(() => {
     const checkIfMobile = () => {
@@ -21,21 +21,24 @@ export function useIsMobile() {
     checkIfMobile();
     
     // Set up listener for window resize
-    const mql = window.matchMedia(`(max-width: ${BREAKPOINTS.MOBILE - 1}px)`);
+    window.addEventListener("resize", checkIfMobile);
     
-    // Modern approach using addEventListener
-    mql.addEventListener("change", checkIfMobile);
+    // Also listen to orientation changes which is important for mobile
+    window.addEventListener("orientationchange", checkIfMobile);
     
     // Cleanup function
-    return () => mql.removeEventListener("change", checkIfMobile);
+    return () => {
+      window.removeEventListener("resize", checkIfMobile);
+      window.removeEventListener("orientationchange", checkIfMobile);
+    };
   }, []);
 
-  return !!isMobile;
+  return isMobile;
 }
 
 // Hook for detecting tablet sized viewports
 export function useIsTablet() {
-  const [isTablet, setIsTablet] = React.useState<boolean | undefined>(undefined);
+  const [isTablet, setIsTablet] = React.useState<boolean>(false);
 
   React.useEffect(() => {
     const checkIfTablet = () => {
@@ -49,11 +52,17 @@ export function useIsTablet() {
     // Set up listener for window resize
     window.addEventListener("resize", checkIfTablet);
     
+    // Also listen to orientation changes
+    window.addEventListener("orientationchange", checkIfTablet);
+    
     // Cleanup function
-    return () => window.removeEventListener("resize", checkIfTablet);
+    return () => {
+      window.removeEventListener("resize", checkIfTablet);
+      window.removeEventListener("orientationchange", checkIfTablet);
+    };
   }, []);
 
-  return !!isTablet;
+  return isTablet;
 }
 
 // Hook for getting the current device type
@@ -78,8 +87,14 @@ export function useDeviceType() {
     // Set up listener for window resize
     window.addEventListener("resize", checkDeviceType);
     
+    // Also listen to orientation changes
+    window.addEventListener("orientationchange", checkDeviceType);
+    
     // Cleanup function
-    return () => window.removeEventListener("resize", checkDeviceType);
+    return () => {
+      window.removeEventListener("resize", checkDeviceType);
+      window.removeEventListener("orientationchange", checkDeviceType);
+    };
   }, []);
 
   return deviceType;

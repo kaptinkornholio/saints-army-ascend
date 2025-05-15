@@ -6,6 +6,7 @@ import NFTDetailModal from './NFTDetailModal';
 import { NFTDetails } from './NFTDetailModal';
 import { useNavigate } from 'react-router-dom';
 import { Info } from 'lucide-react';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 const NFTShowcase: React.FC = () => {
   // Enhanced NFT data with descriptions and traits
@@ -64,13 +65,14 @@ const NFTShowcase: React.FC = () => {
   const [selectedNFT, setSelectedNFT] = useState<NFTDetails | null>(null);
   const [modalOpen, setModalOpen] = useState(false);
   const navigate = useNavigate();
+  const isMobile = useIsMobile();
 
   const container = {
     hidden: { opacity: 0 },
     show: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2
+        staggerChildren: isMobile ? 0.1 : 0.2
       }
     }
   };
@@ -95,7 +97,7 @@ const NFTShowcase: React.FC = () => {
   };
 
   return (
-    <section className="py-20 relative overflow-hidden" data-scroll-section>
+    <section className="py-10 md:py-20 relative overflow-hidden" data-scroll-section>
       {/* Animated background */}
       <div className="absolute inset-0 -z-10">
         {[...Array(3)].map((_, i) => (
@@ -124,7 +126,7 @@ const NFTShowcase: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
           viewport={{ once: true }}
-          className="cosmic-title text-3xl md:text-5xl mb-12 text-center"
+          className="cosmic-title text-3xl md:text-5xl mb-8 md:mb-12 text-center"
           data-scroll
           data-scroll-speed="1"
         >
@@ -132,17 +134,17 @@ const NFTShowcase: React.FC = () => {
         </motion.h2>
 
         <motion.div
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8"
           variants={container}
           initial="hidden"
           whileInView="show"
-          viewport={{ once: true, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.2 }}
         >
           {showcaseNFTs.map((nft) => (
             <motion.div
               key={nft.id}
               variants={item}
-              className="cosmic-card p-6 rounded-xl relative overflow-hidden group"
+              className="cosmic-card p-4 md:p-6 rounded-xl relative overflow-hidden group"
               onMouseEnter={() => setHoveredId(nft.id)}
               onMouseLeave={() => setHoveredId(null)}
               data-scroll
@@ -153,25 +155,25 @@ const NFTShowcase: React.FC = () => {
 
               <div className="relative z-10">
                 {/* Use the 3D NFT rotator for enhanced visuals */}
-                <div className="mb-6">
+                <div className="mb-4 md:mb-6">
                   <NFTRotator image={nft.image} title={nft.title} />
                 </div>
 
-                <h3 className="font-orbitron font-extrabold text-xl bg-clip-text text-transparent bg-gradient-to-r from-saints-gold via-white to-saints-blue text-center mb-3 relative">
+                <h3 className="font-orbitron font-extrabold text-lg md:text-xl bg-clip-text text-transparent bg-gradient-to-r from-saints-gold via-white to-saints-blue text-center mb-2 md:mb-3 relative">
                   {nft.title}
                   <span className="block h-0.5 w-0 bg-gradient-to-r from-saints-purple via-saints-gold to-saints-blue group-hover:w-full transition-all duration-700 mt-2 mx-auto"></span>
                 </h3>
 
-                <div className="mt-3 flex justify-center">
-                  <span className="text-xs bg-saints-purple/40 text-white rounded-full px-4 py-1.5 border border-saints-purple/20 backdrop-blur-sm shadow-[0_0_10px_rgba(178,0,255,0.4)] transform transition-transform duration-500 group-hover:scale-110 group-hover:shadow-[0_0_15px_rgba(178,0,255,0.6)]">
+                <div className="mt-2 md:mt-3 flex justify-center">
+                  <span className="text-xs bg-saints-purple/40 text-white rounded-full px-3 py-1.5 border border-saints-purple/20 backdrop-blur-sm shadow-[0_0_10px_rgba(178,0,255,0.4)] transform transition-transform duration-500 group-hover:scale-110 group-hover:shadow-[0_0_15px_rgba(178,0,255,0.6)]">
                    COMING SOON
                   </span>
                 </div>
 
-                <div className="mt-5 pt-4 border-t border-saints-purple/20 opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-500">
+                <div className={`mt-3 md:mt-5 pt-3 md:pt-4 border-t border-saints-purple/20 ${isMobile ? 'opacity-100' : 'opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0'} transition-all duration-500`}>
                   <button
                     onClick={(e) => handleViewDetails(nft, e)}
-                    className="w-full py-2 flex justify-center items-center gap-2 bg-saints-purple/30 hover:bg-saints-purple/50 text-white rounded-lg border border-saints-purple/30 transition-all duration-300 text-sm font-orbitron hover:shadow-[0_0_15px_rgba(178,0,255,0.5)]"
+                    className="w-full py-2 flex justify-center items-center gap-2 bg-saints-purple/30 hover:bg-saints-purple/50 text-white rounded-lg border border-saints-purple/30 transition-all duration-300 text-xs md:text-sm font-orbitron hover:shadow-[0_0_15px_rgba(178,0,255,0.5)]"
                   >
                     <Info size={16} />
                     View Details
@@ -180,7 +182,7 @@ const NFTShowcase: React.FC = () => {
               </div>
 
               <div
-                className="absolute top-2 right-2 w-16 h-16 bg-gradient-to-br from-saints-purple to-saints-blue rounded-full opacity-0 group-hover:opacity-100 filter blur-xl transition-opacity duration-500"
+                className="absolute top-2 right-2 w-12 h-12 md:w-16 md:h-16 bg-gradient-to-br from-saints-purple to-saints-blue rounded-full opacity-0 group-hover:opacity-100 filter blur-xl transition-opacity duration-500"
                 style={{
                   transform: 'translateZ(0)'
                 }}
@@ -190,7 +192,7 @@ const NFTShowcase: React.FC = () => {
         </motion.div>
 
         <motion.div
-          className="text-center mt-16"
+          className="text-center mt-10 md:mt-16"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.5 }}
@@ -200,7 +202,7 @@ const NFTShowcase: React.FC = () => {
             onClick={handleViewCollection}
             className="inline-block relative overflow-hidden group"
           >
-            <span className="relative z-10 inline-flex items-center gap-2 bg-gradient-to-r from-saints-purple to-saints-blue text-white font-orbitron font-bold py-4 px-10 rounded-md transition-all duration-300 border border-saints-purple/30 hover:shadow-[0_0_20px_rgba(178,0,255,0.6)]">
+            <span className="relative z-10 inline-flex items-center gap-2 bg-gradient-to-r from-saints-purple to-saints-blue text-white font-orbitron font-bold py-3 md:py-4 px-8 md:px-10 rounded-md transition-all duration-300 border border-saints-purple/30 hover:shadow-[0_0_20px_rgba(178,0,255,0.6)]">
               View Full Collection
             </span>
             <span className="absolute inset-0 bg-gradient-to-r from-saints-gold to-saints-blue opacity-0 group-hover:opacity-30 transition-opacity duration-500"></span>

@@ -6,6 +6,7 @@ import { Facebook, Twitter, Instagram, Menu, X } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useIsMobile } from '@/hooks/use-mobile';
 import { toast } from '@/components/ui/use-toast';
+import ComingSoonModal from './ComingSoonModal';
 
 interface DynamicHeaderProps {
   isScrolled: boolean;
@@ -13,6 +14,7 @@ interface DynamicHeaderProps {
 
 const DynamicHeader: React.FC<DynamicHeaderProps> = ({ isScrolled }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [comingSoonOpen, setComingSoonOpen] = useState(false);
   const isMobile = useIsMobile();
 
   // Close mobile menu when resizing to desktop
@@ -85,9 +87,15 @@ const DynamicHeader: React.FC<DynamicHeaderProps> = ({ isScrolled }) => {
     open: { opacity: 1, y: 0 }
   };
 
-  const handleBuyNow = () => {
-    window.open("https://magiceden.io/marketplace/saint_neos_army?status=%22magic_eden%22", "_blank");
-    toast.success("Opening Magic Eden marketplace");
+  const handleMintNow = () => {
+    setComingSoonOpen(true);
+  };
+
+  // Function to close mobile menu when clicking a link
+  const handleMobileMenuItemClick = () => {
+    if (isMobile) {
+      setMobileMenuOpen(false);
+    }
   };
 
   return (
@@ -95,7 +103,7 @@ const DynamicHeader: React.FC<DynamicHeaderProps> = ({ isScrolled }) => {
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 backdrop-blur-sm ${
         isScrolled || mobileMenuOpen
           ? 'bg-saints-dark/90 shadow-lg shadow-saints-purple/20 py-2' 
-          : 'bg-transparent py-3 md:py-6'
+          : 'bg-transparent py-2 md:py-6'
       }`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
@@ -144,6 +152,7 @@ const DynamicHeader: React.FC<DynamicHeaderProps> = ({ isScrolled }) => {
                   scale: 1.1, 
                   textShadow: "0 0 8px rgba(255,215,0,0.7), 0 0 12px rgba(178,0,255,0.5)" 
                 }}
+                onClick={handleMobileMenuItemClick}
               >
                 {item}
               </motion.a>
@@ -154,9 +163,9 @@ const DynamicHeader: React.FC<DynamicHeaderProps> = ({ isScrolled }) => {
             >
               <Button 
                 className="cosmic-button btn-primary"
-                onClick={handleBuyNow}
+                onClick={handleMintNow}
               >
-                Buy Now
+                MINT NOW
               </Button>
             </motion.div>
           </motion.div>
@@ -254,7 +263,7 @@ const DynamicHeader: React.FC<DynamicHeaderProps> = ({ isScrolled }) => {
                     key={index}
                     href={`#${item.toLowerCase()}`}
                     className="font-orbitron text-lg py-2 border-b border-saints-purple/20 text-white hover:text-saints-gold flex items-center justify-between"
-                    onClick={() => setMobileMenuOpen(false)}
+                    onClick={handleMobileMenuItemClick}
                     variants={mobileMenuItemVariants}
                   >
                     <span>{item}</span>
@@ -268,11 +277,11 @@ const DynamicHeader: React.FC<DynamicHeaderProps> = ({ isScrolled }) => {
                   <Button 
                     className="cosmic-button btn-primary w-full"
                     onClick={() => {
-                      handleBuyNow();
+                      handleMintNow();
                       setMobileMenuOpen(false);
                     }}
                   >
-                    Buy Now
+                    MINT NOW
                   </Button>
                 </motion.div>
                 
@@ -311,6 +320,9 @@ const DynamicHeader: React.FC<DynamicHeaderProps> = ({ isScrolled }) => {
           </motion.div>
         )}
       </AnimatePresence>
+
+      {/* Coming Soon Modal */}
+      <ComingSoonModal isOpen={comingSoonOpen} onClose={() => setComingSoonOpen(false)} />
     </motion.nav>
   );
 };

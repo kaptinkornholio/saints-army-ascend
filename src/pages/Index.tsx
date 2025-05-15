@@ -17,6 +17,15 @@ const Index = () => {
     // Update the document title
     document.title = "SAINTS ARMY NFT | Unleash Divine Art with #SAINTSARMY";
     
+    // Add viewport meta tag for better mobile support
+    let viewportMeta = document.querySelector('meta[name="viewport"]');
+    if (!viewportMeta) {
+      viewportMeta = document.createElement('meta');
+      viewportMeta.setAttribute('name', 'viewport');
+      document.head.appendChild(viewportMeta);
+    }
+    viewportMeta.setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no');
+    
     // Update meta description
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
@@ -88,7 +97,7 @@ const Index = () => {
           variants={fadeIn}
         >
           <ParallaxSection speed={isMobile ? 0 : 0.3}>
-            <div className="max-w-6xl mx-auto px-4 py-12 md:py-20">
+            <div className="max-w-6xl mx-auto px-4 py-8 md:py-20">
               <DropCountdown targetDate={dropDate} />
             </div>
           </ParallaxSection>

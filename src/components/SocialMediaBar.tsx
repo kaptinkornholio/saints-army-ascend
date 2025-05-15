@@ -52,7 +52,7 @@ const SocialMediaBar: React.FC<SocialMediaBarProps> = ({ position = 'side' }) =>
   // Conditional styling based on position
   const barStyle = actualPosition === 'side' 
     ? "fixed left-4 top-1/2 transform -translate-y-1/2 flex flex-col gap-4 z-40"
-    : "fixed bottom-0 left-0 right-0 flex justify-center gap-6 py-3 px-4 backdrop-blur-md bg-saints-dark/70 border-t border-saints-purple/20 z-40";
+    : "fixed bottom-0 left-0 right-0 flex justify-center gap-6 py-3 px-4 backdrop-blur-md bg-saints-dark/90 border-t border-saints-purple/20 z-40";
 
   return (
     <motion.div 
@@ -85,7 +85,7 @@ const SocialMediaBar: React.FC<SocialMediaBarProps> = ({ position = 'side' }) =>
         </motion.a>
       ))}
       
-      {/* Add a subtle separator line if positioned on the side */}
+      {/* Only show separator on side position */}
       {actualPosition === 'side' && (
         <motion.div 
           className="mt-2 w-px h-20 bg-gradient-to-b from-saints-purple/0 via-saints-purple/30 to-saints-gold/50 mx-auto"
