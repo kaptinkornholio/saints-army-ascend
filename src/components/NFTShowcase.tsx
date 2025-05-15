@@ -8,7 +8,7 @@ const NFTShowcase: React.FC = () => {
     {
       id: 1,
       image: "https://raw.githubusercontent.com/Shane_Corneliuson_A_digital_illustration_shoot_from_a_frontal_camera_fd7a394d-2163-42ea-8442-d9319d7dc32a.png",
-      title: "SAINT NEOS ARMY CUSTOM PFP"
+      title: "SAINT NEOS ARMY SERIES"
     },
     {
       id: 2,
