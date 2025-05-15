@@ -1,4 +1,5 @@
 
 import { useToast, toast } from "@/hooks/use-toast";
+import { ComingSoonModal } from "../ComingSoonModal";
 
-export { useToast, toast };
+export { useToast, toast, ComingSoonModal };

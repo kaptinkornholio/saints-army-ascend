@@ -1,10 +1,11 @@
-
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
+import { ComingSoonModal } from "@/components/ComingSoonModal";
 
 const Header: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const [comingSoonModalOpen, setComingSoonModalOpen] = useState(false);
   
   // Enhanced digital matrix background effect
   useEffect(() => {
@@ -100,6 +101,14 @@ const Header: React.FC = () => {
     };
   }, []);
   
+  const openComingSoonModal = () => {
+    setComingSoonModalOpen(true);
+  };
+
+  const closeComingSoonModal = () => {
+    setComingSoonModalOpen(false);
+  };
+  
   return (
     <header className="relative w-full overflow-hidden py-8">
       {/* Enhanced Matrix digital background */}
@@ -161,9 +170,9 @@ const Header: React.FC = () => {
             >
               <Button 
                 className="cosmic-button btn-primary"
-                onClick={() => window.open("https://magiceden.io/marketplace/saint_neos_army?status=%22magic_eden%22", "_blank")}
+                onClick={openComingSoonModal}
               >
-                Buy Now
+                MINT NOW
               </Button>
             </motion.div>
           </div>
@@ -209,10 +218,10 @@ const Header: React.FC = () => {
             >
               <Button 
                 className="btn-primary text-lg px-8 py-6 shadow-[0_0_15px_rgba(255,215,0,0.4)] hover:shadow-[0_0_25px_rgba(255,215,0,0.6)] flex items-center gap-3 w-full sm:w-auto"
-                onClick={() => window.open("https://magiceden.io/marketplace/saint_neos_army?status=%22magic_eden%22", "_blank")}
+                onClick={openComingSoonModal}
               >
                 <img src="https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/Magic-Eden-Logo.jpg" alt="Magic Eden" className="w-7 h-7 rounded-full" />
-                <span className="font-extrabold">BUY OR TRADE : SAINTS ARMY NFT NOW</span>
+                <span className="font-extrabold">MINT COMING SOON</span>
               </Button>
             </motion.div>
             
@@ -231,6 +240,9 @@ const Header: React.FC = () => {
           </motion.div>
         </div>
       </div>
+
+      {/* Coming Soon Modal */}
+      <ComingSoonModal isOpen={comingSoonModalOpen} onClose={closeComingSoonModal} />
     </header>
   );
 };

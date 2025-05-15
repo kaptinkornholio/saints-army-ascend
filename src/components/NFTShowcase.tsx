@@ -1,32 +1,68 @@
+
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import NFTRotator from './NFTRotator';
+import { NFTDetailModal, NFTDetails } from './NFTDetailModal';
+import { useNavigate } from 'react-router-dom';
+import { Info } from 'lucide-react';
 
 const NFTShowcase: React.FC = () => {
-  const showcaseNFTs = [
+  // Enhanced NFT data with descriptions and traits
+  const showcaseNFTs: NFTDetails[] = [
     {
       id: 1,
       image: "https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/Shane_Corneliuson_A_digital_illustration_shoot_from_a_frontal_camera_fd7a394d-2163-42ea-8442-d9319d7dc32a.png",
-      title: "SAINTS ARMY"
+      title: "SAINT WARRIOR",
+      description: "A divine protector with celestial powers, born from the stars to defend the sacred realms. Infused with cosmic energy, this Saint commands respect across dimensions.",
+      traits: [
+        { trait_type: "Class", value: "Warrior" },
+        { trait_type: "Rarity", value: "Legendary" },
+        { trait_type: "Power", value: "Cosmic Shield" },
+        { trait_type: "Element", value: "Celestial" }
+      ]
     },
     {
       id: 2,
       image: "https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/CyberLink_Galaxy_A_digital_illustration_shoot_from_a_frontal_camera_84bfd672-a697-4e9b-aec0-92bf4f75ac4b.png",
-      title: "SAINTS ARMY"
+      title: "GALACTIC SAINT",
+      description: "Traversing the cosmos, this Saint harnesses galactic energy to open portals between worlds. Their vision sees beyond the veil of reality.",
+      traits: [
+        { trait_type: "Class", value: "Mystic" },
+        { trait_type: "Rarity", value: "Epic" },
+        { trait_type: "Power", value: "Portal Creation" },
+        { trait_type: "Element", value: "Void" }
+      ]
     },
     {
       id: 3,
       image: "https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/CyberLink_Galaxy_A_digital_illustration_shoot_from_a_frontal_camera_640a9d23-dc16-480d-9029-f17ea3097702.png",
-      title: "SAINTS ARMY"
+      title: "DIVINE TACTICIAN",
+      description: "Strategic mastermind of the Saints Army, capable of predicting enemy movements across space and time. His tactical brilliance has never led to defeat.",
+      traits: [
+        { trait_type: "Class", value: "Strategist" },
+        { trait_type: "Rarity", value: "Mythic" },
+        { trait_type: "Power", value: "Foresight" },
+        { trait_type: "Element", value: "Time" }
+      ]
     },
     {
       id: 4,
       image: "https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/Shane_Corneliuson_A_digital_illustration_shoot_from_a_frontal_camera_b07b4f49-eff1-4f00-9a72-9ab9ddaf8791.png",
-      title: "SAINTS ARMY"
+      title: "ETHEREAL SAINT",
+      description: "Born of pure ethereal energy, this Saint exists between dimensions. Their touch can heal allies or devastate enemies, making them a pivotal force in cosmic conflicts.",
+      traits: [
+        { trait_type: "Class", value: "Healer" },
+        { trait_type: "Rarity", value: "Divine" },
+        { trait_type: "Power", value: "Energy Manipulation" },
+        { trait_type: "Element", value: "Ether" }
+      ]
     }
   ];
 
   const [hoveredId, setHoveredId] = useState<number | null>(null);
+  const [selectedNFT, setSelectedNFT] = useState<NFTDetails | null>(null);
+  const [modalOpen, setModalOpen] = useState(false);
+  const navigate = useNavigate();
 
   const container = {
     hidden: { opacity: 0 },
@@ -41,6 +77,20 @@ const NFTShowcase: React.FC = () => {
   const item = {
     hidden: { y: 20, opacity: 0 },
     show: { y: 0, opacity: 1, transition: { duration: 0.6 } }
+  };
+
+  const handleViewDetails = (nft: NFTDetails, e: React.MouseEvent) => {
+    e.stopPropagation();
+    setSelectedNFT(nft);
+    setModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setModalOpen(false);
+  };
+
+  const handleViewCollection = () => {
+    navigate('/collection');
   };
 
   return (
@@ -119,9 +169,10 @@ const NFTShowcase: React.FC = () => {
 
                 <div className="mt-5 pt-4 border-t border-saints-purple/20 opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-500">
                   <button
-                    onClick={() => window.open("https://magiceden.io/marketplace/saint_neos_army?status=%22magic_eden%22", "_blank")}
-                    className="w-full py-2 bg-saints-purple/30 hover:bg-saints-purple/50 text-white rounded-lg border border-saints-purple/30 transition-all duration-300 text-sm font-orbitron hover:shadow-[0_0_15px_rgba(178,0,255,0.5)]"
+                    onClick={(e) => handleViewDetails(nft, e)}
+                    className="w-full py-2 flex justify-center items-center gap-2 bg-saints-purple/30 hover:bg-saints-purple/50 text-white rounded-lg border border-saints-purple/30 transition-all duration-300 text-sm font-orbitron hover:shadow-[0_0_15px_rgba(178,0,255,0.5)]"
                   >
+                    <Info size={16} />
                     View Details
                   </button>
                 </div>
@@ -144,21 +195,21 @@ const NFTShowcase: React.FC = () => {
           transition={{ duration: 0.7, delay: 0.5 }}
           viewport={{ once: true }}
         >
-          <a
-            href="https://magiceden.io/marketplace/saint_neos_army?status=%22magic_eden%22"
-            target="_blank"
-            rel="noopener noreferrer"
+          <button
+            onClick={handleViewCollection}
             className="inline-block relative overflow-hidden group"
           >
-            <span className="relative z-10 inline-block bg-gradient-to-r from-saints-purple to-saints-blue text-white font-orbitron font-bold py-4 px-10 rounded-md transition-all duration-300 border border-saints-purple/30 hover:shadow-[0_0_20px_rgba(178,0,255,0.6)]">
+            <span className="relative z-10 inline-flex items-center gap-2 bg-gradient-to-r from-saints-purple to-saints-blue text-white font-orbitron font-bold py-4 px-10 rounded-md transition-all duration-300 border border-saints-purple/30 hover:shadow-[0_0_20px_rgba(178,0,255,0.6)]">
               View Full Collection
             </span>
             <span className="absolute inset-0 bg-gradient-to-r from-saints-gold to-saints-blue opacity-0 group-hover:opacity-30 transition-opacity duration-500"></span>
             <span className="absolute bottom-0 left-0 w-full h-1 bg-saints-gold transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></span>
             <span className="absolute top-0 right-0 w-full h-1 bg-saints-blue transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></span>
-          </a>
+          </button>
         </motion.div>
       </div>
+
+      <NFTDetailModal isOpen={modalOpen} onClose={closeModal} nft={selectedNFT} />
     </section>
   );
 };

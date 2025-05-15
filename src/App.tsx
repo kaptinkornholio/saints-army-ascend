@@ -1,4 +1,3 @@
-
 import { Suspense, useState, useEffect } from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
@@ -7,6 +6,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import Index from "./pages/Index";
+import Collection from "./pages/Collection";
 import NotFound from "./pages/NotFound";
 import ParticleBackground from "./components/ParticleBackground";
 import DynamicHeader from "./components/DynamicHeader";
@@ -75,6 +75,8 @@ const PageTransition = ({ children }: { children: React.ReactNode }) => {
 const AppRoutes = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const isMobile = useIsMobile();
+  const location = useLocation();
+  const isHomePage = location.pathname === '/';
   
   useEffect(() => {
     const handleScroll = () => {
@@ -88,11 +90,12 @@ const AppRoutes = () => {
   
   return (
     <>
-      <DynamicHeader isScrolled={isScrolled} />
-      <SocialMediaBar position={isMobile ? "bottom" : "side"} />
+      {isHomePage && <DynamicHeader isScrolled={isScrolled} />}
+      {isHomePage && <SocialMediaBar position={isMobile ? "bottom" : "side"} />}
       <PageTransition>
         <Routes>
           <Route path="/" element={<Index />} />
+          <Route path="/collection" element={<Collection />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </PageTransition>
