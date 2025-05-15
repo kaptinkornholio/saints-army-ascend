@@ -9,9 +9,11 @@ import DropCountdown from '@/components/DropCountdown';
 import SmoothScroll, { ParallaxSection } from '@/components/SmoothScroll';
 import { motion } from 'framer-motion';
 import { useIsMobile } from '@/hooks/use-mobile';
+import { useComingSoonModal } from '@/hooks/use-coming-soon-modal';
 
 const Index = () => {
   const isMobile = useIsMobile();
+  const { ComingSoonModal } = useComingSoonModal();
   
   useEffect(() => {
     // Update the document title
@@ -134,6 +136,9 @@ const Index = () => {
           <CTAFooter />
         </motion.div>
       </SmoothScroll>
+      
+      {/* Global Coming Soon Modal */}
+      <ComingSoonModal />
     </div>
   );
 };

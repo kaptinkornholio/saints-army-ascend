@@ -1,3 +1,4 @@
+
 #root {
   max-width: 100%;
   margin: 0 auto;
@@ -29,23 +30,35 @@
 @media (max-width: 768px) {
   h1 {
     font-size: 1.75rem !important;
+    font-family: 'Audiowide', cursive !important;
+    font-weight: normal !important;
   }
   
   h2 {
     font-size: 1.5rem !important;
+    font-family: 'Audiowide', cursive !important;
+    font-weight: normal !important;
   }
   
   h3 {
     font-size: 1.25rem !important;
+    font-family: 'Audiowide', cursive !important;
+    font-weight: normal !important;
   }
   
-  p, li {
+  p, li, span, div {
     font-size: 0.9rem !important;
+    font-family: 'Montserrat', sans-serif !important;
+    font-weight: normal !important;
+    font-style: normal !important;
+    letter-spacing: 0.01em !important;
+    line-height: 1.5 !important;
   }
   
   .btn-primary, .btn-secondary {
     font-size: 0.875rem;
     padding: 0.75rem 1.25rem;
+    font-family: 'Audiowide', cursive !important;
   }
   
   .mobile-hidden {
@@ -81,6 +94,15 @@
     padding: 0.5rem !important;
     margin: 0.5rem !important;
   }
+  
+  /* Additional font fixes for mobile */
+  .mobile-readable {
+    font-family: 'Montserrat', sans-serif !important;
+    font-weight: normal !important;
+    font-style: normal !important;
+    line-height: 1.6 !important;
+    letter-spacing: 0.01em !important;
+  }
 }
 
 /* Enhanced animations for hover effects */
@@ -88,6 +110,19 @@
   filter: drop-shadow(0 0 8px rgba(178,0,255,0.7)) drop-shadow(0 0 16px rgba(0,196,255,0.4));
   transform: scale(1.05);
   transition: all 0.3s ease;
+}
+
+/* Font consistency rules */
+body, p, span, div, li, a, button, input, textarea, select, label {
+  font-family: 'Montserrat', sans-serif;
+  font-style: normal;
+  letter-spacing: 0.01em;
+}
+
+h1, h2, h3, h4, h5, h6, .font-heading {
+  font-family: 'Audiowide', cursive;
+  font-style: normal;
+  letter-spacing: 0.02em;
 }
 
 /* Shimmer animations for buttons and interactive elements */
@@ -208,6 +243,8 @@
 @media (max-width: 640px) {
   body {
     font-size: 14px;
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
   }
   
   .container {
@@ -218,19 +255,26 @@
   h1.cosmic-title {
     font-size: 2rem !important;
     line-height: 1.2;
+    font-family: 'Audiowide', cursive !important;
+    font-weight: normal !important;
   }
   
   h2.cosmic-title {
     font-size: 1.5rem !important;
+    font-family: 'Audiowide', cursive !important;
+    font-weight: normal !important;
   }
   
   .cosmic-subtitle {
     font-size: 1rem !important;
+    font-family: 'Montserrat', sans-serif !important;
+    font-weight: bold !important;
   }
   
   /* Button adjustments */
   .btn-primary, .btn-secondary {
     padding: 0.75rem 1rem;
     font-size: 0.875rem;
+    font-family: 'Audiowide', cursive;
   }
 }

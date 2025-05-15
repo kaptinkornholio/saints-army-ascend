@@ -1,11 +1,11 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import ComingSoonModal from "@/components/ComingSoonModal";
+import { useComingSoonModal } from "@/hooks/use-coming-soon-modal";
 
 const Header: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const [comingSoonModalOpen, setComingSoonModalOpen] = useState(false);
+  const { ComingSoonButton } = useComingSoonModal();
   
   // Enhanced digital matrix background effect
   useEffect(() => {
@@ -101,14 +101,6 @@ const Header: React.FC = () => {
     };
   }, []);
   
-  const openComingSoonModal = () => {
-    setComingSoonModalOpen(true);
-  };
-
-  const closeComingSoonModal = () => {
-    setComingSoonModalOpen(false);
-  };
-  
   return (
     <header className="relative w-full overflow-hidden py-8">
       {/* Enhanced Matrix digital background */}
@@ -168,12 +160,9 @@ const Header: React.FC = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              <Button 
-                className="cosmic-button btn-primary"
-                onClick={openComingSoonModal}
-              >
+              <ComingSoonButton className="cosmic-button btn-primary">
                 MINT NOW
-              </Button>
+              </ComingSoonButton>
             </motion.div>
           </div>
           
@@ -216,13 +205,12 @@ const Header: React.FC = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              <Button 
+              <ComingSoonButton 
                 className="btn-primary text-lg px-8 py-6 shadow-[0_0_15px_rgba(255,215,0,0.4)] hover:shadow-[0_0_25px_rgba(255,215,0,0.6)] flex items-center gap-3 w-full sm:w-auto"
-                onClick={openComingSoonModal}
               >
                 <img src="https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/Magic-Eden-Logo.jpg" alt="Magic Eden" className="w-7 h-7 rounded-full" />
                 <span className="font-extrabold">MINT COMING SOON</span>
-              </Button>
+              </ComingSoonButton>
             </motion.div>
             
             <motion.div
@@ -230,19 +218,15 @@ const Header: React.FC = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              <Button 
+              <ComingSoonButton 
                 className="btn-secondary text-lg px-8 py-6 shadow-[0_0_15px_rgba(178,0,255,0.4)] hover:shadow-[0_0_25px_rgba(178,0,255,0.6)] flex items-center gap-3 w-full sm:w-auto"
-                onClick={() => window.open("https://one-army-battle-map.lovable.app/", "_blank")}
               >
                 <span className="font-extrabold">VIEW ROADMAP</span>
-              </Button>
+              </ComingSoonButton>
             </motion.div>
           </motion.div>
         </div>
       </div>
-
-      {/* Coming Soon Modal */}
-      <ComingSoonModal isOpen={comingSoonModalOpen} onClose={closeComingSoonModal} />
     </header>
   );
 };

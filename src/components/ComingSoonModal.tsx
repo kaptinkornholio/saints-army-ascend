@@ -13,15 +13,22 @@ import { Clock } from 'lucide-react';
 interface ComingSoonModalProps {
   isOpen: boolean;
   onClose: () => void;
+  title?: string;
+  description?: string;
 }
 
-const ComingSoonModal: React.FC<ComingSoonModalProps> = ({ isOpen, onClose }) => {
+const ComingSoonModal: React.FC<ComingSoonModalProps> = ({ 
+  isOpen, 
+  onClose, 
+  title = "Minting Coming Soon",
+  description = "We're preparing something special for you. The SAINTS ARMY NFT minting will be available soon."
+}) => {
   return (
     <Dialog open={isOpen} onOpenChange={(open) => !open && onClose()}>
       <DialogContent className="bg-gradient-to-br from-saints-dark to-black border border-saints-purple/30 max-w-md">
         <DialogHeader>
-          <DialogTitle className="font-orbitron text-2xl bg-clip-text text-transparent bg-gradient-to-r from-saints-gold to-saints-purple text-center">
-            Minting Coming Soon
+          <DialogTitle className="font-audiowide text-2xl bg-clip-text text-transparent bg-gradient-to-r from-saints-gold to-saints-purple text-center">
+            {title}
           </DialogTitle>
         </DialogHeader>
         
@@ -35,11 +42,11 @@ const ComingSoonModal: React.FC<ComingSoonModalProps> = ({ isOpen, onClose }) =>
             <Clock size={48} className="animate-pulse" />
           </motion.div>
           
-          <DialogDescription className="text-white text-center mb-4">
-            We're preparing something special for you. The SAINTS ARMY NFT minting will be available soon.
+          <DialogDescription className="text-white text-center mb-4 font-montserrat">
+            {description}
           </DialogDescription>
           
-          <p className="text-saints-gold text-center text-sm">
+          <p className="text-saints-gold text-center text-sm font-montserrat">
             Join our community to be the first to know when minting goes live!
           </p>
           
@@ -68,4 +75,3 @@ const ComingSoonModal: React.FC<ComingSoonModalProps> = ({ isOpen, onClose }) =>
 };
 
 export default ComingSoonModal;
-export { ComingSoonModal };

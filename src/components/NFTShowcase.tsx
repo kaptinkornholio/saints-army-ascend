@@ -7,6 +7,7 @@ import { NFTDetails } from './NFTDetailModal';
 import { useNavigate } from 'react-router-dom';
 import { Info } from 'lucide-react';
 import { useIsMobile } from '@/hooks/use-mobile';
+import { useComingSoonModal } from '@/hooks/use-coming-soon-modal';
 
 const NFTShowcase: React.FC = () => {
   // Enhanced NFT data with descriptions and traits
@@ -66,6 +67,7 @@ const NFTShowcase: React.FC = () => {
   const [modalOpen, setModalOpen] = useState(false);
   const navigate = useNavigate();
   const isMobile = useIsMobile();
+  const { openModal } = useComingSoonModal();
 
   const container = {
     hidden: { opacity: 0 },
@@ -92,8 +94,9 @@ const NFTShowcase: React.FC = () => {
     setModalOpen(false);
   };
 
-  const handleViewCollection = () => {
-    navigate('/collection');
+  const handleViewCollection = (e: React.MouseEvent) => {
+    e.preventDefault();
+    openModal("Collection Coming Soon", "The complete collection will be available soon. Join our community to be notified when it launches.");
   };
 
   return (
@@ -165,7 +168,7 @@ const NFTShowcase: React.FC = () => {
                 </h3>
 
                 <div className="mt-2 md:mt-3 flex justify-center">
-                  <span className="text-xs bg-saints-purple/40 text-white rounded-full px-3 py-1.5 border border-saints-purple/20 backdrop-blur-sm shadow-[0_0_10px_rgba(178,0,255,0.4)] transform transition-transform duration-500 group-hover:scale-110 group-hover:shadow-[0_0_15px_rgba(178,0,255,0.6)]">
+                  <span className="text-xs font-montserrat bg-saints-purple/40 text-white rounded-full px-3 py-1.5 border border-saints-purple/20 backdrop-blur-sm shadow-[0_0_10px_rgba(178,0,255,0.4)] transform transition-transform duration-500 group-hover:scale-110 group-hover:shadow-[0_0_15px_rgba(178,0,255,0.6)]">
                    COMING SOON
                   </span>
                 </div>
@@ -173,7 +176,7 @@ const NFTShowcase: React.FC = () => {
                 <div className={`mt-3 md:mt-5 pt-3 md:pt-4 border-t border-saints-purple/20 ${isMobile ? 'opacity-100' : 'opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0'} transition-all duration-500`}>
                   <button
                     onClick={(e) => handleViewDetails(nft, e)}
-                    className="w-full py-2 flex justify-center items-center gap-2 bg-saints-purple/30 hover:bg-saints-purple/50 text-white rounded-lg border border-saints-purple/30 transition-all duration-300 text-xs md:text-sm font-orbitron hover:shadow-[0_0_15px_rgba(178,0,255,0.5)]"
+                    className="w-full py-2 font-montserrat flex justify-center items-center gap-2 bg-saints-purple/30 hover:bg-saints-purple/50 text-white rounded-lg border border-saints-purple/30 transition-all duration-300 text-xs md:text-sm font-orbitron hover:shadow-[0_0_15px_rgba(178,0,255,0.5)]"
                   >
                     <Info size={16} />
                     View Details
