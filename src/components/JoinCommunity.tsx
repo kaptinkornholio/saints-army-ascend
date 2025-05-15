@@ -42,10 +42,10 @@ const JoinCommunity: React.FC = () => {
       <div className="container mx-auto px-4 relative z-10">
         <div className="cosmic-card max-w-4xl mx-auto p-8 md:p-12">
           <div className="text-center mb-10">
-            <h2 className="cosmic-title text-3xl md:text-4xl mb-4">Join the #OneArmy Movement</h2>
+            <h2 className="cosmic-title text-3xl md:text-4xl mb-4">Join the #SAINTSARMY Movement</h2>
             <p className="text-white/80 max-w-2xl mx-auto">
               Struggling to find NFTs with meaning? Most lack soul and community. 
-              SAINTS ARMY NFT is divine art that evolves with #OneArmy—mint yours and join the revolution.
+              SAINTS ARMY NFT is divine art that evolves with #SAINTSARMY—mint yours and join the revolution.
             </p>
           </div>
           
@@ -87,7 +87,7 @@ const JoinCommunity: React.FC = () => {
                   <span className="text-white text-sm">@Zeok_CLG</span>
                 </a>
                 <a 
-                  href="https://twitter.com/Sbmgeng_army" 
+                  href="https://twitter.com/Maximus795443" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="cosmic-card p-4 text-center hover:bg-saints-blue/20 transition-colors"
@@ -97,10 +97,10 @@ const JoinCommunity: React.FC = () => {
                       <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
                     </svg>
                   </div>
-                  <span className="text-white text-sm">@Sbmgeng_army</span>
+                  <span className="text-white text-sm">@Maximus795443</span>
                 </a>
                 <a 
-                  href="https://twitter.com/debigspin" 
+                  href="https://twitter.com/SAINTINFOTECH11" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="cosmic-card p-4 text-center hover:bg-saints-blue/20 transition-colors"
@@ -110,7 +110,7 @@ const JoinCommunity: React.FC = () => {
                       <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
                     </svg>
                   </div>
-                  <span className="text-white text-sm">@debigspin</span>
+                  <span className="text-white text-sm">@SAINTINFOTECH11</span>
                 </a>
                 <a 
                   href="https://discord.gg/7DJX9266" 
