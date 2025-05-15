@@ -26,13 +26,13 @@ const AboutZeok: React.FC = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-saints-dark to-transparent opacity-50"></div>
                 <div className="absolute bottom-0 left-0 right-0 p-4 text-center transform transition-transform duration-500 group-hover:translate-y-[-5px]">
                   <span className="font-orbitron text-saints-gold text-lg">ZEOK</span>
-                  <p className="text-white/80 text-sm">GENERAL OF SAINTS ARMY NFT</p>
+                  <p className="text-white/80 text-sm">GENERAL OF SAINTS ARMY</p>
                 </div>
               </div>
             </div>
             
             <div className="w-full md:w-3/5">
-              <h2 className="cosmic-title text-3xl md:text-4xl mb-6 animate-glow">About SAINTS ARMY</h2>
+              <h2 className="cosmic-title text-3xl md:text-4xl mb-6 animate-glow">ABOUT SAINTS ARMY</h2>
               <div className="space-y-4 text-white/80">
                 <p className="animate-fade-in opacity-0" style={{ animationDelay: "0.1s", animationFillMode: "forwards" }}>
                   I'm <HoverCard>
@@ -47,12 +47,12 @@ const AboutZeok: React.FC = () => {
                         </Avatar>
                         <div className="space-y-1">
                           <h4 className="text-sm font-semibold text-saints-gold">General Zeok</h4>
-                          <p className="text-xs text-white/70">Visionary Leader of SAINTS ARMY NFT</p>
+                          <p className="text-xs text-white/70">Visionary Leader of SAINTS ARMY</p>
                         </div>
                       </div>
                     </HoverCardContent>
                   </HoverCard>, General of the SAINTS ARMY NFT. The core theme of our NFT project is divine unity and 
-                  digital freedom through the SAINTS ARMY NFT concept.
+                  digital freedom through the SAINTS ARMY concept.
                 </p>
                 <p className="animate-fade-in opacity-0" style={{ animationDelay: "0.3s", animationFillMode: "forwards" }}>
                   We're building a blessed ecosystem where the 
