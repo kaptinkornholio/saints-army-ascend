@@ -99,3 +99,4 @@ const NFTDetailModal: React.FC<NFTDetailModalProps> = ({ isOpen, onClose, nft })
 };
 
 export default NFTDetailModal;
+export { NFTDetailModal };

@@ -2,7 +2,8 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import NFTRotator from './NFTRotator';
-import { NFTDetailModal, NFTDetails } from './NFTDetailModal';
+import NFTDetailModal from './NFTDetailModal';
+import { NFTDetails } from './NFTDetailModal';
 import { useNavigate } from 'react-router-dom';
 import { Info } from 'lucide-react';
 

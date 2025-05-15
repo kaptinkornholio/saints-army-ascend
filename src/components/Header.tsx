@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import { ComingSoonModal } from "@/components/ComingSoonModal";
+import ComingSoonModal from "@/components/ComingSoonModal";
 
 const Header: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);

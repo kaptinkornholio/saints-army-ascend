@@ -1,7 +1,8 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { NFTDetailModal, NFTDetails } from '@/components/NFTDetailModal';
+import NFTDetailModal from '@/components/NFTDetailModal';
+import { NFTDetails } from '@/components/NFTDetailModal';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { ArrowLeft } from 'lucide-react';
