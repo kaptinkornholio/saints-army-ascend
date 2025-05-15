@@ -96,7 +96,7 @@ const NFTShowcase: React.FC = () => {
 
   const handleViewCollection = (e: React.MouseEvent) => {
     e.preventDefault();
-    openModal("Collection Coming Soon", "The complete collection will be available soon. Join our community to be notified when it launches.");
+    navigate('/collection'); // Navigate to the collection page instead of showing modal
   };
 
   return (
