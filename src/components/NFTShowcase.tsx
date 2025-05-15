@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import NFTRotator from './NFTRotator';
@@ -7,12 +6,12 @@ const NFTShowcase: React.FC = () => {
   const showcaseNFTs = [
     {
       id: 1,
-      image: "https://raw.githubusercontent.com/Shane_Corneliuson_A_digital_illustration_shoot_from_a_frontal_camera_fd7a394d-2163-42ea-8442-d9319d7dc32a.png",
+      image: "https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/Shane_Corneliuson_A_digital_illustration_shoot_from_a_frontal_camera_fd7a394d-2163-42ea-8442-d9319d7dc32a.png",
       title: "SAINT NEOS ARMY SERIES"
     },
     {
       id: 2,
-      image: "https://raw.githubusercontent.com/https:/kaptinkornholio/saints-army-ascend/blob/main/CyberLink_Galaxy_A_digital_illustration_shoot_from_a_frontal_camera_84bfd672-a697-4e9b-aec0-92bf4f75ac4b.png",
+      image: "https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/CyberLink_Galaxy_A_digital_illustration_shoot_from_a_frontal_camera_84bfd672-a697-4e9b-aec0-92bf4f75ac4b.png",
       title: "SAINT NEOS ARMY SERIES"
     },
     {
@@ -22,7 +21,7 @@ const NFTShowcase: React.FC = () => {
     },
     {
       id: 4,
-      image: "https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/blob/main/Shane_Corneliuson_A_digital_illustration_shoot_from_a_frontal_camera_b07b4f49-eff1-4f00-9a72-9ab9ddaf8791.png",
+      image: "https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/Shane_Corneliuson_A_digital_illustration_shoot_from_a_frontal_camera_b07b4f49-eff1-4f00-9a72-9ab9ddaf8791.png",
       title: "SAINT NEOS ARMY SERIES"
     }
   ];
