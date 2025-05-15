@@ -115,7 +115,7 @@ const DynamicHeader: React.FC<DynamicHeaderProps> = ({ isScrolled }) => {
               isScrolled ? 'w-8 h-8 md:w-10 md:h-10' : 'w-10 h-10 md:w-12 md:h-12'
             }`}>
               <img 
-                src="https://github.com/kaptinkornholio/saints-army-ascend/blob/main/1744696908578.png" 
+                src="https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/1744696908578.png" 
                 alt="Saints Army Logo" 
                 className="w-full h-full object-cover"
               />
