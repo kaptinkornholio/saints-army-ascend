@@ -12,7 +12,7 @@ const NFTShowcase: React.FC = () => {
     },
     {
       id: 2,
-      image: "https://raw.githubusercontent.com//kaptinkornholio/saints-army-ascend/main/kaptinkornholio/saints-army-ascend/main/707.png",
+      image: "https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/kaptinkornholio/saints-army-ascend/main/707.png",
       title: "SAINT NEOS ARMY SERIES"
     },
     {
