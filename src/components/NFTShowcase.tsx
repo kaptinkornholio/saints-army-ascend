@@ -12,7 +12,7 @@ const NFTShowcase: React.FC = () => {
     },
     {
       id: 2,
-      image: "https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/kaptinkornholio/saints-army-ascend/main/707.png",
+      image: "https://raw.githubusercontent.com/https:/kaptinkornholio/saints-army-ascend/blob/main/CyberLink_Galaxy_A_digital_illustration_shoot_from_a_frontal_camera_84bfd672-a697-4e9b-aec0-92bf4f75ac4b.png",
       title: "SAINT NEOS ARMY SERIES"
     },
     {
@@ -22,7 +22,7 @@ const NFTShowcase: React.FC = () => {
     },
     {
       id: 4,
-      image: "https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/Untitled%20design%20(3).png",
+      image: "https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/blob/main/Shane_Corneliuson_A_digital_illustration_shoot_from_a_frontal_camera_b07b4f49-eff1-4f00-9a72-9ab9ddaf8791.png",
       title: "SAINT NEOS ARMY SERIES"
     }
   ];
