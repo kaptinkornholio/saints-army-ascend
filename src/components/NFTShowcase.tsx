@@ -113,7 +113,7 @@ const NFTShowcase: React.FC = () => {
 
                 <div className="mt-3 flex justify-center">
                   <span className="text-xs bg-saints-purple/40 text-white rounded-full px-4 py-1.5 border border-saints-purple/20 backdrop-blur-sm shadow-[0_0_10px_rgba(178,0,255,0.4)] transform transition-transform duration-500 group-hover:scale-110 group-hover:shadow-[0_0_15px_rgba(178,0,255,0.6)]">
-                    SAINTS ARMY COLLECTION COMING SOON
+                   COMING SOON
                   </span>
                 </div>
 
