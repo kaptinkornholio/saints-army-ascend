@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import NFTRotator from './NFTRotator';
@@ -10,7 +9,7 @@ import { useIsMobile } from '@/hooks/use-mobile';
 import { useComingSoonModal } from '@/hooks/use-coming-soon-modal';
 
 const NFTShowcase: React.FC = () => {
-  // Enhanced NFT data with descriptions and traits
+  // Enhanced NFT data with descriptions and traits - now featuring some of the new NFTs
   const showcaseNFTs: NFTDetails[] = [
     {
       id: 1,
@@ -26,38 +25,38 @@ const NFTShowcase: React.FC = () => {
     },
     {
       id: 2,
-      image: "https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/CyberLink_Galaxy_A_digital_illustration_shoot_from_a_frontal_camera_84bfd672-a697-4e9b-aec0-92bf4f75ac4b.png",
-      title: "GALACTIC SAINT",
-      description: "Traversing the cosmos, this Saint harnesses galactic energy to open portals between worlds. Their vision sees beyond the veil of reality.",
+      image: "https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/Shane_Corneliuson_A_digital_illustration_shoot_from_a_frontal_camera_bf27e3e7-cb63-4b00-90c6-ca95f4107932.png",
+      title: "SOLAR ASCENDANT",
+      description: "Channeling the raw power of stars, this Saint radiates with solar energy. Their presence alone can sustain life in barren worlds or unleash devastating solar flares against those who threaten the innocent.",
       traits: [
-        { trait_type: "Class", value: "Mystic" },
-        { trait_type: "Rarity", value: "Epic" },
-        { trait_type: "Power", value: "Portal Creation" },
-        { trait_type: "Element", value: "Void" }
+        { trait_type: "Class", value: "Radiant" },
+        { trait_type: "Rarity", value: "Solar" },
+        { trait_type: "Power", value: "Stellar Channeling" },
+        { trait_type: "Element", value: "Solar" }
       ]
     },
     {
       id: 3,
-      image: "https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/CyberLink_Galaxy_A_digital_illustration_shoot_from_a_frontal_camera_640a9d23-dc16-480d-9029-f17ea3097702.png",
-      title: "DIVINE TACTICIAN",
-      description: "Strategic mastermind of the Saints Army, capable of predicting enemy movements across space and time. His tactical brilliance has never led to defeat.",
+      image: "https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/Shane_Corneliuson_A_digital_illustration_shoot_from_a_frontal_camera_6bd0c4f7-be6a-432c-9e03-270277e374ed.png",
+      title: "VOID WALKER",
+      description: "This enigmatic Saint has mastered the art of void walking, allowing them to step between the cracks of reality. Their presence distorts the very fabric of space around them, making them nearly impossible to track.",
       traits: [
-        { trait_type: "Class", value: "Strategist" },
-        { trait_type: "Rarity", value: "Mythic" },
-        { trait_type: "Power", value: "Foresight" },
-        { trait_type: "Element", value: "Time" }
+        { trait_type: "Class", value: "Assassin" },
+        { trait_type: "Rarity", value: "Shadow" },
+        { trait_type: "Power", value: "Void Step" },
+        { trait_type: "Element", value: "Darkness" }
       ]
     },
     {
       id: 4,
-      image: "https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/Shane_Corneliuson_A_digital_illustration_shoot_from_a_frontal_camera_b07b4f49-eff1-4f00-9a72-9ab9ddaf8791.png",
-      title: "ETHEREAL SAINT",
-      description: "Born of pure ethereal energy, this Saint exists between dimensions. Their touch can heal allies or devastate enemies, making them a pivotal force in cosmic conflicts.",
+      image: "https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/CyberLink_Galaxy_A_digital_illustration_shoot_from_a_frontal_camera_ed2973e3-21ab-4268-8594-65ab07277de2.png",
+      title: "GENESIS SAINT",
+      description: "Present at the birth of the current universe, this primordial Saint carries the original spark of creation within. Their essence contains blueprints for rebuilding reality should the cosmos face extinction.",
       traits: [
-        { trait_type: "Class", value: "Healer" },
-        { trait_type: "Rarity", value: "Divine" },
-        { trait_type: "Power", value: "Energy Manipulation" },
-        { trait_type: "Element", value: "Ether" }
+        { trait_type: "Class", value: "Originator" },
+        { trait_type: "Rarity", value: "Genesis" },
+        { trait_type: "Power", value: "Creation Spark" },
+        { trait_type: "Element", value: "Primordial" }
       ]
     }
   ];
