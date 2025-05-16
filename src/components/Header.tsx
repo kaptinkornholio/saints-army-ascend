@@ -5,7 +5,7 @@ import { useComingSoonModal } from "@/hooks/use-coming-soon-modal";
 
 const Header: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const { ComingSoonButton } = useComingSoonModal();
+  const { ComingSoonButton, openModal } = useComingSoonModal();
   
   // Enhanced digital matrix background effect
   useEffect(() => {
@@ -143,19 +143,42 @@ const Header: React.FC = () => {
           </motion.div>
           
           <div className="hidden md:flex space-x-6 items-center">
-            {["About", "Join", "Roadmap"].map((item, index) => (
-              <motion.a 
-                key={index}
-                href={`#${item.toLowerCase()}`} 
-                className="neon-link font-orbitron text-lg font-bold tracking-wider text-white hover:text-saints-gold transition-colors border-b-2 border-transparent hover:border-saints-gold"
-                whileHover={{ 
-                  scale: 1.1, 
-                  textShadow: "0 0 8px rgba(255,215,0,0.7), 0 0 12px rgba(178,0,255,0.5)" 
-                }}
-              >
-                {item}
-              </motion.a>
-            ))}
+            {["About", "Join", "Roadmap"].map((item, index) => {
+              // Display ComingSoonModal for Roadmap link
+              if (item === "Roadmap") {
+                return (
+                  <motion.a 
+                    key={index}
+                    href="#"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      openModal("Roadmap Coming Soon", "Our detailed roadmap will be available soon. Stay tuned for our exciting journey ahead!");
+                    }}
+                    className="neon-link font-orbitron text-lg font-bold tracking-wider text-white hover:text-saints-gold transition-colors border-b-2 border-transparent hover:border-saints-gold"
+                    whileHover={{ 
+                      scale: 1.1, 
+                      textShadow: "0 0 8px rgba(255,215,0,0.7), 0 0 12px rgba(178,0,255,0.5)" 
+                    }}
+                  >
+                    {item}
+                  </motion.a>
+                );
+              }
+              
+              return (
+                <motion.a 
+                  key={index}
+                  href={`#${item.toLowerCase()}`} 
+                  className="neon-link font-orbitron text-lg font-bold tracking-wider text-white hover:text-saints-gold transition-colors border-b-2 border-transparent hover:border-saints-gold"
+                  whileHover={{ 
+                    scale: 1.1, 
+                    textShadow: "0 0 8px rgba(255,215,0,0.7), 0 0 12px rgba(178,0,255,0.5)" 
+                  }}
+                >
+                  {item}
+                </motion.a>
+              );
+            })}
             <motion.div
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -220,6 +243,7 @@ const Header: React.FC = () => {
             >
               <ComingSoonButton 
                 className="btn-secondary text-lg px-8 py-6 shadow-[0_0_15px_rgba(178,0,255,0.4)] hover:shadow-[0_0_25px_rgba(178,0,255,0.6)] flex items-center gap-3 w-full sm:w-auto"
+                onClick={() => openModal("Roadmap Coming Soon", "Our detailed roadmap will be available soon. Stay tuned for our exciting journey ahead!")}
               >
                 <span className="font-extrabold">VIEW ROADMAP</span>
               </ComingSoonButton>

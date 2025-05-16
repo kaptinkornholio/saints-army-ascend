@@ -1,8 +1,11 @@
 
 import React from 'react';
 import { Button } from "@/components/ui/button";
+import { useComingSoonModal } from "@/hooks/use-coming-soon-modal";
 
 const CTAFooter: React.FC = () => {
+  const { ComingSoonButton, openModal } = useComingSoonModal();
+  
   return (
     <section className="py-20 relative overflow-hidden">
       {/* Starry background effect */}
@@ -34,15 +37,17 @@ const CTAFooter: React.FC = () => {
           </p>
           
           <div className="flex flex-col md:flex-row gap-4 justify-center">
-            <Button 
+            <ComingSoonButton 
               className="btn-primary md:text-lg"
-              onClick={() => window.open("https://magiceden.io/marketplace/saint_neos_army?status=%22magic_eden%22", "_blank")}
             >
               BUY NOW
-            </Button>
+            </ComingSoonButton>
             <Button 
               className="btn-secondary md:text-lg"
-              onClick={() => window.open("https://one-army-battle-map.lovable.app/", "_blank")}
+              onClick={(e) => {
+                e.preventDefault();
+                openModal("Roadmap Coming Soon", "Our detailed roadmap will be available soon. Stay tuned for our exciting journey ahead!");
+              }}
             >
               ROADMAP
             </Button>
