@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import NFTRotator from './NFTRotator';
@@ -9,79 +10,25 @@ import { useIsMobile } from '@/hooks/use-mobile';
 import { useComingSoonModal } from '@/hooks/use-coming-soon-modal';
 
 const NFTShowcase: React.FC = () => {
-  // Enhanced NFT data with descriptions and traits - now featuring some of the new NFTs
-  const showcaseNFTs: NFTDetails[] = [
-    {
-      id: 1,
-      image: "https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/Shane_Corneliuson_A_digital_illustration_shoot_from_a_frontal_camera_fd7a394d-2163-42ea-8442-d9319d7dc32a.png",
-      title: "SAINT WARRIOR",
-      description: "A divine protector with celestial powers, born from the stars to defend the sacred realms. Infused with cosmic energy, this Saint commands respect across dimensions.",
-      traits: [
-        { trait_type: "Class", value: "Warrior" },
-        { trait_type: "Rarity", value: "Legendary" },
-        { trait_type: "Power", value: "Cosmic Shield" },
-        { trait_type: "Element", value: "Celestial" }
-      ]
-    },
-    {
-      id: 2,
-      image: "https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/Shane_Corneliuson_A_digital_illustration_shoot_from_a_frontal_camera_bf27e3e7-cb63-4b00-90c6-ca95f4107932.png",
-      title: "SOLAR ASCENDANT",
-      description: "Channeling the raw power of stars, this Saint radiates with solar energy. Their presence alone can sustain life in barren worlds or unleash devastating solar flares against those who threaten the innocent.",
-      traits: [
-        { trait_type: "Class", value: "Radiant" },
-        { trait_type: "Rarity", value: "Solar" },
-        { trait_type: "Power", value: "Stellar Channeling" },
-        { trait_type: "Element", value: "Solar" }
-      ]
-    },
-    {
-      id: 3,
-      image: "https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/Shane_Corneliuson_A_digital_illustration_shoot_from_a_frontal_camera_6bd0c4f7-be6a-432c-9e03-270277e374ed.png",
-      title: "VOID WALKER",
-      description: "This enigmatic Saint has mastered the art of void walking, allowing them to step between the cracks of reality. Their presence distorts the very fabric of space around them, making them nearly impossible to track.",
-      traits: [
-        { trait_type: "Class", value: "Assassin" },
-        { trait_type: "Rarity", value: "Shadow" },
-        { trait_type: "Power", value: "Void Step" },
-        { trait_type: "Element", value: "Darkness" }
-      ]
-    },
-    {
-      id: 4,
-      image: "https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/CyberLink_Galaxy_A_digital_illustration_shoot_from_a_frontal_camera_ed2973e3-21ab-4268-8594-65ab07277de2.png",
-      title: "GENESIS SAINT",
-      description: "Present at the birth of the current universe, this primordial Saint carries the original spark of creation within. Their essence contains blueprints for rebuilding reality should the cosmos face extinction.",
-      traits: [
-        { trait_type: "Class", value: "Originator" },
-        { trait_type: "Rarity", value: "Genesis" },
-        { trait_type: "Power", value: "Creation Spark" },
-        { trait_type: "Element", value: "Primordial" }
-      ]
-    }
-  ];
+  // Featured single NFT - showcasing the best one
+  const featuredNFT: NFTDetails = {
+    id: 1,
+    image: "https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/Shane_Corneliuson_A_digital_illustration_shoot_from_a_frontal_camera_fd7a394d-2163-42ea-8442-d9319d7dc32a.png",
+    title: "SAINT WARRIOR",
+    description: "A divine protector with celestial powers, born from the stars to defend the sacred realms. Infused with cosmic energy, this Saint commands respect across dimensions.",
+    traits: [
+      { trait_type: "Class", value: "Warrior" },
+      { trait_type: "Rarity", value: "Legendary" },
+      { trait_type: "Power", value: "Cosmic Shield" },
+      { trait_type: "Element", value: "Celestial" }
+    ]
+  };
 
-  const [hoveredId, setHoveredId] = useState<number | null>(null);
   const [selectedNFT, setSelectedNFT] = useState<NFTDetails | null>(null);
   const [modalOpen, setModalOpen] = useState(false);
   const navigate = useNavigate();
   const isMobile = useIsMobile();
   const { openModal } = useComingSoonModal();
-
-  const container = {
-    hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: {
-        staggerChildren: isMobile ? 0.1 : 0.2
-      }
-    }
-  };
-
-  const item = {
-    hidden: { y: 20, opacity: 0 },
-    show: { y: 0, opacity: 1, transition: { duration: 0.6 } }
-  };
 
   const handleViewDetails = (nft: NFTDetails, e: React.MouseEvent) => {
     e.stopPropagation();
@@ -95,28 +42,30 @@ const NFTShowcase: React.FC = () => {
 
   const handleViewCollection = (e: React.MouseEvent) => {
     e.preventDefault();
-    navigate('/collection'); // Navigate to the collection page instead of showing modal
+    navigate('/collection');
   };
 
   return (
-    <section className="py-10 md:py-20 relative overflow-hidden" data-scroll-section>
-      {/* Animated background */}
+    <section className="py-16 md:py-32 relative overflow-hidden" data-scroll-section>
+      {/* Enhanced animated background */}
       <div className="absolute inset-0 -z-10">
-        {[...Array(3)].map((_, i) => (
+        {[...Array(5)].map((_, i) => (
           <div
             key={i}
             className={`absolute rounded-full bg-gradient-to-r ${
-              i % 2 === 0 ? 'from-saints-gold/10 to-saints-purple/5' : 'from-saints-purple/10 to-saints-blue/5'
+              i % 3 === 0 ? 'from-saints-gold/20 to-saints-purple/10' : 
+              i % 3 === 1 ? 'from-saints-purple/20 to-saints-blue/10' :
+              'from-saints-blue/15 to-saints-gold/5'
             }`}
             style={{
-              width: `${Math.random() * 300 + 200}px`,
-              height: `${Math.random() * 300 + 200}px`,
+              width: `${Math.random() * 400 + 300}px`,
+              height: `${Math.random() * 400 + 300}px`,
               top: `${Math.random() * 100}%`,
               left: `${Math.random() * 100}%`,
-              filter: 'blur(70px)',
-              opacity: 0.5,
-              animation: `float ${Math.random() * 5 + 10}s infinite alternate ease-in-out`,
-              animationDelay: `${i * 2}s`
+              filter: 'blur(80px)',
+              opacity: 0.6,
+              animation: `float ${Math.random() * 8 + 12}s infinite alternate ease-in-out`,
+              animationDelay: `${i * 3}s`
             }}
           />
         ))}
@@ -124,93 +73,160 @@ const NFTShowcase: React.FC = () => {
 
       <div className="container mx-auto px-4">
         <motion.h2
-          initial={{ opacity: 0, y: -20 }}
+          initial={{ opacity: 0, y: -30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
           viewport={{ once: true }}
-          className="cosmic-title text-3xl md:text-5xl mb-8 md:mb-12 text-center"
+          className="cosmic-title text-4xl md:text-6xl lg:text-7xl mb-12 md:mb-20 text-center"
           data-scroll
           data-scroll-speed="1"
         >
-          Featured NFTs
+          Featured NFT
         </motion.h2>
 
+        {/* Single featured NFT with enhanced presentation */}
         <motion.div
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8"
-          variants={container}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.2 }}
+          initial={{ opacity: 0, scale: 0.9 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1, ease: "easeOut" }}
+          viewport={{ once: true, amount: 0.3 }}
+          className="max-w-2xl mx-auto"
         >
-          {showcaseNFTs.map((nft) => (
-            <motion.div
-              key={nft.id}
-              variants={item}
-              className="cosmic-card p-4 md:p-6 rounded-xl relative overflow-hidden group"
-              onMouseEnter={() => setHoveredId(nft.id)}
-              onMouseLeave={() => setHoveredId(null)}
-              data-scroll
-              data-scroll-speed={nft.id % 2 === 0 ? "0.3" : "0.5"}
-            >
-              <div className="absolute inset-0 bg-gradient-to-br from-saints-gold/5 to-saints-purple/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              <div className="absolute -inset-0.5 bg-gradient-to-r from-saints-purple to-saints-blue opacity-0 group-hover:opacity-20 rounded-xl blur-sm transition-opacity duration-500"></div>
+          <motion.div
+            className="cosmic-card p-8 md:p-12 rounded-2xl relative overflow-hidden group cursor-pointer"
+            whileHover={{ y: -15, scale: 1.02 }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
+            data-scroll
+            data-scroll-speed="0.4"
+          >
+            {/* Enhanced glow effects */}
+            <div className="absolute inset-0 bg-gradient-to-br from-saints-gold/10 via-saints-purple/5 to-saints-blue/10 opacity-0 group-hover:opacity-100 transition-all duration-700"></div>
+            <div className="absolute -inset-1 bg-gradient-to-r from-saints-purple via-saints-gold to-saints-blue opacity-0 group-hover:opacity-30 rounded-2xl blur-xl transition-all duration-700"></div>
+            
+            {/* Animated border */}
+            <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-saints-purple via-saints-gold to-saints-blue opacity-20 group-hover:opacity-40 transition-opacity duration-500" 
+                 style={{ padding: '2px' }}>
+              <div className="w-full h-full bg-saints-dark rounded-2xl"></div>
+            </div>
 
-              <div className="relative z-10">
-                {/* Use the 3D NFT rotator for enhanced visuals */}
-                <div className="mb-4 md:mb-6">
-                  <NFTRotator image={nft.image} title={nft.title} />
-                </div>
-
-                <h3 className="font-orbitron font-extrabold text-lg md:text-xl bg-clip-text text-transparent bg-gradient-to-r from-saints-gold via-white to-saints-blue text-center mb-2 md:mb-3 relative">
-                  {nft.title}
-                  <span className="block h-0.5 w-0 bg-gradient-to-r from-saints-purple via-saints-gold to-saints-blue group-hover:w-full transition-all duration-700 mt-2 mx-auto"></span>
-                </h3>
-
-                <div className="mt-2 md:mt-3 flex justify-center">
-                  <span className="text-xs font-montserrat bg-saints-purple/40 text-white rounded-full px-3 py-1.5 border border-saints-purple/20 backdrop-blur-sm shadow-[0_0_10px_rgba(178,0,255,0.4)] transform transition-transform duration-500 group-hover:scale-110 group-hover:shadow-[0_0_15px_rgba(178,0,255,0.6)]">
-                   COMING SOON
-                  </span>
-                </div>
-
-                <div className={`mt-3 md:mt-5 pt-3 md:pt-4 border-t border-saints-purple/20 ${isMobile ? 'opacity-100' : 'opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0'} transition-all duration-500`}>
-                  <button
-                    onClick={(e) => handleViewDetails(nft, e)}
-                    className="w-full py-2 font-montserrat flex justify-center items-center gap-2 bg-saints-purple/30 hover:bg-saints-purple/50 text-white rounded-lg border border-saints-purple/30 transition-all duration-300 text-xs md:text-sm font-orbitron hover:shadow-[0_0_15px_rgba(178,0,255,0.5)]"
-                  >
-                    <Info size={16} />
-                    View Details
-                  </button>
-                </div>
+            <div className="relative z-10">
+              {/* Enhanced NFT display */}
+              <div className="mb-8 md:mb-10">
+                <motion.div
+                  whileHover={{ scale: 1.05, rotateY: 5 }}
+                  transition={{ duration: 0.6, ease: "easeOut" }}
+                >
+                  <NFTRotator image={featuredNFT.image} title={featuredNFT.title} />
+                </motion.div>
               </div>
 
-              <div
-                className="absolute top-2 right-2 w-12 h-12 md:w-16 md:h-16 bg-gradient-to-br from-saints-purple to-saints-blue rounded-full opacity-0 group-hover:opacity-100 filter blur-xl transition-opacity duration-500"
+              <motion.h3 
+                className="font-orbitron font-extrabold text-2xl md:text-4xl bg-clip-text text-transparent bg-gradient-to-r from-saints-gold via-white to-saints-blue text-center mb-4 md:mb-6 relative"
+                whileHover={{ scale: 1.05 }}
+                transition={{ duration: 0.3 }}
+              >
+                {featuredNFT.title}
+                <motion.span 
+                  className="block h-1 w-0 bg-gradient-to-r from-saints-purple via-saints-gold to-saints-blue group-hover:w-full transition-all duration-1000 mt-3 mx-auto rounded-full"
+                  whileHover={{ boxShadow: "0 0 20px rgba(178, 0, 255, 0.8)" }}
+                ></motion.span>
+              </motion.h3>
+
+              {/* Enhanced description */}
+              <motion.p 
+                className="text-white/80 text-center text-sm md:text-lg leading-relaxed mb-6 md:mb-8 max-w-xl mx-auto"
+                initial={{ opacity: 0.7 }}
+                whileHover={{ opacity: 1 }}
+                transition={{ duration: 0.3 }}
+              >
+                {featuredNFT.description}
+              </motion.p>
+
+              <div className="text-center mb-6 md:mb-8">
+                <motion.span 
+                  className="text-sm md:text-base font-montserrat bg-saints-purple/50 text-white rounded-full px-6 py-3 border border-saints-purple/30 backdrop-blur-sm shadow-[0_0_15px_rgba(178,0,255,0.5)]"
+                  whileHover={{ 
+                    scale: 1.1, 
+                    boxShadow: "0 0 25px rgba(178,0,255,0.8)",
+                    backgroundColor: "rgba(178, 0, 255, 0.7)"
+                  }}
+                  transition={{ duration: 0.3 }}
+                >
+                  COMING SOON
+                </motion.span>
+              </div>
+
+              {/* Enhanced action button */}
+              <div className="text-center">
+                <motion.button
+                  onClick={(e) => handleViewDetails(featuredNFT, e)}
+                  className="inline-flex items-center gap-3 bg-gradient-to-r from-saints-purple/40 to-saints-blue/40 hover:from-saints-purple/60 hover:to-saints-blue/60 text-white rounded-xl border border-saints-purple/40 transition-all duration-500 text-base md:text-lg font-orbitron px-8 py-4 backdrop-blur-sm"
+                  whileHover={{ 
+                    scale: 1.05,
+                    boxShadow: "0 0 30px rgba(178,0,255,0.6)"
+                  }}
+                  whileTap={{ scale: 0.98 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <Info size={20} />
+                  View Details
+                </motion.button>
+              </div>
+            </div>
+
+            {/* Enhanced floating orbs */}
+            {[...Array(3)].map((_, i) => (
+              <motion.div
+                key={i}
+                className={`absolute w-8 h-8 md:w-12 md:h-12 bg-gradient-to-br ${
+                  i % 2 === 0 ? 'from-saints-purple to-saints-blue' : 'from-saints-gold to-saints-purple'
+                } rounded-full opacity-0 group-hover:opacity-100 filter blur-sm`}
                 style={{
-                  transform: 'translateZ(0)'
+                  top: `${20 + i * 30}%`,
+                  right: `${10 + i * 15}%`,
                 }}
-              ></div>
-            </motion.div>
-          ))}
+                animate={{
+                  y: [0, -20, 0],
+                  rotate: [0, 180, 360],
+                }}
+                transition={{
+                  duration: 4 + i,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: i * 0.5
+                }}
+              />
+            ))}
+          </motion.div>
         </motion.div>
 
+        {/* Enhanced CTA section */}
         <motion.div
-          className="text-center mt-10 md:mt-16"
-          initial={{ opacity: 0, y: 20 }}
+          className="text-center mt-16 md:mt-24"
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.5 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
           viewport={{ once: true }}
         >
-          <button
+          <motion.button
             onClick={handleViewCollection}
             className="inline-block relative overflow-hidden group"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.98 }}
           >
-            <span className="relative z-10 inline-flex items-center gap-2 bg-gradient-to-r from-saints-purple to-saints-blue text-white font-orbitron font-bold py-3 md:py-4 px-8 md:px-10 rounded-md transition-all duration-300 border border-saints-purple/30 hover:shadow-[0_0_20px_rgba(178,0,255,0.6)]">
-              View Full Collection
+            <span className="relative z-10 inline-flex items-center gap-3 bg-gradient-to-r from-saints-purple to-saints-blue text-white font-orbitron font-bold py-4 md:py-5 px-10 md:px-14 rounded-xl transition-all duration-500 border border-saints-purple/40 text-lg md:text-xl backdrop-blur-sm">
+              Explore Full Collection
             </span>
-            <span className="absolute inset-0 bg-gradient-to-r from-saints-gold to-saints-blue opacity-0 group-hover:opacity-30 transition-opacity duration-500"></span>
-            <span className="absolute bottom-0 left-0 w-full h-1 bg-saints-gold transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></span>
-            <span className="absolute top-0 right-0 w-full h-1 bg-saints-blue transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></span>
-          </button>
+            <span className="absolute inset-0 bg-gradient-to-r from-saints-gold to-saints-blue opacity-0 group-hover:opacity-40 transition-opacity duration-500 rounded-xl"></span>
+            <motion.span 
+              className="absolute bottom-0 left-0 w-full h-1 bg-saints-gold transform scale-x-0 group-hover:scale-x-100 transition-transform duration-700 rounded-b-xl"
+              whileHover={{ boxShadow: "0 0 20px rgba(255, 215, 0, 0.8)" }}
+            ></motion.span>
+            <motion.span 
+              className="absolute top-0 right-0 w-full h-1 bg-saints-blue transform scale-x-0 group-hover:scale-x-100 transition-transform duration-700 rounded-t-xl"
+              whileHover={{ boxShadow: "0 0 20px rgba(0, 196, 255, 0.8)" }}
+            ></motion.span>
+          </motion.button>
         </motion.div>
       </div>
 
