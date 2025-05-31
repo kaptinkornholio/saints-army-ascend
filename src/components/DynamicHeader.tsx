@@ -1,10 +1,9 @@
+
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Facebook, Twitter, Instagram, Menu, X } from "lucide-react";
-import { Link } from "react-router-dom";
 import { useIsMobile } from '@/hooks/use-mobile';
-import { toast } from '@/components/ui/use-toast';
 import ComingSoonModal from './ComingSoonModal';
 
 interface DynamicHeaderProps {
@@ -27,15 +26,10 @@ const DynamicHeader: React.FC<DynamicHeaderProps> = ({ isScrolled }) => {
     }
   }, [isMobile, mobileMenuOpen]);
 
-  // Animation variants for header elements
+  // Animation variants
   const logoVariants = {
     normal: { scale: 1 },
     scrolled: { scale: 0.8 }
-  };
-
-  const navVariants = {
-    normal: { y: 0, opacity: 1 },
-    scrolled: { y: 0, opacity: 1 }
   };
 
   const socialVariants = {
@@ -143,7 +137,7 @@ const DynamicHeader: React.FC<DynamicHeaderProps> = ({ isScrolled }) => {
                 className="w-full h-full object-cover"
               />
             </div>
-            <span className={`font-poppins font-bold text-white tracking-wider text-shadow-glow ${
+            <span className={`font-bold text-white tracking-wider text-shadow-glow ${
               isScrolled ? 'text-lg md:text-xl' : 'text-xl md:text-2xl'
             }`}>
               {isMobile ? "SAINTS" : "SAINTS ARMY NFT"}
@@ -155,14 +149,12 @@ const DynamicHeader: React.FC<DynamicHeaderProps> = ({ isScrolled }) => {
             className={`hidden md:flex space-x-6 items-center transition-all duration-300 ${
               isScrolled ? 'scale-90' : 'scale-100'
             }`}
-            variants={navVariants}
-            animate={isScrolled ? 'scrolled' : 'normal'}
           >
             {["About", "Join"].map((item, index) => (
               <motion.a 
                 key={index}
                 href={`#${item.toLowerCase()}`} 
-                className="neon-link font-poppins text-lg font-semibold tracking-wider text-white hover:text-saints-gold transition-colors border-b-2 border-transparent hover:border-saints-gold"
+                className="neon-link font-semibold tracking-wider text-white hover:text-saints-gold transition-colors border-b-2 border-transparent hover:border-saints-gold"
                 whileHover={{ 
                   scale: 1.1, 
                   textShadow: "0 0 8px rgba(255,215,0,0.7), 0 0 12px rgba(178,0,255,0.5)" 
@@ -180,7 +172,7 @@ const DynamicHeader: React.FC<DynamicHeaderProps> = ({ isScrolled }) => {
                 e.preventDefault();
                 handleRoadmap();
               }}
-              className="neon-link font-poppins text-lg font-semibold tracking-wider text-white hover:text-saints-gold transition-colors border-b-2 border-transparent hover:border-saints-gold"
+              className="neon-link font-semibold tracking-wider text-white hover:text-saints-gold transition-colors border-b-2 border-transparent hover:border-saints-gold"
               whileHover={{ 
                 scale: 1.1, 
                 textShadow: "0 0 8px rgba(255,215,0,0.7), 0 0 12px rgba(178,0,255,0.5)" 
@@ -225,7 +217,7 @@ const DynamicHeader: React.FC<DynamicHeaderProps> = ({ isScrolled }) => {
                 <Facebook size={16} className="text-saints-gold" />
               </motion.a>
               <motion.a 
-                href="https://twitter.com" 
+                href="https://twitter.com/Zeok_CLG" 
                 target="_blank" 
                 rel="noreferrer" 
                 className="p-2 rounded-full bg-saints-purple/20 hover:bg-saints-purple/40 transition-colors"
@@ -239,7 +231,7 @@ const DynamicHeader: React.FC<DynamicHeaderProps> = ({ isScrolled }) => {
                 <Twitter size={16} className="text-saints-gold" />
               </motion.a>
               <motion.a 
-                href="https://instagram.com" 
+                href="https://instagram.com/saintsonearmynft/" 
                 target="_blank" 
                 rel="noreferrer" 
                 className="p-2 rounded-full bg-saints-purple/20 hover:bg-saints-purple/40 transition-colors"
@@ -251,7 +243,7 @@ const DynamicHeader: React.FC<DynamicHeaderProps> = ({ isScrolled }) => {
                 }}
               >
                 <Instagram size={16} className="text-saints-gold" />
-              </motion.a>
+              </a>
             </motion.div>
           )}
           
@@ -294,7 +286,7 @@ const DynamicHeader: React.FC<DynamicHeaderProps> = ({ isScrolled }) => {
                   <motion.a 
                     key={index}
                     href={`#${item.toLowerCase()}`}
-                    className="font-poppins text-lg py-2 border-b border-saints-purple/20 text-white hover:text-saints-gold flex items-center justify-between"
+                    className="font-semibold text-lg py-2 border-b border-saints-purple/20 text-white hover:text-saints-gold flex items-center justify-between"
                     onClick={handleMobileMenuItemClick}
                     variants={mobileMenuItemVariants}
                   >
@@ -311,7 +303,7 @@ const DynamicHeader: React.FC<DynamicHeaderProps> = ({ isScrolled }) => {
                     handleRoadmap();
                     setMobileMenuOpen(false);
                   }}
-                  className="font-poppins text-lg py-2 border-b border-saints-purple/20 text-white hover:text-saints-gold flex items-center justify-between"
+                  className="font-semibold text-lg py-2 border-b border-saints-purple/20 text-white hover:text-saints-gold flex items-center justify-between"
                   variants={mobileMenuItemVariants}
                 >
                   <span>Roadmap</span>
@@ -333,7 +325,7 @@ const DynamicHeader: React.FC<DynamicHeaderProps> = ({ isScrolled }) => {
                   </Button>
                 </motion.div>
                 
-                {/* Social icons in mobile menu */}
+                {/* Social icons in mobile menu (removed Discord) */}
                 <motion.div 
                   className="flex justify-center space-x-4 pt-2"
                   variants={mobileMenuItemVariants}
@@ -347,7 +339,7 @@ const DynamicHeader: React.FC<DynamicHeaderProps> = ({ isScrolled }) => {
                     <Facebook size={20} className="text-saints-gold" />
                   </a>
                   <a 
-                    href="https://twitter.com" 
+                    href="https://twitter.com/Zeok_CLG" 
                     target="_blank" 
                     rel="noreferrer" 
                     className="p-2 rounded-full bg-saints-purple/20 hover:bg-saints-purple/40 transition-colors"
@@ -355,7 +347,7 @@ const DynamicHeader: React.FC<DynamicHeaderProps> = ({ isScrolled }) => {
                     <Twitter size={20} className="text-saints-gold" />
                   </a>
                   <a 
-                    href="https://instagram.com" 
+                    href="https://instagram.com/saintsonearmynft/" 
                     target="_blank" 
                     rel="noreferrer" 
                     className="p-2 rounded-full bg-saints-purple/20 hover:bg-saints-purple/40 transition-colors"

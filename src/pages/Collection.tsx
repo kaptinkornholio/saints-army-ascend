@@ -1,15 +1,18 @@
+
 import React from 'react';
 import { motion } from 'framer-motion';
 import NFTDetailModal from '@/components/NFTDetailModal';
 import { NFTDetails } from '@/components/NFTDetailModal';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { ArrowLeft } from 'lucide-react';
+import { ArrowLeft, Users } from 'lucide-react';
+import { useComingSoonModal } from "@/hooks/use-coming-soon-modal";
 
 const Collection: React.FC = () => {
   const [selectedNFT, setSelectedNFT] = React.useState<NFTDetails | null>(null);
   const [modalOpen, setModalOpen] = React.useState(false);
   const navigate = useNavigate();
+  const { openModal } = useComingSoonModal();
   
   // Enhanced collection of NFTs with new additions
   const nftCollection: NFTDetails[] = [
@@ -109,7 +112,6 @@ const Collection: React.FC = () => {
         { trait_type: "Element", value: "Chronos" }
       ]
     },
-    // New NFTs with detailed descriptions and traits
     {
       id: 9,
       image: "https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/Shane_Corneliuson_A_digital_illustration_shoot_from_a_frontal_camera_03c3ef03-9d82-4530-a6cc-c7a7a1ce1036.png",
@@ -385,13 +387,18 @@ const Collection: React.FC = () => {
     setModalOpen(false);
   };
 
+  const handleMagicEdenClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    openModal("Magic Eden Coming Soon", "The SAINTS ARMY NFT will be available on Magic Eden soon. Stay tuned!");
+  };
+
   // Animation variants
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1
+        staggerChildren: 0.05
       }
     }
   };
@@ -401,66 +408,63 @@ const Collection: React.FC = () => {
     visible: { 
       y: 0, 
       opacity: 1,
-      transition: { duration: 0.5 }
+      transition: { duration: 0.3 }
     }
   };
 
   return (
-    <div className="min-h-screen bg-saints-dark text-white pt-20 pb-20">
+    <div className="min-h-screen bg-saints-dark text-white pt-20 pb-10">
       <div className="absolute inset-0 -z-10">
         <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-black to-saints-dark"></div>
-        
-        {/* Background effect elements */}
-        {[...Array(5)].map((_, i) => (
-          <div
-            key={i}
-            className={`absolute rounded-full bg-gradient-to-r ${
-              i % 2 === 0 ? 'from-saints-gold/10 to-saints-purple/5' : 'from-saints-purple/10 to-saints-blue/5'
-            }`}
-            style={{
-              width: `${Math.random() * 400 + 200}px`,
-              height: `${Math.random() * 400 + 200}px`,
-              top: `${Math.random() * 100}%`,
-              left: `${Math.random() * 100}%`,
-              filter: 'blur(80px)',
-              opacity: 0.4,
-              animation: `float ${Math.random() * 8 + 15}s infinite alternate ease-in-out`,
-              animationDelay: `${i * 3}s`
-            }}
-          />
-        ))}
       </div>
 
       <div className="container mx-auto px-4">
-        {/* Header with back button */}
-        <div className="mb-8 flex flex-wrap items-center justify-between gap-4">
-          <div>
+        {/* Header */}
+        <div className="mb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div className="flex-1">
             <Button 
               onClick={() => navigate('/')} 
               variant="ghost" 
-              className="mb-4 text-saints-gold hover:bg-saints-purple/20"
+              className="mb-3 text-saints-gold hover:bg-saints-purple/20"
             >
               <ArrowLeft className="mr-2 h-4 w-4" />
               Back to Home
             </Button>
-            <h1 className="text-3xl md:text-5xl font-orbitron font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-saints-gold via-saints-purple to-saints-blue">
-              SAINTS ARMY <span className="text-white">Collection</span>
+            <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-saints-gold via-saints-purple to-saints-blue">
+              SAINTS ARMY Collection
             </h1>
-            <p className="text-white/70 mt-2 max-w-2xl">
-              Explore the complete collection of divine NFTs from the SAINTS ARMY. Each piece represents a unique member with special traits and abilities.
+            <p className="text-white/70 mt-2 text-sm sm:text-base">
+              Explore the complete collection of divine NFTs
             </p>
           </div>
 
-          <div className="px-4 py-2 bg-saints-purple/20 border border-saints-purple/30 rounded-lg">
-            <p className="text-saints-gold font-orbitron">Total NFTs: {nftCollection.length}</p>
+          <div className="flex flex-col sm:flex-row gap-3 items-start sm:items-center">
+            {/* Community Counter */}
+            <div className="flex items-center gap-2 px-3 py-2 bg-saints-purple/20 border border-saints-purple/30 rounded-lg">
+              <Users className="h-4 w-4 text-saints-gold" />
+              <span className="text-saints-gold font-semibold text-sm">52 Members</span>
+            </div>
+
+            <div className="px-3 py-2 bg-saints-purple/20 border border-saints-purple/30 rounded-lg">
+              <p className="text-saints-gold font-semibold text-sm">Total: {nftCollection.length}</p>
+            </div>
           </div>
         </div>
 
-        {/* Filter and sort options could be added here in the future */}
-        
+        {/* Magic Eden Coming Soon Button */}
+        <div className="mb-6 text-center">
+          <button
+            onClick={handleMagicEdenClick}
+            className="inline-flex items-center gap-2 bg-saints-purple/30 hover:bg-saints-purple/50 text-white rounded-lg border border-saints-purple/30 transition-all duration-300 px-4 py-2 hover:shadow-[0_0_15px_rgba(178,0,255,0.5)]"
+          >
+            <img src="https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/Magic-Eden-Logo.jpg" alt="Magic Eden" className="w-5 h-5 rounded-full" />
+            <span className="font-semibold">Available on Magic Eden Soon</span>
+          </button>
+        </div>
+
         {/* NFT Grid */}
         <motion.div 
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 my-8"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4 lg:gap-6"
           variants={containerVariants}
           initial="hidden"
           animate="visible"
@@ -469,14 +473,14 @@ const Collection: React.FC = () => {
             <motion.div
               key={nft.id}
               variants={itemVariants}
-              className="cosmic-card p-6 rounded-xl relative overflow-hidden group transition-all duration-300 hover:shadow-[0_0_25px_rgba(178,0,255,0.5)] bg-gradient-to-br from-black/80 to-saints-purple/10"
+              className="cosmic-card p-4 lg:p-6 rounded-xl relative overflow-hidden group transition-all duration-300 hover:shadow-[0_0_25px_rgba(178,0,255,0.5)] bg-gradient-to-br from-black/80 to-saints-purple/10 cursor-pointer"
               onClick={() => handleNFTClick(nft)}
             >
               <div className="absolute inset-0 bg-gradient-to-br from-saints-gold/5 to-saints-purple/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               <div className="absolute -inset-0.5 bg-gradient-to-r from-saints-purple to-saints-blue opacity-0 group-hover:opacity-20 rounded-xl blur-sm transition-opacity duration-500"></div>
               
               <div className="relative z-10">
-                <div className="mb-4 rounded-lg overflow-hidden">
+                <div className="mb-3 lg:mb-4 rounded-lg overflow-hidden">
                   <motion.div
                     whileHover={{ scale: 1.05 }}
                     transition={{ duration: 0.3 }}
@@ -489,11 +493,11 @@ const Collection: React.FC = () => {
                   </motion.div>
                 </div>
                 
-                <h3 className="font-orbitron font-extrabold text-lg bg-clip-text text-transparent bg-gradient-to-r from-saints-gold via-white to-saints-blue mb-1">
+                <h3 className="font-bold text-sm lg:text-lg bg-clip-text text-transparent bg-gradient-to-r from-saints-gold via-white to-saints-blue mb-2 text-center">
                   {nft.title}
                 </h3>
                 
-                <div className="flex flex-wrap gap-2 my-3">
+                <div className="flex flex-wrap gap-1 lg:gap-2 mb-3 justify-center">
                   {nft.traits.slice(0, 2).map((trait, idx) => (
                     <span 
                       key={idx}
@@ -506,7 +510,7 @@ const Collection: React.FC = () => {
                 
                 <div className="mt-3 pt-2 border-t border-saints-purple/20">
                   <button
-                    className="w-full py-2 bg-saints-purple/30 hover:bg-saints-purple/50 text-white rounded-lg border border-saints-purple/30 transition-all duration-300 text-sm font-orbitron hover:shadow-[0_0_15px_rgba(178,0,255,0.5)]"
+                    className="w-full py-2 bg-saints-purple/30 hover:bg-saints-purple/50 text-white rounded-lg border border-saints-purple/30 transition-all duration-300 text-xs lg:text-sm font-semibold hover:shadow-[0_0_15px_rgba(178,0,255,0.5)]"
                   >
                     View Details
                   </button>

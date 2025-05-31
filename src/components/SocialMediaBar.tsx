@@ -6,7 +6,7 @@ interface SocialMediaBarProps {
 }
 
 const SocialMediaBar: React.FC<SocialMediaBarProps> = ({ position = 'side' }) => {
-  // Component disabled - no longer rendering social media sidebar
+  // Component completely disabled - no social media sidebar
   return null;
 };
 

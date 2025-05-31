@@ -2,6 +2,7 @@
 import React from 'react';
 import { Button } from "@/components/ui/button";
 import { useComingSoonModal } from "@/hooks/use-coming-soon-modal";
+import { Users } from 'lucide-react';
 
 const CTAFooter: React.FC = () => {
   const { ComingSoonButton, openModal } = useComingSoonModal();
@@ -29,6 +30,14 @@ const CTAFooter: React.FC = () => {
       
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
+          {/* Community Counter */}
+          <div className="mb-8 flex justify-center">
+            <div className="flex items-center gap-3 px-6 py-3 bg-saints-purple/20 border border-saints-purple/30 rounded-full backdrop-blur-sm">
+              <Users className="h-5 w-5 text-saints-gold" />
+              <span className="text-saints-gold font-bold text-lg">52 Community Members</span>
+            </div>
+          </div>
+
           <h2 className="cosmic-title text-3xl md:text-5xl mb-6 animate-glow">
             Ready to own divine art and join a revolution?
           </h2>
@@ -70,9 +79,6 @@ const CTAFooter: React.FC = () => {
             <div className="flex justify-center space-x-6">
               <a href="https://twitter.com/Zeok_CLG" target="_blank" rel="noopener noreferrer" className="text-white/50 hover:text-saints-gold transition-colors">
                 Twitter
-              </a>
-              <a href="https://discord.gg/7DJX9266" target="_blank" rel="noopener noreferrer" className="text-white/50 hover:text-saints-gold transition-colors">
-                Discord
               </a>
               <a href="https://www.instagram.com/saintsonearmynft/" target="_blank" rel="noopener noreferrer" className="text-white/50 hover:text-saints-gold transition-colors">
                 Instagram
