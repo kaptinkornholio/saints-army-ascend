@@ -243,7 +243,7 @@ const DynamicHeader: React.FC<DynamicHeaderProps> = ({ isScrolled }) => {
                 }}
               >
                 <Instagram size={16} className="text-saints-gold" />
-              </a>
+              </motion.a>
             </motion.div>
           )}
           
@@ -325,7 +325,7 @@ const DynamicHeader: React.FC<DynamicHeaderProps> = ({ isScrolled }) => {
                   </Button>
                 </motion.div>
                 
-                {/* Social icons in mobile menu (removed Discord) */}
+                {/* Social icons in mobile menu */}
                 <motion.div 
                   className="flex justify-center space-x-4 pt-2"
                   variants={mobileMenuItemVariants}
