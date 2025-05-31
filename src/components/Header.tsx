@@ -139,46 +139,40 @@ const Header: React.FC = () => {
                 className="w-full h-full object-cover"
               />
             </div>
-            <span className="font-orbitron text-2xl font-extrabold text-white tracking-wider text-shadow-glow">SAINTS ARMY NFT</span>
+            <span className="font-poppins text-2xl font-bold text-white tracking-wider text-shadow-glow">SAINTS ARMY NFT</span>
           </motion.div>
           
           <div className="hidden md:flex space-x-6 items-center">
-            {["About", "Join", "Roadmap"].map((item, index) => {
-              // Display ComingSoonModal for Roadmap link
-              if (item === "Roadmap") {
-                return (
-                  <motion.a 
-                    key={index}
-                    href="#"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      openModal("Roadmap Coming Soon", "Our detailed roadmap will be available soon. Stay tuned for our exciting journey ahead!");
-                    }}
-                    className="neon-link font-orbitron text-lg font-bold tracking-wider text-white hover:text-saints-gold transition-colors border-b-2 border-transparent hover:border-saints-gold"
-                    whileHover={{ 
-                      scale: 1.1, 
-                      textShadow: "0 0 8px rgba(255,215,0,0.7), 0 0 12px rgba(178,0,255,0.5)" 
-                    }}
-                  >
-                    {item}
-                  </motion.a>
-                );
-              }
-              
-              return (
-                <motion.a 
-                  key={index}
-                  href={`#${item.toLowerCase()}`} 
-                  className="neon-link font-orbitron text-lg font-bold tracking-wider text-white hover:text-saints-gold transition-colors border-b-2 border-transparent hover:border-saints-gold"
-                  whileHover={{ 
-                    scale: 1.1, 
-                    textShadow: "0 0 8px rgba(255,215,0,0.7), 0 0 12px rgba(178,0,255,0.5)" 
-                  }}
-                >
-                  {item}
-                </motion.a>
-              );
-            })}
+            {["About", "Join"].map((item, index) => (
+              <motion.a 
+                key={index}
+                href={`#${item.toLowerCase()}`} 
+                className="neon-link font-poppins text-lg font-semibold tracking-wider text-white hover:text-saints-gold transition-colors border-b-2 border-transparent hover:border-saints-gold"
+                whileHover={{ 
+                  scale: 1.1, 
+                  textShadow: "0 0 8px rgba(255,215,0,0.7), 0 0 12px rgba(178,0,255,0.5)" 
+                }}
+              >
+                {item}
+              </motion.a>
+            ))}
+            
+            {/* Roadmap link with coming soon modal */}
+            <motion.a 
+              href="#"
+              onClick={(e) => {
+                e.preventDefault();
+                openModal("Roadmap Coming Soon", "Our detailed roadmap will be available soon. Stay tuned for our exciting journey ahead!");
+              }}
+              className="neon-link font-poppins text-lg font-semibold tracking-wider text-white hover:text-saints-gold transition-colors border-b-2 border-transparent hover:border-saints-gold"
+              whileHover={{ 
+                scale: 1.1, 
+                textShadow: "0 0 8px rgba(255,215,0,0.7), 0 0 12px rgba(178,0,255,0.5)" 
+              }}
+            >
+              Roadmap
+            </motion.a>
+            
             <motion.div
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -200,7 +194,7 @@ const Header: React.FC = () => {
         
         <div className="max-w-3xl mx-auto text-center mb-16" data-scroll data-scroll-speed="0.3">
           <motion.h1 
-            className="cosmic-title text-4xl md:text-6xl lg:text-7xl mb-6 font-black tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-saints-gold via-saints-purple to-saints-blue"
+            className="cosmic-title text-4xl md:text-6xl lg:text-7xl mb-6 font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-saints-gold via-saints-purple to-saints-blue"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
@@ -209,7 +203,7 @@ const Header: React.FC = () => {
           </motion.h1>
           
           <motion.p 
-            className="cosmic-subtitle text-lg md:text-xl mb-12 font-extrabold tracking-wide bg-clip-text text-transparent bg-gradient-to-r from-white via-white/90 to-white/70"
+            className="cosmic-subtitle text-lg md:text-xl mb-12 font-semibold tracking-wide bg-clip-text text-transparent bg-gradient-to-r from-white via-white/90 to-white/70"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
@@ -232,7 +226,7 @@ const Header: React.FC = () => {
                 className="btn-primary text-lg px-8 py-6 shadow-[0_0_15px_rgba(255,215,0,0.4)] hover:shadow-[0_0_25px_rgba(255,215,0,0.6)] flex items-center gap-3 w-full sm:w-auto"
               >
                 <img src="https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/Magic-Eden-Logo.jpg" alt="Magic Eden" className="w-7 h-7 rounded-full" />
-                <span className="font-extrabold">MINT COMING SOON</span>
+                <span className="font-bold">MINT COMING SOON</span>
               </ComingSoonButton>
             </motion.div>
             
@@ -245,7 +239,7 @@ const Header: React.FC = () => {
                 className="btn-secondary text-lg px-8 py-6 shadow-[0_0_15px_rgba(178,0,255,0.4)] hover:shadow-[0_0_25px_rgba(178,0,255,0.6)] flex items-center gap-3 w-full sm:w-auto"
                 onClick={() => openModal("Roadmap Coming Soon", "Our detailed roadmap will be available soon. Stay tuned for our exciting journey ahead!")}
               >
-                <span className="font-extrabold">VIEW ROADMAP</span>
+                <span className="font-bold">VIEW ROADMAP</span>
               </ComingSoonButton>
             </motion.div>
           </motion.div>

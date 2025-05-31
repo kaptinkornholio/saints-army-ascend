@@ -53,6 +53,18 @@ const CTAFooter: React.FC = () => {
             </Button>
           </div>
           
+          {/* Get Notified button that redirects to Twitter */}
+          <div className="mt-8">
+            <a 
+              href="https://x.com/Zeok_CLG" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="inline-block btn-primary md:text-lg bg-saints-blue hover:bg-saints-blue/90"
+            >
+              GET NOTIFIED
+            </a>
+          </div>
+          
           <div className="mt-16 border-t border-white/10 pt-10">
             <p className="text-white/50 mb-4">&copy; 2025 SAINTS ARMY NFT. All rights reserved.</p>
             <div className="flex justify-center space-x-6">

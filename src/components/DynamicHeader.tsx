@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
@@ -15,6 +14,10 @@ interface DynamicHeaderProps {
 const DynamicHeader: React.FC<DynamicHeaderProps> = ({ isScrolled }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [comingSoonOpen, setComingSoonOpen] = useState(false);
+  const [modalConfig, setModalConfig] = useState({
+    title: "Minting Coming Soon",
+    description: "We're preparing something special for you. The SAINTS ARMY NFT minting will be available soon."
+  });
   const isMobile = useIsMobile();
 
   // Close mobile menu when resizing to desktop
@@ -88,6 +91,18 @@ const DynamicHeader: React.FC<DynamicHeaderProps> = ({ isScrolled }) => {
   };
 
   const handleMintNow = () => {
+    setModalConfig({
+      title: "Minting Coming Soon",
+      description: "We're preparing something special for you. The SAINTS ARMY NFT minting will be available soon."
+    });
+    setComingSoonOpen(true);
+  };
+
+  const handleRoadmap = () => {
+    setModalConfig({
+      title: "Roadmap Coming Soon",
+      description: "Our detailed roadmap will be available soon. Stay tuned for our exciting journey ahead!"
+    });
     setComingSoonOpen(true);
   };
 
@@ -128,7 +143,7 @@ const DynamicHeader: React.FC<DynamicHeaderProps> = ({ isScrolled }) => {
                 className="w-full h-full object-cover"
               />
             </div>
-            <span className={`font-orbitron font-extrabold text-white tracking-wider text-shadow-glow ${
+            <span className={`font-poppins font-bold text-white tracking-wider text-shadow-glow ${
               isScrolled ? 'text-lg md:text-xl' : 'text-xl md:text-2xl'
             }`}>
               {isMobile ? "SAINTS" : "SAINTS ARMY NFT"}
@@ -143,11 +158,11 @@ const DynamicHeader: React.FC<DynamicHeaderProps> = ({ isScrolled }) => {
             variants={navVariants}
             animate={isScrolled ? 'scrolled' : 'normal'}
           >
-            {["About", "Join", "Roadmap"].map((item, index) => (
+            {["About", "Join"].map((item, index) => (
               <motion.a 
                 key={index}
                 href={`#${item.toLowerCase()}`} 
-                className="neon-link font-orbitron text-lg font-bold tracking-wider text-white hover:text-saints-gold transition-colors border-b-2 border-transparent hover:border-saints-gold"
+                className="neon-link font-poppins text-lg font-semibold tracking-wider text-white hover:text-saints-gold transition-colors border-b-2 border-transparent hover:border-saints-gold"
                 whileHover={{ 
                   scale: 1.1, 
                   textShadow: "0 0 8px rgba(255,215,0,0.7), 0 0 12px rgba(178,0,255,0.5)" 
@@ -157,6 +172,23 @@ const DynamicHeader: React.FC<DynamicHeaderProps> = ({ isScrolled }) => {
                 {item}
               </motion.a>
             ))}
+            
+            {/* Roadmap link with coming soon modal */}
+            <motion.a 
+              href="#"
+              onClick={(e) => {
+                e.preventDefault();
+                handleRoadmap();
+              }}
+              className="neon-link font-poppins text-lg font-semibold tracking-wider text-white hover:text-saints-gold transition-colors border-b-2 border-transparent hover:border-saints-gold"
+              whileHover={{ 
+                scale: 1.1, 
+                textShadow: "0 0 8px rgba(255,215,0,0.7), 0 0 12px rgba(178,0,255,0.5)" 
+              }}
+            >
+              Roadmap
+            </motion.a>
+            
             <motion.div
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -258,11 +290,11 @@ const DynamicHeader: React.FC<DynamicHeaderProps> = ({ isScrolled }) => {
           >
             <div className="container mx-auto px-4">
               <div className="flex flex-col space-y-4">
-                {["About", "Join", "Roadmap"].map((item, index) => (
+                {["About", "Join"].map((item, index) => (
                   <motion.a 
                     key={index}
                     href={`#${item.toLowerCase()}`}
-                    className="font-orbitron text-lg py-2 border-b border-saints-purple/20 text-white hover:text-saints-gold flex items-center justify-between"
+                    className="font-poppins text-lg py-2 border-b border-saints-purple/20 text-white hover:text-saints-gold flex items-center justify-between"
                     onClick={handleMobileMenuItemClick}
                     variants={mobileMenuItemVariants}
                   >
@@ -270,6 +302,22 @@ const DynamicHeader: React.FC<DynamicHeaderProps> = ({ isScrolled }) => {
                     <span className="text-saints-gold">&rarr;</span>
                   </motion.a>
                 ))}
+                
+                {/* Roadmap mobile link */}
+                <motion.a 
+                  href="#"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleRoadmap();
+                    setMobileMenuOpen(false);
+                  }}
+                  className="font-poppins text-lg py-2 border-b border-saints-purple/20 text-white hover:text-saints-gold flex items-center justify-between"
+                  variants={mobileMenuItemVariants}
+                >
+                  <span>Roadmap</span>
+                  <span className="text-saints-gold">&rarr;</span>
+                </motion.a>
+                
                 <motion.div
                   className="pt-2"
                   variants={mobileMenuItemVariants}
@@ -322,7 +370,12 @@ const DynamicHeader: React.FC<DynamicHeaderProps> = ({ isScrolled }) => {
       </AnimatePresence>
 
       {/* Coming Soon Modal */}
-      <ComingSoonModal isOpen={comingSoonOpen} onClose={() => setComingSoonOpen(false)} />
+      <ComingSoonModal 
+        isOpen={comingSoonOpen} 
+        onClose={() => setComingSoonOpen(false)} 
+        title={modalConfig.title}
+        description={modalConfig.description}
+      />
     </motion.nav>
   );
 };

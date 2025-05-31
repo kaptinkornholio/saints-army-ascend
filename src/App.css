@@ -1,4 +1,3 @@
-
 #root {
   max-width: 100%;
   margin: 0 auto;
@@ -26,31 +25,34 @@
   }
 }
 
-/* Enhanced Mobile optimizations */
+/* Enhanced Mobile optimizations with clean fonts */
 @media (max-width: 768px) {
   h1 {
     font-size: 1.75rem !important;
-    font-family: 'Audiowide', cursive !important;
-    font-weight: normal !important;
+    font-family: 'Poppins', 'Inter', sans-serif !important;
+    font-style: normal !important;
+    font-weight: 600 !important;
   }
   
   h2 {
     font-size: 1.5rem !important;
-    font-family: 'Audiowide', cursive !important;
-    font-weight: normal !important;
+    font-family: 'Poppins', 'Inter', sans-serif !important;
+    font-style: normal !important;
+    font-weight: 600 !important;
   }
   
   h3 {
     font-size: 1.25rem !important;
-    font-family: 'Audiowide', cursive !important;
-    font-weight: normal !important;
+    font-family: 'Poppins', 'Inter', sans-serif !important;
+    font-style: normal !important;
+    font-weight: 600 !important;
   }
   
   p, li, span, div {
     font-size: 0.9rem !important;
-    font-family: 'Montserrat', sans-serif !important;
-    font-weight: normal !important;
+    font-family: 'Inter', 'Source Sans Pro', sans-serif !important;
     font-style: normal !important;
+    font-weight: 400 !important;
     letter-spacing: 0.01em !important;
     line-height: 1.5 !important;
   }
@@ -58,7 +60,8 @@
   .btn-primary, .btn-secondary {
     font-size: 0.875rem;
     padding: 0.75rem 1.25rem;
-    font-family: 'Audiowide', cursive !important;
+    font-family: 'Poppins', 'Inter', sans-serif !important;
+    font-style: normal !important;
   }
   
   .mobile-hidden {
@@ -97,9 +100,9 @@
   
   /* Additional font fixes for mobile */
   .mobile-readable {
-    font-family: 'Montserrat', sans-serif !important;
-    font-weight: normal !important;
+    font-family: 'Inter', 'Source Sans Pro', sans-serif !important;
     font-style: normal !important;
+    font-weight: 400 !important;
     line-height: 1.6 !important;
     letter-spacing: 0.01em !important;
   }
@@ -112,16 +115,17 @@
   transition: all 0.3s ease;
 }
 
-/* Font consistency rules */
+/* Font consistency rules with clean fonts */
 body, p, span, div, li, a, button, input, textarea, select, label {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Inter', 'Source Sans Pro', sans-serif;
   font-style: normal;
   letter-spacing: 0.01em;
 }
 
 h1, h2, h3, h4, h5, h6, .font-heading {
-  font-family: 'Audiowide', cursive;
+  font-family: 'Poppins', 'Inter', sans-serif;
   font-style: normal;
+  font-weight: 600;
   letter-spacing: 0.02em;
 }
 
@@ -243,7 +247,7 @@ h1, h2, h3, h4, h5, h6, .font-heading {
 @media (max-width: 640px) {
   body {
     font-size: 14px;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Inter', 'Source Sans Pro', sans-serif;
     font-style: normal;
   }
   
@@ -255,14 +259,14 @@ h1, h2, h3, h4, h5, h6, .font-heading {
   h1.cosmic-title {
     font-size: 2rem !important;
     line-height: 1.2;
-    font-family: 'Audiowide', cursive !important;
-    font-weight: normal !important;
+    font-family: 'Poppins', 'Inter', sans-serif !important;
+    font-weight: 600 !important;
   }
   
   h2.cosmic-title {
     font-size: 1.5rem !important;
-    font-family: 'Audiowide', cursive !important;
-    font-weight: normal !important;
+    font-family: 'Poppins', 'Inter', sans-serif !important;
+    font-weight: 600 !important;
   }
   
   .cosmic-subtitle {
@@ -275,6 +279,6 @@ h1, h2, h3, h4, h5, h6, .font-heading {
   .btn-primary, .btn-secondary {
     padding: 0.75rem 1rem;
     font-size: 0.875rem;
-    font-family: 'Audiowide', cursive;
+    font-family: 'Poppins', 'Inter', sans-serif;
   }
 }
