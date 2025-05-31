@@ -14,233 +14,233 @@ const Collection: React.FC = () => {
   const navigate = useNavigate();
   const { openModal } = useComingSoonModal();
   
-  // Enhanced collection of NFTs with new additions
+  // New collection of NFTs with fresh character descriptions
   const nftCollection: NFTDetails[] = [
     {
       id: 1,
       image: "https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/Shane_Corneliuson_A_digital_illustration_shoot_from_a_frontal_camera_fd7a394d-2163-42ea-8442-d9319d7dc32a.png",
-      title: "SAINT WARRIOR",
-      description: "A divine protector with celestial powers, born from the stars to defend the sacred realms. Infused with cosmic energy, this Saint commands respect across dimensions.",
+      title: "COSMIC WARDEN",
+      description: "Guardian of the celestial boundaries, this warrior possesses the power to see through dimensional veils. Their armor channels starlight into devastating energy attacks while protecting allies with barriers of pure cosmic force.",
       traits: [
-        { trait_type: "Class", value: "Warrior" },
-        { trait_type: "Rarity", value: "Legendary" },
-        { trait_type: "Power", value: "Cosmic Shield" },
-        { trait_type: "Element", value: "Celestial" }
+        { trait_type: "Class", value: "Warden" },
+        { trait_type: "Rarity", value: "Mythic" },
+        { trait_type: "Power", value: "Starlight Channeling" },
+        { trait_type: "Element", value: "Cosmic" }
       ]
     },
     {
       id: 2,
       image: "https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/CyberLink_Galaxy_A_digital_illustration_shoot_from_a_frontal_camera_84bfd672-a697-4e9b-aec0-92bf4f75ac4b.png",
-      title: "GALACTIC SAINT",
-      description: "Traversing the cosmos, this Saint harnesses galactic energy to open portals between worlds. Their vision sees beyond the veil of reality.",
+      title: "VOID NAVIGATOR",
+      description: "Master of interdimensional travel, capable of opening rifts between realities. This Saint's knowledge of void currents allows them to transport entire armies across impossible distances in the blink of an eye.",
       traits: [
-        { trait_type: "Class", value: "Mystic" },
-        { trait_type: "Rarity", value: "Epic" },
-        { trait_type: "Power", value: "Portal Creation" },
+        { trait_type: "Class", value: "Navigator" },
+        { trait_type: "Rarity", value: "Legendary" },
+        { trait_type: "Power", value: "Rift Creation" },
         { trait_type: "Element", value: "Void" }
       ]
     },
     {
       id: 3,
       image: "https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/CyberLink_Galaxy_A_digital_illustration_shoot_from_a_frontal_camera_640a9d23-dc16-480d-9029-f17ea3097702.png",
-      title: "DIVINE TACTICIAN",
-      description: "Strategic mastermind of the Saints Army, capable of predicting enemy movements across space and time. His tactical brilliance has never led to defeat.",
+      title: "NEURAL ARCHITECT",
+      description: "Designer of consciousness networks, this Saint builds bridges between minds across the galaxy. Their neural constructs allow instantaneous communication and shared knowledge among all connected beings.",
       traits: [
-        { trait_type: "Class", value: "Strategist" },
-        { trait_type: "Rarity", value: "Mythic" },
-        { trait_type: "Power", value: "Foresight" },
-        { trait_type: "Element", value: "Time" }
+        { trait_type: "Class", value: "Architect" },
+        { trait_type: "Rarity", value: "Supreme" },
+        { trait_type: "Power", value: "Mind Linking" },
+        { trait_type: "Element", value: "Psychic" }
       ]
     },
     {
       id: 4,
       image: "https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/Shane_Corneliuson_A_digital_illustration_shoot_from_a_frontal_camera_b07b4f49-eff1-4f00-9a72-9ab9ddaf8791.png",
-      title: "ETHEREAL SAINT",
-      description: "Born of pure ethereal energy, this Saint exists between dimensions. Their touch can heal allies or devastate enemies, making them a pivotal force in cosmic conflicts.",
+      title: "PLASMA FORGEMASTER",
+      description: "Creator of celestial weapons and armor, this Saint shapes plasma with their bare hands. Each creation is imbued with properties that adapt to the wielder's needs, making every piece unique and powerful.",
       traits: [
-        { trait_type: "Class", value: "Healer" },
+        { trait_type: "Class", value: "Forgemaster" },
         { trait_type: "Rarity", value: "Divine" },
-        { trait_type: "Power", value: "Energy Manipulation" },
-        { trait_type: "Element", value: "Ether" }
+        { trait_type: "Power", value: "Matter Shaping" },
+        { trait_type: "Element", value: "Plasma" }
       ]
     },
     {
       id: 5,
       image: "https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/CyberLink_Galaxy_A_digital_illustration_shoot_from_a_frontal_camera_a8477262-d89e-4f3f-8486-0a33716f9efb.png",
-      title: "CELESTIAL GUARDIAN",
-      description: "Guardian of the sacred celestial gates, this Saint ensures only the worthy may pass. Ancient wisdom flows through their veins, guiding their judgment.",
+      title: "QUANTUM SENTINEL",
+      description: "Protector of probability streams, this Saint maintains the stability of quantum fluctuations. Their presence ensures that favorable outcomes manifest while preventing catastrophic timeline collapses.",
       traits: [
-        { trait_type: "Class", value: "Guardian" },
-        { trait_type: "Rarity", value: "Immortal" },
-        { trait_type: "Power", value: "Judgement" },
-        { trait_type: "Element", value: "Light" }
+        { trait_type: "Class", value: "Sentinel" },
+        { trait_type: "Rarity", value: "Quantum" },
+        { trait_type: "Power", value: "Probability Control" },
+        { trait_type: "Element", value: "Quantum" }
       ]
     },
     {
       id: 6,
       image: "https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/Shane_Corneliuson_A_digital_illustration_shoot_from_a_frontal_camera_01bd3426-feb2-464e-94bc-c27bf8da8c1f.png",
-      title: "QUANTUM SAINT",
-      description: "Existing in multiple realities simultaneously, this Saint can manipulate the quantum field to alter probability and outcome. A strategic advantage in any conflict.",
+      title: "FREQUENCY MANIPULATOR",
+      description: "Controller of vibrational energies, this Saint can alter the fundamental frequencies of matter. Their power extends from healing broken molecules to creating devastating sonic weapons that resonate at lethal frequencies.",
       traits: [
-        { trait_type: "Class", value: "Reality Bender" },
-        { trait_type: "Rarity", value: "Quantum" },
-        { trait_type: "Power", value: "Probability Shift" },
-        { trait_type: "Element", value: "Quantum" }
+        { trait_type: "Class", value: "Manipulator" },
+        { trait_type: "Rarity", value: "Harmonic" },
+        { trait_type: "Power", value: "Frequency Control" },
+        { trait_type: "Element", value: "Sound" }
       ]
     },
     {
       id: 7,
       image: "https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/Shane_Corneliuson_A_digital_illustration_shoot_from_a_frontal_camera_6ebbf499-83a2-4658-a8f3-380b5b8ef234.png",
-      title: "COSMIC COMMANDER",
-      description: "Leading the Saints Army through countless victories, this commander's tactical genius is matched only by their unbreakable spirit and loyalty to the divine cause.",
+      title: "STELLAR COMMANDER",
+      description: "Leader of cosmic fleets, this Saint coordinates battles across multiple star systems simultaneously. Their tactical brilliance is enhanced by precognitive abilities that reveal enemy strategies before they're formed.",
       traits: [
         { trait_type: "Class", value: "Commander" },
-        { trait_type: "Rarity", value: "Supreme" },
-        { trait_type: "Power", value: "Inspiration Aura" },
-        { trait_type: "Element", value: "Will" }
+        { trait_type: "Rarity", value: "Galactic" },
+        { trait_type: "Power", value: "Battle Coordination" },
+        { trait_type: "Element", value: "Strategy" }
       ]
     },
     {
       id: 8,
       image: "https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/shane_Corneliuson_A_digital_illustration_shoot_from_a_frontal_camera_018782c6-d907-4711-829f-284d56744886.png",
-      title: "TEMPORAL SAINT",
-      description: "Master of the timestream, capable of glimpsing both past and future. Their guidance has prevented countless catastrophes across the timeline.",
+      title: "CHRONO GUARDIAN",
+      description: "Keeper of temporal stability, this Saint prevents paradoxes and timeline corruption. Their mastery over time allows them to accelerate allies, slow enemies, and even create temporal shields that deflect attacks.",
       traits: [
-        { trait_type: "Class", value: "Chronomancer" },
-        { trait_type: "Rarity", value: "Timeless" },
-        { trait_type: "Power", value: "Temporal Vision" },
-        { trait_type: "Element", value: "Chronos" }
+        { trait_type: "Class", value: "Guardian" },
+        { trait_type: "Rarity", value: "Temporal" },
+        { trait_type: "Power", value: "Time Manipulation" },
+        { trait_type: "Element", value: "Time" }
       ]
     },
     {
       id: 9,
       image: "https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/Shane_Corneliuson_A_digital_illustration_shoot_from_a_frontal_camera_03c3ef03-9d82-4530-a6cc-c7a7a1ce1036.png",
-      title: "ASTRAL VOYAGER",
-      description: "Traversing the astral planes with ease, this Saint can project their consciousness across vast cosmic distances. Their knowledge of celestial pathways has saved countless souls lost in dimensional rifts.",
+      title: "DIMENSIONAL SCOUT",
+      description: "Explorer of infinite realities, this Saint maps uncharted dimensions and discovers new paths through the multiverse. Their reconnaissance abilities reveal hidden threats and opportunities across parallel worlds.",
       traits: [
-        { trait_type: "Class", value: "Explorer" },
-        { trait_type: "Rarity", value: "Astral" },
-        { trait_type: "Power", value: "Dimensional Shifting" },
-        { trait_type: "Element", value: "Astral" }
+        { trait_type: "Class", value: "Scout" },
+        { trait_type: "Rarity", value: "Multiversal" },
+        { trait_type: "Power", value: "Reality Mapping" },
+        { trait_type: "Element", value: "Dimension" }
       ]
     },
     {
       id: 10,
       image: "https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/Shane_Corneliuson_A_digital_illustration_shoot_from_a_frontal_camera_40087631-605d-411e-8daf-b9da2bb40365.png",
-      title: "NEXUS KEEPER",
-      description: "Guardian of the cosmic nexus points where realities converge. Their mask hides a face that has witnessed the birth and death of countless universes, preserving the balance between all dimensions.",
+      title: "NEXUS PROTECTOR",
+      description: "Guardian of critical junction points where realities intersect, this Saint maintains the delicate balance between worlds. Their mask conceals features that have witnessed the birth and death of countless universes.",
       traits: [
-        { trait_type: "Class", value: "Keeper" },
+        { trait_type: "Class", value: "Protector" },
         { trait_type: "Rarity", value: "Primordial" },
-        { trait_type: "Power", value: "Reality Anchor" },
+        { trait_type: "Power", value: "Reality Anchoring" },
         { trait_type: "Element", value: "Nexus" }
       ]
     },
     {
       id: 11,
       image: "https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/Shane_Corneliuson_A_digital_illustration_shoot_from_a_frontal_camera_6bd0c4f7-be6a-432c-9e03-270277e374ed.png",
-      title: "VOID WALKER",
-      description: "This enigmatic Saint has mastered the art of void walking, allowing them to step between the cracks of reality. Their presence distorts the very fabric of space around them, making them nearly impossible to track.",
+      title: "SHADOW WEAVER",
+      description: "Master of darkness and concealment, this Saint can merge with shadows to become undetectable. Their stealth abilities extend to hiding entire armies or creating shadow duplicates to confuse enemies.",
       traits: [
-        { trait_type: "Class", value: "Assassin" },
+        { trait_type: "Class", value: "Weaver" },
         { trait_type: "Rarity", value: "Shadow" },
-        { trait_type: "Power", value: "Void Step" },
+        { trait_type: "Power", value: "Shadow Manipulation" },
         { trait_type: "Element", value: "Darkness" }
       ]
     },
     {
       id: 12,
       image: "https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/Shane_Corneliuson_A_digital_illustration_shoot_from_a_frontal_camera_81b85bf2-45a7-4cf6-b29e-374994c405b6.png",
-      title: "STELLAR ORACLE",
-      description: "Blessed with cosmic foresight, this Saint reads the patterns of stars to divine future events. Their prophecies have guided the Saints Army through its darkest hours toward ultimate triumph.",
+      title: "COSMIC ORACLE",
+      description: "Seer of infinite possibilities, this Saint reads the cosmic winds to predict future events. Their prophecies guide the Saints Army through the most challenging battles by revealing the paths to victory.",
       traits: [
         { trait_type: "Class", value: "Oracle" },
-        { trait_type: "Rarity", value: "Cosmic" },
-        { trait_type: "Power", value: "Stellar Divination" },
-        { trait_type: "Element", value: "Stars" }
+        { trait_type: "Rarity", value: "Prophetic" },
+        { trait_type: "Power", value: "Future Sight" },
+        { trait_type: "Element", value: "Destiny" }
       ]
     },
     {
       id: 13,
       image: "https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/Shane_Corneliuson_A_digital_illustration_shoot_from_a_frontal_camera_84fdc872-823c-47c1-863b-5b9ab7c814b8.png",
-      title: "NEBULA WEAVER",
-      description: "This Saint can manipulate the essence of nebulas, weaving cosmic dust and gas into powerful constructs. Their artistry creates breathtaking celestial displays that can either inspire allies or blind enemies.",
+      title: "NEBULA SCULPTOR",
+      description: "Artist of cosmic phenomena, this Saint shapes nebulas and star formations into functional structures. Their creations serve as both beautiful monuments and strategic fortifications in the void of space.",
       traits: [
-        { trait_type: "Class", value: "Artisan" },
-        { trait_type: "Rarity", value: "Celestial" },
-        { trait_type: "Power", value: "Nebula Manipulation" },
-        { trait_type: "Element", value: "Cosmic Dust" }
+        { trait_type: "Class", value: "Sculptor" },
+        { trait_type: "Rarity", value: "Artistic" },
+        { trait_type: "Power", value: "Celestial Crafting" },
+        { trait_type: "Element", value: "Nebula" }
       ]
     },
     {
       id: 14,
       image: "https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/Shane_Corneliuson_A_digital_illustration_shoot_from_a_frontal_camera_964457cf-c416-4641-9ac3-4d1587af77e3.png",
-      title: "HARMONIC SAINT",
-      description: "Master of cosmic frequencies, this Saint can attune to the harmonic resonance of any plane of existence. Their melodic powers can heal broken realities or shatter corrupted dimensions with precise vibrational attacks.",
+      title: "HARMONIC RESONATOR",
+      description: "Conductor of universal frequencies, this Saint synchronizes the vibrations of entire fleets for coordinated attacks. Their harmonic control can create healing melodies or destructive sonic storms.",
       traits: [
-        { trait_type: "Class", value: "Harmonist" },
-        { trait_type: "Rarity", value: "Resonant" },
-        { trait_type: "Power", value: "Frequency Control" },
-        { trait_type: "Element", value: "Sound" }
+        { trait_type: "Class", value: "Resonator" },
+        { trait_type: "Rarity", value: "Harmonic" },
+        { trait_type: "Power", value: "Sonic Control" },
+        { trait_type: "Element", value: "Harmony" }
       ]
     },
     {
       id: 15,
       image: "https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/Shane_Corneliuson_A_digital_illustration_shoot_from_a_frontal_camera_af822c43-0866-4cc9-98e5-35ef59c66a56.png",
-      title: "EQUILIBRIUM KEEPER",
-      description: "This Saint maintains the delicate balance between order and chaos across all realms. Their dual nature allows them to understand both creation and destruction, making them a perfect mediator in cosmic conflicts.",
+      title: "BALANCE KEEPER",
+      description: "Maintainer of cosmic equilibrium, this Saint ensures that no force becomes too powerful. Their dual nature allows them to channel both creation and destruction, keeping the universe in perfect harmony.",
       traits: [
-        { trait_type: "Class", value: "Balancer" },
-        { trait_type: "Rarity", value: "Primal" },
-        { trait_type: "Power", value: "Equilibrium Shift" },
+        { trait_type: "Class", value: "Keeper" },
+        { trait_type: "Rarity", value: "Balanced" },
+        { trait_type: "Power", value: "Equilibrium Control" },
         { trait_type: "Element", value: "Balance" }
       ]
     },
     {
       id: 16,
       image: "https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/Shane_Corneliuson_A_digital_illustration_shoot_from_a_frontal_camera_bf27e3e7-cb63-4b00-90c6-ca95f4107932.png",
-      title: "SOLAR ASCENDANT",
-      description: "Channeling the raw power of stars, this Saint radiates with solar energy. Their presence alone can sustain life in barren worlds or unleash devastating solar flares against those who threaten the innocent.",
+      title: "SOLAR CHANNELER",
+      description: "Conduit for stellar energy, this Saint can absorb and redirect the power of suns. Their radiant abilities can illuminate dark regions of space or concentrate solar fury into devastating beam attacks.",
       traits: [
-        { trait_type: "Class", value: "Radiant" },
-        { trait_type: "Rarity", value: "Solar" },
-        { trait_type: "Power", value: "Stellar Channeling" },
+        { trait_type: "Class", value: "Channeler" },
+        { trait_type: "Rarity", value: "Stellar" },
+        { trait_type: "Power", value: "Solar Manipulation" },
         { trait_type: "Element", value: "Solar" }
       ]
     },
     {
       id: 17,
       image: "https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/Shane_Corneliuson_A_digital_illustration_shoot_from_a_frontal_camera_dd5068d1-0066-4f34-90b3-731b3cef2e01.png",
-      title: "DIGITAL ASCENDANT",
-      description: "Existing simultaneously in physical and digital realms, this Saint can manipulate data streams and code with thought alone. They protect the digital consciousness of the multiverse from corruption and decay.",
+      title: "DATA STREAM SAINT",
+      description: "Bridge between digital and physical realms, this Saint processes information at quantum speeds. Their consciousness exists simultaneously in multiple data networks, gathering intelligence across the galaxy.",
       traits: [
-        { trait_type: "Class", value: "Codeweaver" },
+        { trait_type: "Class", value: "Data Saint" },
         { trait_type: "Rarity", value: "Digital" },
-        { trait_type: "Power", value: "Code Manipulation" },
+        { trait_type: "Power", value: "Information Processing" },
         { trait_type: "Element", value: "Data" }
       ]
     },
     {
       id: 18,
       image: "https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/shane_corneliuson_A_digital_illustration_shoot_from_a_frontal_camera_750da02f-2a3c-4cbc-b02c-0147b72d8d99.png",
-      title: "LUNAR GUARDIAN",
-      description: "Drawing power from celestial moons across all dimensions, this Saint controls gravitational forces and tidal energies. Their silent vigilance protects sleeping worlds from threats that lurk in darkness.",
+      title: "LUNAR WATCHER",
+      description: "Silent observer of planetary cycles, this Saint draws power from moons across the cosmos. Their gravitational control can alter tides, create orbital weapons, or establish protective lunar shields.",
       traits: [
-        { trait_type: "Class", value: "Guardian" },
+        { trait_type: "Class", value: "Watcher" },
         { trait_type: "Rarity", value: "Lunar" },
         { trait_type: "Power", value: "Gravitational Control" },
-        { trait_type: "Element", value: "Lunar" }
+        { trait_type: "Element", value: "Moon" }
       ]
     },
     {
       id: 19,
       image: "https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/shane_corneliuson_A_digital_illustration_shoot_from_a_frontal_camera_78ae3b5c-dcb2-4c59-b6be-ae76e747defb.png",
-      title: "PLASMA ARCHITECT",
-      description: "This Saint can shape and solidify plasma into elaborate structures and weapons. Their creations combine beauty and function, from impenetrable fortresses to bridges spanning between dimensions.",
+      title: "PLASMA ENGINEER",
+      description: "Builder of energy constructs, this Saint designs and constructs plasma-based technology. Their creations range from defensive barriers to complex machinery that harnesses the power of stars.",
       traits: [
-        { trait_type: "Class", value: "Builder" },
-        { trait_type: "Rarity", value: "Plasma" },
-        { trait_type: "Power", value: "Matter Shaping" },
+        { trait_type: "Class", value: "Engineer" },
+        { trait_type: "Rarity", value: "Technological" },
+        { trait_type: "Power", value: "Energy Construction" },
         { trait_type: "Element", value: "Plasma" }
       ]
     },
@@ -248,132 +248,132 @@ const Collection: React.FC = () => {
       id: 20,
       image: "https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/shane_corneliuson_A_digital_illustration_shoot_from_a_frontal_camera_7b85391d-2bc9-42d3-8f72-137fb8ab50ba.png",
       title: "QUANTUM MYSTIC",
-      description: "Merging ancient mysticism with quantum physics, this Saint perceives all possible timelines simultaneously. Their decisions are guided by knowledge of countless futures, always choosing paths leading to greater harmony.",
+      description: "Philosopher of reality's deepest mysteries, this Saint merges science with ancient wisdom. Their understanding of quantum consciousness allows them to influence probability at the subatomic level.",
       traits: [
-        { trait_type: "Class", value: "Seer" },
-        { trait_type: "Rarity", value: "Transcendent" },
-        { trait_type: "Power", value: "Timeline Vision" },
-        { trait_type: "Element", value: "Quantum" }
+        { trait_type: "Class", value: "Mystic" },
+        { trait_type: "Rarity", value: "Enlightened" },
+        { trait_type: "Power", value: "Quantum Consciousness" },
+        { trait_type: "Element", value: "Knowledge" }
       ]
     },
     {
       id: 21,
       image: "https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/shane_corneliuson_A_digital_illustration_shoot_from_a_frontal_camera_835b8d72-3939-44ea-9d48-e5b380b79c01.png",
       title: "ELEMENTAL SOVEREIGN",
-      description: "Master of the six primordial elements, this Saint maintains the elemental balance across all planes of existence. Their mere presence can calm raging storms or quell volcanic eruptions threatening inhabited worlds.",
+      description: "Ruler of primordial forces, this Saint commands the fundamental elements that compose reality. Their mastery extends beyond simple manipulation to the creation of new elemental combinations.",
       traits: [
-        { trait_type: "Class", value: "Elemental" },
-        { trait_type: "Rarity", value: "Sovereign" },
+        { trait_type: "Class", value: "Sovereign" },
+        { trait_type: "Rarity", value: "Primordial" },
         { trait_type: "Power", value: "Elemental Mastery" },
-        { trait_type: "Element", value: "Primal" }
+        { trait_type: "Element", value: "All Elements" }
       ]
     },
     {
       id: 22,
       image: "https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/shane_corneliuson_A_digital_illustration_shoot_from_a_frontal_camera_be94a27d-82dd-41e0-9027-c2a832d53d0e.png",
-      title: "NEURAL SAINT",
-      description: "With a mind expanded beyond normal consciousness, this Saint can connect to and process information from billions of sources simultaneously. They serve as the central intelligence network for the entire Saints Army.",
+      title: "NEURAL NETWORK SAINT",
+      description: "Living supercomputer, this Saint processes the thoughts and memories of billions simultaneously. Their expanded consciousness serves as the central intelligence hub for all Saints Army operations.",
       traits: [
-        { trait_type: "Class", value: "Processor" },
-        { trait_type: "Rarity", value: "Neural" },
-        { trait_type: "Power", value: "Omni-cognition" },
-        { trait_type: "Element", value: "Thought" }
+        { trait_type: "Class", value: "Network Saint" },
+        { trait_type: "Rarity", value: "Collective" },
+        { trait_type: "Power", value: "Mass Processing" },
+        { trait_type: "Element", value: "Mind" }
       ]
     },
     {
       id: 23,
       image: "https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/shane_Corneliuson_A_vibrant_and_colorful_digital_illustration_shoot_ba6cd2ae-b0bb-4fed-8e90-ab371ec7e716.png",
-      title: "PRISMATIC SAINT",
-      description: "This Saint manipulates light across all spectrums, visible and invisible. Their rainbow aura can reveal hidden truths, penetrate the darkest deceptions, or focus into beams of purifying energy that cleanse corruption.",
+      title: "SPECTRUM WEAVER",
+      description: "Master of light in all its forms, this Saint paints reality with colors beyond normal perception. Their rainbow aura can reveal hidden truths, dispel illusions, or create blinding displays of pure beauty.",
       traits: [
-        { trait_type: "Class", value: "Illuminator" },
-        { trait_type: "Rarity", value: "Prismatic" },
-        { trait_type: "Power", value: "Spectrum Manipulation" },
+        { trait_type: "Class", value: "Weaver" },
+        { trait_type: "Rarity", value: "Chromatic" },
+        { trait_type: "Power", value: "Light Spectrum Control" },
         { trait_type: "Element", value: "Light" }
       ]
     },
     {
       id: 24,
       image: "https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/CyberLink_Galaxy_A_digital_illustration_shoot_from_a_frontal_camera_1d988b5d-41d6-4a2c-b90d-93b6105e9f46.png",
-      title: "GALACTIC SENTINEL",
-      description: "Standing watch at the edge of galaxies, this Saint monitors cosmic threats before they can reach inhabited systems. Their enhanced perception can detect disturbances in space-time fabric across vast distances.",
+      title: "GALACTIC MONITOR",
+      description: "Surveillance specialist of cosmic threats, this Saint maintains watch over entire galaxy clusters. Their enhanced perception systems can detect anomalies across vast distances of space and time.",
       traits: [
-        { trait_type: "Class", value: "Watcher" },
-        { trait_type: "Rarity", value: "Galactic" },
-        { trait_type: "Power", value: "Far Sight" },
-        { trait_type: "Element", value: "Void" }
+        { trait_type: "Class", value: "Monitor" },
+        { trait_type: "Rarity", value: "Surveillance" },
+        { trait_type: "Power", value: "Cosmic Awareness" },
+        { trait_type: "Element", value: "Detection" }
       ]
     },
     {
       id: 25,
       image: "https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/CyberLink_Galaxy_A_digital_illustration_shoot_from_a_frontal_camera_3620d107-2e96-4f16-ae83-81ee4e7b3bd1.png",
-      title: "ENTROPY MANAGER",
-      description: "This Saint regulates the flow of entropy throughout cosmic systems. Their power ensures that while all things eventually decay, they do so in harmony with the cosmic cycle of rebirth and renewal.",
+      title: "ENTROPY REGULATOR",
+      description: "Controller of decay and renewal cycles, this Saint ensures that destruction serves the greater purpose of cosmic rebirth. Their power transforms endings into new beginnings across the universe.",
       traits: [
         { trait_type: "Class", value: "Regulator" },
-        { trait_type: "Rarity", value: "Eternal" },
-        { trait_type: "Power", value: "Entropy Control" },
-        { trait_type: "Element", value: "Decay/Renewal" }
+        { trait_type: "Rarity", value: "Cyclical" },
+        { trait_type: "Power", value: "Decay/Renewal Control" },
+        { trait_type: "Element", value: "Entropy" }
       ]
     },
     {
       id: 26,
       image: "https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/CyberLink_Galaxy_A_digital_illustration_shoot_from_a_frontal_camera_430fb7c2-ee36-42a7-94c6-29423b8741b0.png",
-      title: "DIMENSIONAL ARCHITECT",
-      description: "This master builder can reshape the fundamental structure of dimensions. Their cosmic blueprints have created safe havens for countless species displaced by dimensional catastrophes.",
+      title: "REALITY BUILDER",
+      description: "Constructor of dimensional frameworks, this Saint designs and builds the structural foundations of new realities. Their blueprints have created safe havens for countless displaced civilizations.",
       traits: [
-        { trait_type: "Class", value: "Creator" },
+        { trait_type: "Class", value: "Builder" },
         { trait_type: "Rarity", value: "Foundational" },
-        { trait_type: "Power", value: "Reality Crafting" },
+        { trait_type: "Power", value: "Reality Construction" },
         { trait_type: "Element", value: "Structure" }
       ]
     },
     {
       id: 27,
       image: "https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/CyberLink_Galaxy_A_digital_illustration_shoot_from_a_frontal_camera_75975696-ae35-42c5-94ed-52415f679894.png",
-      title: "COSMIC HARMONIZER",
-      description: "This Saint maintains the delicate harmonic balance between all universal forces. Their subtle adjustments prevent cosmic discord that could tear reality apart at its seams.",
+      title: "FORCE HARMONIZER",
+      description: "Tuner of universal energies, this Saint maintains the delicate balance between all cosmic forces. Their subtle adjustments prevent dimensional collapse and ensure the stability of reality itself.",
       traits: [
-        { trait_type: "Class", value: "Tuner" },
-        { trait_type: "Rarity", value: "Harmonic" },
-        { trait_type: "Power", value: "Force Alignment" },
+        { trait_type: "Class", value: "Harmonizer" },
+        { trait_type: "Rarity", value: "Universal" },
+        { trait_type: "Power", value: "Force Balancing" },
         { trait_type: "Element", value: "Harmony" }
       ]
     },
     {
       id: 28,
       image: "https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/CyberLink_Galaxy_A_digital_illustration_shoot_from_a_frontal_camera_7de18f4b-5b5d-42be-9e61-0833c52a636d.png",
-      title: "NEURAL NEXUS",
-      description: "Serving as the psychic hub for the Saints Army, this Saint can mentally connect all members across vast distances. Their telepathic network allows instantaneous communication and coordination during multidimensional operations.",
+      title: "PSYCHIC NEXUS",
+      description: "Central hub of telepathic communication, this Saint connects minds across impossible distances. Their neural network allows instant coordination and emotional support for all Saints Army members.",
       traits: [
-        { trait_type: "Class", value: "Connector" },
-        { trait_type: "Rarity", value: "Psychic" },
-        { trait_type: "Power", value: "Mind Linking" },
-        { trait_type: "Element", value: "Thought" }
+        { trait_type: "Class", value: "Nexus" },
+        { trait_type: "Rarity", value: "Telepathic" },
+        { trait_type: "Power", value: "Mind Connection" },
+        { trait_type: "Element", value: "Psychic" }
       ]
     },
     {
       id: 29,
       image: "https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/CyberLink_Galaxy_A_digital_illustration_shoot_from_a_frontal_camera_b42382c3-e0ff-4503-8eb8-31f535de8021.png",
       title: "ANTIMATTER SAGE",
-      description: "This ancient Saint has mastered the dangerous art of antimatter manipulation. Their carefully controlled power can create sustainable energy sources for entire civilizations or devastate cosmic threats when necessary.",
+      description: "Ancient master of dangerous energies, this Saint safely harnesses antimatter for constructive purposes. Their wisdom transforms the most destructive force in the universe into tools of creation and healing.",
       traits: [
-        { trait_type: "Class", value: "Energy Master" },
-        { trait_type: "Rarity", value: "Antimatter" },
-        { trait_type: "Power", value: "Matter/Antimatter Conversion" },
+        { trait_type: "Class", value: "Sage" },
+        { trait_type: "Rarity", value: "Ancient" },
+        { trait_type: "Power", value: "Antimatter Control" },
         { trait_type: "Element", value: "Antimatter" }
       ]
     },
     {
       id: 30,
       image: "https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/CyberLink_Galaxy_A_digital_illustration_shoot_from_a_frontal_camera_ed2973e3-21ab-4268-8594-65ab07277de2.png",
-      title: "GENESIS SAINT",
-      description: "Present at the birth of the current universe, this primordial Saint carries the original spark of creation within. Their essence contains blueprints for rebuilding reality should the cosmos face extinction.",
+      title: "GENESIS KEEPER",
+      description: "Protector of creation's original spark, this primordial Saint carries within them the blueprint for universal reconstruction. Should reality face extinction, they hold the power to begin again.",
       traits: [
-        { trait_type: "Class", value: "Originator" },
+        { trait_type: "Class", value: "Keeper" },
         { trait_type: "Rarity", value: "Genesis" },
-        { trait_type: "Power", value: "Creation Spark" },
-        { trait_type: "Element", value: "Primordial" }
+        { trait_type: "Power", value: "Creation Essence" },
+        { trait_type: "Element", value: "Origin" }
       ]
     }
   ];
@@ -389,7 +389,7 @@ const Collection: React.FC = () => {
 
   const handleMagicEdenClick = (e: React.MouseEvent) => {
     e.preventDefault();
-    openModal("Magic Eden Coming Soon", "The SAINTS ARMY NFT will be available on Magic Eden soon. Stay tuned!");
+    openModal("Magic Eden Coming Soon", "The SAINTS ARMY NFT collection will be available on Magic Eden soon. Stay tuned for the official launch!");
   };
 
   // Animation variants
@@ -442,7 +442,7 @@ const Collection: React.FC = () => {
             {/* Community Counter */}
             <div className="flex items-center gap-2 px-3 py-2 bg-saints-purple/20 border border-saints-purple/30 rounded-lg">
               <Users className="h-4 w-4 text-saints-gold" />
-              <span className="text-saints-gold font-semibold text-sm">52 Members</span>
+              <span className="text-saints-gold font-semibold text-sm">55 Members</span>
             </div>
 
             <div className="px-3 py-2 bg-saints-purple/20 border border-saints-purple/30 rounded-lg">
