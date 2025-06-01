@@ -134,7 +134,7 @@ const Header: React.FC = () => {
           >
             <div className="w-12 h-12 relative overflow-hidden rounded-full ring-2 ring-saints-gold ring-offset-2 ring-offset-saints-dark animate-pulse-glow">
               <img 
-                src="https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/1744696908578.png"
+                src="https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/SAINT1.png"
                 alt="Saints Army Logo" 
                 className="w-full h-full object-cover"
               />
