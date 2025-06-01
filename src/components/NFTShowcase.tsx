@@ -10,17 +10,17 @@ import { useIsMobile } from '@/hooks/use-mobile';
 import { useComingSoonModal } from '@/hooks/use-coming-soon-modal';
 
 const NFTShowcase: React.FC = () => {
-  // Featured single NFT - showcasing the best one
+  // Featured single NFT - showcasing the best one with local image
   const featuredNFT: NFTDetails = {
     id: 1,
-    image: "https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/Shane_Corneliuson_A_digital_illustration_shoot_from_a_frontal_camera_fd7a394d-2163-42ea-8442-d9319d7dc32a.png",
-    title: "SAINT WARRIOR",
-    description: "A divine protector with celestial powers, born from the stars to defend the sacred realms. Infused with cosmic energy, this Saint commands respect across dimensions.",
+    image: "/SAINT1.png",
+    title: "VOID PIONEER",
+    description: "First to venture into the cosmic void, this Saint charted the pathways between dimensions. Their pioneering spirit opened routes that connect distant galaxies, making interstellar travel possible for the Saints Army.",
     traits: [
-      { trait_type: "Class", value: "Warrior" },
-      { trait_type: "Rarity", value: "Legendary" },
-      { trait_type: "Power", value: "Cosmic Shield" },
-      { trait_type: "Element", value: "Celestial" }
+      { trait_type: "Class", value: "Pioneer" },
+      { trait_type: "Rarity", value: "Genesis" },
+      { trait_type: "Power", value: "Dimensional Mapping" },
+      { trait_type: "Element", value: "Void" }
     ]
   };
 
