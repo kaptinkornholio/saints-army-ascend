@@ -830,18 +830,7 @@ export const nftCollection: NFTDetails[] = [
     ]
   },
   {
-   id: 70,
-   image: "https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/SAINT70.png",
-   title: "VOID ARCHITECT",
-   description: "Designer of emptiness and negative space, this Saint constructs meaningful absence, building structures from what isn't there and finding profound purpose in the spaces between existence.",
-   traits: [
-     { trait_type: "Class", value: "Architect" },
-     { trait_type: "Rarity", value: "Void" },
-     { trait_type: "Power", value: "Negative Construction" },
-     { trait_type: "Element", value: "Emptiness" }
-   ]
-  },
-  {
+    
     id: 71,
     image: "https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/SAINT71.png",
     title: "BRANE WORLD SAINT",
@@ -959,5 +948,6 @@ export const nftCollection: NFTDetails[] = [
       { trait_type: "Rarity", value: "Final" },
       { trait_type: "Power", value: "Ultimate Convergence" },
       { trait_type: "Element", value: "Omega Energy" }
-   
+    ]
+  }
 ];
