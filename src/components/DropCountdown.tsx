@@ -101,10 +101,10 @@ const DropCountdown: React.FC<DropCountdownProps> = ({ targetDate }) => {
         transition={{ duration: 0.8 }}
       >
         <h2 className="text-3xl md:text-4xl font-audiowide text-transparent bg-clip-text bg-gradient-to-r from-saints-gold via-saints-purple to-saints-blue mb-2">
-          Next NFT Drop Countdown
+          NFT Drop Countdown
         </h2>
         <p className="text-lg text-white/80 font-rajdhani">
-          Be ready to mint the next exclusive SAINTS ARMY collection
+          Be ready to mint the exclusive SAINTS ARMY collection
         </p>
       </motion.div>
       
