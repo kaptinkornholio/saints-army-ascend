@@ -18,6 +18,11 @@ const NFTCard: React.FC<NFTCardProps> = ({ nft, onClick }) => {
     }
   };
 
+  const handleImageError = (e: React.SyntheticEvent<HTMLImageElement>) => {
+    console.log(`Failed to load image: ${nft.image}`);
+    e.currentTarget.src = '/placeholder.svg'; // Fallback to placeholder
+  };
+
   return (
     <motion.div
       variants={itemVariants}
@@ -37,6 +42,8 @@ const NFTCard: React.FC<NFTCardProps> = ({ nft, onClick }) => {
               src={nft.image} 
               alt={nft.title}
               className="w-full aspect-square object-cover"
+              onError={handleImageError}
+              loading="lazy"
             />
           </motion.div>
         </div>
