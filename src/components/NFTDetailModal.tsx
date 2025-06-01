@@ -82,7 +82,7 @@ const NFTDetailModal: React.FC<NFTDetailModalProps> = ({ isOpen, onClose, nft })
             
             <div className="pt-2 mt-2 border-t border-saints-purple/20">
               <a 
-                href="https://magiceden.io/marketplace/saint_neos_army?status=%22magic_eden%22" 
+                href="https://magiceden.io/" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="text-saints-gold hover:text-saints-blue transition-colors text-sm inline-flex items-center"
