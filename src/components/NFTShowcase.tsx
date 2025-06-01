@@ -215,7 +215,7 @@ const NFTShowcase: React.FC = () => {
             whileTap={{ scale: 0.98 }}
           >
             <span className="relative z-10 inline-flex items-center gap-3 bg-gradient-to-r from-saints-purple to-saints-blue text-white font-orbitron font-bold py-4 md:py-5 px-10 md:px-14 rounded-xl transition-all duration-500 border border-saints-purple/40 text-lg md:text-xl backdrop-blur-sm">
-              Explore Full Collection
+              Explore SAINT PROTECTORS Collection
             </span>
             <span className="absolute inset-0 bg-gradient-to-r from-saints-gold to-saints-blue opacity-0 group-hover:opacity-40 transition-opacity duration-500 rounded-xl"></span>
             <motion.span 
