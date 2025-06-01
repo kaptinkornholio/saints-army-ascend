@@ -27,7 +27,7 @@ const Collection: React.FC = () => {
 
   const handleMagicEdenClick = (e: React.MouseEvent) => {
     e.preventDefault();
-    window.open('https://magiceden.io/', '_blank');
+    openModal("Magic Eden Coming Soon", "The SAINTS ARMY NFT collection will be available on Magic Eden soon. Stay tuned for the official launch!");
   };
 
   // Animation variants
@@ -80,16 +80,14 @@ const Collection: React.FC = () => {
           </div>
         </div>
 
-        {/* Magic Eden Button */}
+        {/* Magic Eden Coming Soon Button */}
         <div className="mb-6 text-center">
           <button
             onClick={handleMagicEdenClick}
             className="inline-flex items-center gap-2 bg-saints-purple/30 hover:bg-saints-purple/50 text-white rounded-lg border border-saints-purple/30 transition-all duration-300 px-4 py-2 hover:shadow-[0_0_15px_rgba(178,0,255,0.5)]"
           >
-            <svg width="20" height="20" viewBox="0 0 24 24" className="fill-white">
-              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
-            </svg>
-            <span className="font-semibold">View on Magic Eden</span>
+            <img src="https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/Magic-Eden-Logo.jpg" alt="Magic Eden" className="w-5 h-5 rounded-full" />
+            <span className="font-semibold">Available on Magic Eden Soon</span>
           </button>
         </div>
 
