@@ -960,7 +960,8 @@ export const nftCollection: NFTDetails[] = [
       { trait_type: "Power", value: "Ultimate Convergence" },
       { trait_type: "Element", value: "Omega Energy" }
     ]
-  }
+  },
+  {
  id: 84,
     image: "https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/SAINT84.png",
     title: "QUANTUM LIBRARIAN",
