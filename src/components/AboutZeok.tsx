@@ -56,7 +56,7 @@ const AboutZeok: React.FC = () => {
                 </p>
                 <p className="animate-fade-in opacity-0" style={{ animationDelay: "0.3s", animationFillMode: "forwards" }}>
                   We're building a blessed ecosystem where the 
-                  <span className="bg-clip-text text-transparent bg-gradient-to-r from-saints-gold to-saints-purple font-bold"> #ONEARMY </span>
+                  <span className="bg-clip-text text-transparent bg-gradient-to-r from-saints-gold to-saints-purple font-bold"> #SAINTSARMY </span>
                   movement stands for God-given rights of free speech and the sacred exchange of ideas without
                    censorship or persecution.
                 </p>
@@ -78,10 +78,10 @@ const AboutZeok: React.FC = () => {
                 <div className="pt-6 animate-fade-in opacity-0" style={{ animationDelay: "1.1s", animationFillMode: "forwards" }}>
                   <Button 
                     className="btn-secondary relative group overflow-hidden"
-                    onClick={() => window.open("https://discord.gg/7DJX9266", "_blank")}
+                    onClick={() => window.open("https://x.com/i/communities/1922307515930575219", "_blank")}
                   >
                     <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-saints-purple to-saints-blue opacity-0 group-hover:opacity-30 transition-opacity duration-300"></span>
-                    Join #OneArmy
+                    Join SAINTS ARMY 
                     <span className="absolute bottom-0 left-0 w-full h-0.5 bg-saints-gold transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
                   </Button>
                 </div>
