@@ -638,6 +638,18 @@ export const nftCollection: NFTDetails[] = [
     ]
   },
   {
+      id: 54,
+   image: "https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/SAINT54.png",
+   title: "FRACTAL WEAVER",
+   description: "Master of infinite recursive patterns, this Saint creates self-similar structures that contain entire universes within their smallest details, weaving complexity from simplicity across all scales of existence.",
+   traits: [
+     { trait_type: "Class", value: "Weaver" },
+     { trait_type: "Rarity", value: "Fractal" },
+     { trait_type: "Power", value: "Pattern Recursion" },
+     { trait_type: "Element", value: "Mathematics" }
+    ]
+  },
+  {
     id: 55,
     image: "https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/SAINT55.png",
     title: "COMET RIDER",
@@ -816,6 +828,18 @@ export const nftCollection: NFTDetails[] = [
       { trait_type: "Power", value: "Cross-Dimensional Building" },
       { trait_type: "Element", value: "Multiple Dimensions" }
     ]
+  },
+  {
+   id: 70,
+   image: "https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/SAINT70.png",
+   title: "VOID ARCHITECT",
+   description: "Designer of emptiness and negative space, this Saint constructs meaningful absence, building structures from what isn't there and finding profound purpose in the spaces between existence.",
+   traits: [
+     { trait_type: "Class", value: "Architect" },
+     { trait_type: "Rarity", value: "Void" },
+     { trait_type: "Power", value: "Negative Construction" },
+     { trait_type: "Element", value: "Emptiness" }
+   ]
   },
   {
     id: 71,
