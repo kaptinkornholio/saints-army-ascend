@@ -225,7 +225,7 @@ const Header: React.FC = () => {
               <ComingSoonButton 
                 className="btn-primary text-lg px-8 py-6 shadow-[0_0_15px_rgba(255,215,0,0.4)] hover:shadow-[0_0_25px_rgba(255,215,0,0.6)] flex items-center gap-3 w-full sm:w-auto"
               >
-                <img src="https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/Magic-Eden-Logo.jpg" alt="Magic Eden" className="w-7 h-7 rounded-full" />
+                <img src="https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/magicedenlogo.png" alt="Magic Eden" className="w-7 h-7 rounded-full" />
                 <span className="font-bold">MINT COMING SOON</span>
               </ComingSoonButton>
             </motion.div>
