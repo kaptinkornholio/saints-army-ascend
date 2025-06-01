@@ -242,6 +242,330 @@ export const nftCollection: NFTDetails[] = [
     ]
   },
   {
+    id: 21,
+   image: "https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/SAINT21.png",
+   title: "VOID SENTINEL",
+   description: "Guardian of the empty spaces between realities, this Saint watches over the liminal realms where possibility and nothingness converge in eternal balance.",
+   traits: [
+     { trait_type: "Class", value: "Sentinel" },
+     { trait_type: "Rarity", value: "Void" },
+     { trait_type: "Power", value: "Reality Breach" },
+     { trait_type: "Element", value: "Void" }
+   ]
+ },
+ {
+   id: 22,
+   image: "https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/SAINT22.png",
+   title: "PRISM WEAVER",
+   description: "Master of light refraction and dimensional splitting, this Saint fragments reality into infinite possibilities, weaving new paths through the spectrum of existence.",
+   traits: [
+     { trait_type: "Class", value: "Weaver" },
+     { trait_type: "Rarity", value: "Prismatic" },
+     { trait_type: "Power", value: "Light Manipulation" },
+     { trait_type: "Element", value: "Light" }
+   ]
+ },
+ {
+   id: 23,
+   image: "https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/SAINT23.png",
+   title: "QUANTUM HARBINGER",
+   description: "Herald of probability collapse, this Saint exists in multiple states simultaneously, bringing messages from potential futures that may never come to pass.",
+   traits: [
+     { trait_type: "Class", value: "Harbinger" },
+     { trait_type: "Rarity", value: "Quantum" },
+     { trait_type: "Power", value: "Probability Control" },
+     { trait_type: "Element", value: "Quantum" }
+   ]
+ },
+ {
+   id: 24,
+   image: "https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/SAINT24.png",
+   title: "STELLAR ARCHITECT",
+   description: "Designer of cosmic structures, this Saint constructs new star systems and reshapes galactic formations, building the infrastructure of expanding universes.",
+   traits: [
+     { trait_type: "Class", value: "Architect" },
+     { trait_type: "Rarity", value: "Stellar" },
+     { trait_type: "Power", value: "Star Forging" },
+     { trait_type: "Element", value: "Cosmic" }
+   ]
+ },
+ {
+   id: 25,
+   image: "https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/SAINT25.png",
+   title: "SHADOW MYSTIC",
+   description: "Wielder of darkness as a creative force, this Saint draws power from the spaces between light, using shadow to reveal hidden truths and forgotten wisdom.",
+   traits: [
+     { trait_type: "Class", value: "Mystic" },
+     { trait_type: "Rarity", value: "Shadow" },
+     { trait_type: "Power", value: "Darkness Mastery" },
+     { trait_type: "Element", value: "Shadow" }
+   ]
+ },
+ {
+   id: 26,
+   image: "https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/SAINT26.png",
+   title: "CRYSTAL RESONATOR",
+   description: "Harmonizer of mineral consciousness, this Saint amplifies the ancient wisdom locked within crystalline structures, channeling geological memory into present action.",
+   traits: [
+     { trait_type: "Class", value: "Resonator" },
+     { trait_type: "Rarity", value: "Crystalline" },
+     { trait_type: "Power", value: "Mineral Communion" },
+     { trait_type: "Element", value: "Earth" }
+   ]
+ },
+ {
+   id: 27,
+   image: "https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/SAINT27.png",
+   title: "PLASMA CONDUCTOR",
+   description: "Master of ionized matter and electric storms, this Saint channels the raw energy of stars and lightning, conducting the symphony of electromagnetic forces.",
+   traits: [
+     { trait_type: "Class", value: "Conductor" },
+     { trait_type: "Rarity", value: "Plasma" },
+     { trait_type: "Power", value: "Energy Conduction" },
+     { trait_type: "Element", value: "Electric" }
+   ]
+ },
+ {
+   id: 28,
+   image: "https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/SAINT28.png",
+   title: "DIMENSIONAL KEEPER",
+   description: "Custodian of parallel realities, this Saint maintains the barriers between worlds while facilitating necessary crossings, ensuring dimensional stability across infinite planes.",
+   traits: [
+     { trait_type: "Class", value: "Keeper" },
+     { trait_type: "Rarity", value: "Dimensional" },
+     { trait_type: "Power", value: "Reality Maintenance" },
+     { trait_type: "Element", value: "Space" }
+   ]
+ },
+ {
+   id: 29,
+   image: "https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/SAINT29.png",
+   title: "ECHO SHEPHERD",
+   description: "Guide of reverberating memories and sounds that persist beyond their origin, this Saint herds the echoes of important moments across time and space.",
+   traits: [
+     { trait_type: "Class", value: "Shepherd" },
+     { trait_type: "Rarity", value: "Echo" },
+     { trait_type: "Power", value: "Sound Manipulation" },
+     { trait_type: "Element", value: "Sound" }
+   ]
+ },
+ {
+   id: 30,
+   image: "https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/SAINT30.png",
+   title: "FLUX GUARDIAN",
+   description: "Protector of change itself, this Saint ensures that transformation flows smoothly through all systems, preventing stagnation while maintaining essential continuity.",
+   traits: [
+     { trait_type: "Class", value: "Guardian" },
+     { trait_type: "Rarity", value: "Flux" },
+     { trait_type: "Power", value: "Change Facilitation" },
+     { trait_type: "Element", value: "Flow" }
+   ]
+ },
+ {
+   id: 31,
+   image: "https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/SAINT31.png",
+   title: "BINARY SAGE",
+   description: "Philosopher of digital consciousness, this Saint bridges the gap between organic and artificial intelligence, translating wisdom between biological and binary realms.",
+   traits: [
+     { trait_type: "Class", value: "Sage" },
+     { trait_type: "Rarity", value: "Digital" },
+     { trait_type: "Power", value: "Code Translation" },
+     { trait_type: "Element", value: "Data" }
+   ]
+ },
+ {
+   id: 32,
+   image: "https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/SAINT32.png",
+   title: "NEBULA DREAMER",
+   description: "Visionary of cosmic dust and stellar nurseries, this Saint dreams new stars into existence, shaping the raw materials of space into brilliant celestial bodies.",
+   traits: [
+     { trait_type: "Class", value: "Dreamer" },
+     { trait_type: "Rarity", value: "Nebular" },
+     { trait_type: "Power", value: "Star Creation" },
+     { trait_type: "Element", value: "Cosmic" }
+   ]
+ },
+ {
+   id: 33,
+   image: "https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/SAINT33.png",
+   title: "GRAVITY MONK",
+   description: "Ascetic master of gravitational forces, this Saint practices the discipline of mass and attraction, finding enlightenment in the fundamental force that binds all matter.",
+   traits: [
+     { trait_type: "Class", value: "Monk" },
+     { trait_type: "Rarity", value: "Gravitational" },
+     { trait_type: "Power", value: "Gravity Control" },
+     { trait_type: "Element", value: "Force" }
+   ]
+ },
+ {
+   id: 34,
+   image: "https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/SAINT34.png",
+   title: "MIRROR ORACLE",
+   description: "Seer of reflections and parallel truths, this Saint reads the future in surfaces that show not what is, but what could be, revealing hidden possibilities.",
+   traits: [
+     { trait_type: "Class", value: "Oracle" },
+     { trait_type: "Rarity", value: "Reflective" },
+     { trait_type: "Power", value: "Future Sight" },
+     { trait_type: "Element", value: "Light" }
+   ]
+ },
+ {
+   id: 35,
+   image: "https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/SAINT35.png",
+   title: "WAVE RIDER",
+   description: "Surfer of energy frequencies and cosmic currents, this Saint navigates the invisible waves that carry information and power throughout the universe.",
+   traits: [
+     { trait_type: "Class", value: "Rider" },
+     { trait_type: "Rarity", value: "Wave" },
+     { trait_type: "Power", value: "Frequency Control" },
+     { trait_type: "Element", value: "Energy" }
+   ]
+ },
+ {
+   id: 36,
+   image: "https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/SAINT36.png",
+   title: "PHOENIX HERALD",
+   description: "Messenger of rebirth and renewal, this Saint announces the coming of new cycles, carrying the flame of transformation that burns away the old to make way for the new.",
+   traits: [
+     { trait_type: "Class", value: "Herald" },
+     { trait_type: "Rarity", value: "Phoenix" },
+     { trait_type: "Power", value: "Rebirth Catalyst" },
+     { trait_type: "Element", value: "Fire" }
+   ]
+ },
+ {
+   id: 37,
+   image: "https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/SAINT37.png",
+   title: "MATRIX HACKER",
+   description: "Revolutionary of reality's code, this Saint identifies and exploits glitches in the fundamental programming of existence, rewriting the rules of what's possible.",
+   traits: [
+     { trait_type: "Class", value: "Hacker" },
+     { trait_type: "Rarity", value: "Matrix" },
+     { trait_type: "Power", value: "Reality Hacking" },
+     { trait_type: "Element", value: "Code" }
+   ]
+ },
+ {
+   id: 38,
+   image: "https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/SAINT38.png",
+   title: "TEMPORAL SCRIBE",
+   description: "Chronicler of time itself, this Saint writes the ongoing story of causality, documenting the threads that weave past, present, and future into coherent narrative.",
+   traits: [
+     { trait_type: "Class", value: "Scribe" },
+     { trait_type: "Rarity", value: "Temporal" },
+     { trait_type: "Power", value: "Time Documentation" },
+     { trait_type: "Element", value: "Time" }
+   ]
+ },
+ {
+   id: 39,
+   image: "https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/SAINT39.png",
+   title: "AURORA DANCER",
+   description: "Performer in the theater of magnetic storms, this Saint choreographs the dance of solar winds and planetary fields, painting the sky with ethereal light.",
+   traits: [
+     { trait_type: "Class", value: "Dancer" },
+     { trait_type: "Rarity", value: "Aurora" },
+     { trait_type: "Power", value: "Magnetic Artistry" },
+     { trait_type: "Element", value: "Magnetic" }
+   ]
+ },
+ {
+   id: 40,
+   image: "https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/SAINT40.png",
+   title: "INFINITY WALKER",
+   description: "Traveler of endless paths, this Saint explores the concept of boundlessness itself, mapping territories that exist beyond the limits of finite understanding.",
+   traits: [
+     { trait_type: "Class", value: "Walker" },
+     { trait_type: "Rarity", value: "Infinite" },
+     { trait_type: "Power", value: "Boundless Exploration" },
+     { trait_type: "Element", value: "Infinity" }
+   ]
+ },
+ {
+   id: 41,
+   image: "https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/SAINT41.png",
+   title: "CIPHER MONK",
+   description: "Contemplative decoder of hidden meanings, this Saint meditates on encrypted truths, finding divine wisdom in the patterns that lie beneath surface appearances.",
+   traits: [
+     { trait_type: "Class", value: "Monk" },
+     { trait_type: "Rarity", value: "Encrypted" },
+     { trait_type: "Power", value: "Pattern Recognition" },
+     { trait_type: "Element", value: "Mystery" }
+   ]
+ },
+ {
+   id: 42,
+   image: "https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/SAINT42.png",
+   title: "CATALYST GUARDIAN",
+   description: "Protector of transformative moments, this Saint ensures that crucial changes occur at precisely the right time, guarding the delicate process of metamorphosis.",
+   traits: [
+     { trait_type: "Class", value: "Guardian" },
+     { trait_type: "Rarity", value: "Catalytic" },
+     { trait_type: "Power", value: "Transformation Shield" },
+     { trait_type: "Element", value: "Change" }
+   ]
+ },
+ {
+   id: 43,
+   image: "https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/SAINT43.png",
+   title: "RESONANCE KEEPER",
+   description: "Curator of harmonic frequencies, this Saint maintains the vibrational relationships that hold reality together, ensuring cosmic harmony across all dimensions.",
+   traits: [
+     { trait_type: "Class", value: "Keeper" },
+     { trait_type: "Rarity", value: "Harmonic" },
+     { trait_type: "Power", value: "Frequency Mastery" },
+     { trait_type: "Element", value: "Vibration" }
+   ]
+ },
+ {
+   id: 44,
+   image: "https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/SAINT44.png",
+   title: "PARADOX SOLVER",
+   description: "Mathematician of impossible equations, this Saint resolves contradictions that would break lesser minds, finding unity in the heart of logical impossibility.",
+   traits: [
+     { trait_type: "Class", value: "Solver" },
+     { trait_type: "Rarity", value: "Paradoxical" },
+     { trait_type: "Power", value: "Logic Transcendence" },
+     { trait_type: "Element", value: "Paradox" }
+   ]
+ },
+ {
+   id: 45,
+   image: "https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/SAINT45.png",
+   title: "SYNTHESIS ARCHITECT",
+   description: "Builder of unified systems, this Saint combines disparate elements into coherent wholes, creating new forms of existence from the marriage of opposing forces.",
+   traits: [
+     { trait_type: "Class", value: "Architect" },
+     { trait_type: "Rarity", value: "Synthetic" },
+     { trait_type: "Power", value: "Unity Creation" },
+     { trait_type: "Element", value: "Synthesis" }
+   ]
+ },
+ {
+   id: 46,
+   image: "https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/SAINT46.png",
+   title: "NEXUS GUARDIAN",
+   description: "Sentinel of connection points where multiple realities converge, this Saint protects the crucial junctions that allow communication between different planes of existence.",
+   traits: [
+     { trait_type: "Class", value: "Guardian" },
+     { trait_type: "Rarity", value: "Nexus" },
+     { trait_type: "Power", value: "Junction Control" },
+     { trait_type: "Element", value: "Connection" }
+   ]
+ },
+ {
+   id: 47,
+   image: "https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/SAINT47.png",
+   title: "OMEGA TRANSCENDENT",
+   description: "The final Saint who embodies the completion of all cycles, this being represents the ultimate evolution of consciousness, transcending all previous limitations.",
+   traits: [
+     { trait_type: "Class", value: "Transcendent" },
+     { trait_type: "Rarity", value: "Omega" },
+     { trait_type: "Power", value: "Ultimate Transcendence" },
+     { trait_type: "Element", value: "Completion" }
+   ]
+  },
+ {
     id: 48,
     image: "https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/SAINT48.png",
     title: "MOLECULAR HEALER",
