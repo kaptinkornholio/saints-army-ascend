@@ -35,7 +35,7 @@ const CTAFooter: React.FC = () => {
           <div className="mb-8 flex justify-center">
             <div className="flex items-center gap-3 px-6 py-3 bg-saints-purple/20 border border-saints-purple/30 rounded-full backdrop-blur-sm">
               <Users className="h-5 w-5 text-saints-gold" />
-              <span className="text-saints-gold font-bold text-lg">52 Community Members</span>
+              <span className="text-saints-gold font-bold text-lg">54 Community Members</span>
             </div>
           </div>
 
