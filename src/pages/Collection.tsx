@@ -1,23 +1,26 @@
 
-import React from 'react';
+import React, { Suspense, lazy } from 'react';
 import NFTDetailModal from '@/components/NFTDetailModal';
 import { NFTDetails } from '@/components/NFTDetailModal';
 import CollectionHeader from '@/components/CollectionHeader';
-import NFTGrid from '@/components/NFTGrid';
+import NFTGridSkeleton from '@/components/NFTGridSkeleton';
 import { nftCollection } from '@/data/nftData';
+
+// Lazy load the NFT grid for better initial loading
+const OptimizedNFTGrid = lazy(() => import('@/components/OptimizedNFTGrid'));
 
 const Collection: React.FC = () => {
   const [selectedNFT, setSelectedNFT] = React.useState<NFTDetails | null>(null);
   const [modalOpen, setModalOpen] = React.useState(false);
 
-  const handleNFTClick = (nft: NFTDetails) => {
+  const handleNFTClick = React.useCallback((nft: NFTDetails) => {
     setSelectedNFT(nft);
     setModalOpen(true);
-  };
+  }, []);
 
-  const closeModal = () => {
+  const closeModal = React.useCallback(() => {
     setModalOpen(false);
-  };
+  }, []);
 
   return (
     <div className="min-h-screen bg-saints-dark text-white pt-16 sm:pt-20 pb-6 sm:pb-10">
@@ -27,10 +30,15 @@ const Collection: React.FC = () => {
 
       <div className="container mx-auto px-3 sm:px-4">
         <CollectionHeader totalNFTs={nftCollection.length} />
-        <NFTGrid nftCollection={nftCollection} onNFTClick={handleNFTClick} />
+        
+        <Suspense fallback={<NFTGridSkeleton count={24} />}>
+          <OptimizedNFTGrid nftCollection={nftCollection} onNFTClick={handleNFTClick} />
+        </Suspense>
       </div>
       
-      <NFTDetailModal isOpen={modalOpen} onClose={closeModal} nft={selectedNFT} />
+      {selectedNFT && (
+        <NFTDetailModal isOpen={modalOpen} onClose={closeModal} nft={selectedNFT} />
+      )}
     </div>
   );
 };
