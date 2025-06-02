@@ -5,6 +5,7 @@ import { Facebook, Twitter, Instagram, Menu, X } from "lucide-react";
 import { useIsMobile } from '@/hooks/use-mobile';
 import { useNavigate } from 'react-router-dom';
 import ComingSoonModal from './ComingSoonModal';
+import { useComingSoonModal } from '@/hooks/use-coming-soon-modal';
 
 interface DynamicHeaderProps {
   isScrolled: boolean;
@@ -19,6 +20,7 @@ const DynamicHeader: React.FC<DynamicHeaderProps> = ({ isScrolled }) => {
   });
   const isMobile = useIsMobile();
   const navigate = useNavigate();
+  const { ComingSoonButton } = useComingSoonModal();
 
   // Close mobile menu when resizing to desktop
   useEffect(() => {
@@ -94,7 +96,11 @@ const DynamicHeader: React.FC<DynamicHeaderProps> = ({ isScrolled }) => {
   };
 
   const handleRoadmap = () => {
-    navigate('/roadmap');
+    setModalConfig({
+      title: "Roadmap Coming Soon",
+      description: "Our comprehensive roadmap will be revealed soon. Stay tuned for exciting updates!"
+    });
+    setComingSoonOpen(true);
   };
 
   // Function to close mobile menu when clicking a link
@@ -162,21 +168,20 @@ const DynamicHeader: React.FC<DynamicHeaderProps> = ({ isScrolled }) => {
               </motion.a>
             ))}
             
-            {/* Updated Roadmap link to navigate to roadmap page */}
-            <motion.a 
-              href="#"
-              onClick={(e) => {
-                e.preventDefault();
-                handleRoadmap();
-              }}
-              className="neon-link font-semibold tracking-wider text-white hover:text-saints-gold transition-colors border-b-2 border-transparent hover:border-saints-gold"
+            {/* Updated Roadmap link to use ComingSoonButton */}
+            <motion.div
               whileHover={{ 
                 scale: 1.1, 
                 textShadow: "0 0 8px rgba(255,215,0,0.7), 0 0 12px rgba(178,0,255,0.5)" 
               }}
             >
-              Roadmap
-            </motion.a>
+              <ComingSoonButton 
+                className="neon-link font-semibold tracking-wider text-white hover:text-saints-gold transition-colors border-b-2 border-transparent hover:border-saints-gold bg-transparent border-none p-0 h-auto"
+                onClick={handleRoadmap}
+              >
+                Roadmap
+              </ComingSoonButton>
+            </motion.div>
             
             <motion.div
               whileHover={{ scale: 1.05 }}
@@ -293,19 +298,21 @@ const DynamicHeader: React.FC<DynamicHeaderProps> = ({ isScrolled }) => {
                 ))}
                 
                 {/* Updated Roadmap mobile link */}
-                <motion.a 
-                  href="#"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    handleRoadmap();
-                    setMobileMenuOpen(false);
-                  }}
+                <motion.div
                   className="font-semibold text-lg py-2 border-b border-saints-purple/20 text-white hover:text-saints-gold flex items-center justify-between"
                   variants={mobileMenuItemVariants}
                 >
-                  <span>Roadmap</span>
-                  <span className="text-saints-gold">&rarr;</span>
-                </motion.a>
+                  <ComingSoonButton 
+                    className="bg-transparent border-none p-0 h-auto text-white hover:text-saints-gold text-lg font-semibold w-full text-left flex items-center justify-between"
+                    onClick={() => {
+                      handleRoadmap();
+                      setMobileMenuOpen(false);
+                    }}
+                  >
+                    <span>Roadmap</span>
+                    <span className="text-saints-gold">&rarr;</span>
+                  </ComingSoonButton>
+                </motion.div>
                 
                 <motion.div
                   className="pt-2"

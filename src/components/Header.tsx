@@ -2,12 +2,10 @@ import React, { useEffect, useRef } from 'react';
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { useComingSoonModal } from "@/hooks/use-coming-soon-modal";
-import { useNavigate } from 'react-router-dom';
 
 const Header: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const { ComingSoonButton } = useComingSoonModal();
-  const navigate = useNavigate();
   
   // Enhanced digital matrix background effect
   useEffect(() => {
@@ -129,6 +127,7 @@ const Header: React.FC = () => {
       
       <div className="container mx-auto px-4 relative z-10">
         <nav className="flex justify-between items-center mb-12">
+          {/* Logo section */}
           <motion.div 
             className="flex items-center space-x-2"
             whileHover={{ scale: 1.05 }}
@@ -159,21 +158,20 @@ const Header: React.FC = () => {
               </motion.a>
             ))}
             
-            {/* Updated Roadmap link to navigate to roadmap page */}
-            <motion.a 
-              href="#"
-              onClick={(e) => {
-                e.preventDefault();
-                navigate('/roadmap');
-              }}
-              className="neon-link font-poppins text-lg font-semibold tracking-wider text-white hover:text-saints-gold transition-colors border-b-2 border-transparent hover:border-saints-gold"
+            {/* Updated Roadmap link to use ComingSoonButton */}
+            <motion.div
               whileHover={{ 
                 scale: 1.1, 
                 textShadow: "0 0 8px rgba(255,215,0,0.7), 0 0 12px rgba(178,0,255,0.5)" 
               }}
             >
-              Roadmap
-            </motion.a>
+              <ComingSoonButton 
+                className="neon-link font-poppins text-lg font-semibold tracking-wider text-white hover:text-saints-gold transition-colors border-b-2 border-transparent hover:border-saints-gold bg-transparent border-none p-0 h-auto"
+                onClick={() => {}}
+              >
+                Roadmap
+              </ComingSoonButton>
+            </motion.div>
             
             <motion.div
               whileHover={{ scale: 1.05 }}
@@ -237,12 +235,12 @@ const Header: React.FC = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              <Button 
+              <ComingSoonButton 
                 className="btn-secondary text-lg px-8 py-6 shadow-[0_0_15px_rgba(178,0,255,0.4)] hover:shadow-[0_0_25px_rgba(178,0,255,0.6)] flex items-center gap-3 w-full sm:w-auto"
-                onClick={() => navigate('/roadmap')}
+                onClick={() => {}}
               >
                 <span className="font-bold">VIEW ROADMAP</span>
-              </Button>
+              </ComingSoonButton>
             </motion.div>
           </motion.div>
         </div>

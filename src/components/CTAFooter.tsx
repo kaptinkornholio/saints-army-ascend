@@ -1,12 +1,10 @@
 import React from 'react';
 import { Button } from "@/components/ui/button";
 import { useComingSoonModal } from "@/hooks/use-coming-soon-modal";
-import { useNavigate } from 'react-router-dom';
 import { Users } from 'lucide-react';
 
 const CTAFooter: React.FC = () => {
   const { ComingSoonButton } = useComingSoonModal();
-  const navigate = useNavigate();
   
   return (
     <section className="py-20 relative overflow-hidden">
@@ -52,12 +50,12 @@ const CTAFooter: React.FC = () => {
             >
               BUY NOW
             </ComingSoonButton>
-            <Button 
+            <ComingSoonButton 
               className="btn-secondary md:text-lg"
-              onClick={() => navigate('/roadmap')}
+              onClick={() => {}}
             >
               ROADMAP
-            </Button>
+            </ComingSoonButton>
           </div>
           
           {/* Get Notified button that redirects to Twitter */}
