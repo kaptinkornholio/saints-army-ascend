@@ -7,6 +7,7 @@ import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import Index from "./pages/Index";
 import Collection from "./pages/Collection";
+import Roadmap from "./pages/Roadmap";
 import NotFound from "./pages/NotFound";
 import ParticleBackground from "./components/ParticleBackground";
 import DynamicHeader from "./components/DynamicHeader";
@@ -96,6 +97,7 @@ const AppRoutes = () => {
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/collection" element={<Collection />} />
+          <Route path="/roadmap" element={<Roadmap />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </PageTransition>

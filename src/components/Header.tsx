@@ -2,10 +2,12 @@ import React, { useEffect, useRef } from 'react';
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { useComingSoonModal } from "@/hooks/use-coming-soon-modal";
+import { useNavigate } from 'react-router-dom';
 
 const Header: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const { ComingSoonButton, openModal } = useComingSoonModal();
+  const { ComingSoonButton } = useComingSoonModal();
+  const navigate = useNavigate();
   
   // Enhanced digital matrix background effect
   useEffect(() => {
@@ -157,12 +159,12 @@ const Header: React.FC = () => {
               </motion.a>
             ))}
             
-            {/* Roadmap link with coming soon modal */}
+            {/* Updated Roadmap link to navigate to roadmap page */}
             <motion.a 
               href="#"
               onClick={(e) => {
                 e.preventDefault();
-                openModal("Roadmap Coming Soon", "Our detailed roadmap will be available soon. Stay tuned for our exciting journey ahead!");
+                navigate('/roadmap');
               }}
               className="neon-link font-poppins text-lg font-semibold tracking-wider text-white hover:text-saints-gold transition-colors border-b-2 border-transparent hover:border-saints-gold"
               whileHover={{ 
@@ -235,12 +237,12 @@ const Header: React.FC = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              <ComingSoonButton 
+              <Button 
                 className="btn-secondary text-lg px-8 py-6 shadow-[0_0_15px_rgba(178,0,255,0.4)] hover:shadow-[0_0_25px_rgba(178,0,255,0.6)] flex items-center gap-3 w-full sm:w-auto"
-                onClick={() => openModal("Roadmap Coming Soon", "Our detailed roadmap will be available soon. Stay tuned for our exciting journey ahead!")}
+                onClick={() => navigate('/roadmap')}
               >
                 <span className="font-bold">VIEW ROADMAP</span>
-              </ComingSoonButton>
+              </Button>
             </motion.div>
           </motion.div>
         </div>

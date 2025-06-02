@@ -1,9 +1,9 @@
-
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Facebook, Twitter, Instagram, Menu, X } from "lucide-react";
 import { useIsMobile } from '@/hooks/use-mobile';
+import { useNavigate } from 'react-router-dom';
 import ComingSoonModal from './ComingSoonModal';
 
 interface DynamicHeaderProps {
@@ -18,6 +18,7 @@ const DynamicHeader: React.FC<DynamicHeaderProps> = ({ isScrolled }) => {
     description: "We're preparing something special for you. The SAINTS ARMY NFT minting will be available soon."
   });
   const isMobile = useIsMobile();
+  const navigate = useNavigate();
 
   // Close mobile menu when resizing to desktop
   useEffect(() => {
@@ -93,11 +94,7 @@ const DynamicHeader: React.FC<DynamicHeaderProps> = ({ isScrolled }) => {
   };
 
   const handleRoadmap = () => {
-    setModalConfig({
-      title: "Roadmap Coming Soon",
-      description: "Our detailed roadmap will be available soon. Stay tuned for our exciting journey ahead!"
-    });
-    setComingSoonOpen(true);
+    navigate('/roadmap');
   };
 
   // Function to close mobile menu when clicking a link
@@ -165,7 +162,7 @@ const DynamicHeader: React.FC<DynamicHeaderProps> = ({ isScrolled }) => {
               </motion.a>
             ))}
             
-            {/* Roadmap link with coming soon modal */}
+            {/* Updated Roadmap link to navigate to roadmap page */}
             <motion.a 
               href="#"
               onClick={(e) => {
@@ -295,7 +292,7 @@ const DynamicHeader: React.FC<DynamicHeaderProps> = ({ isScrolled }) => {
                   </motion.a>
                 ))}
                 
-                {/* Roadmap mobile link */}
+                {/* Updated Roadmap mobile link */}
                 <motion.a 
                   href="#"
                   onClick={(e) => {
