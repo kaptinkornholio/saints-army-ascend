@@ -1,113 +1,24 @@
-import React, { useEffect, useRef } from 'react';
+
+import React from 'react';
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { useComingSoonModal } from "@/hooks/use-coming-soon-modal";
 
 const Header: React.FC = () => {
-  const canvasRef = useRef<HTMLCanvasElement>(null);
   const { ComingSoonButton } = useComingSoonModal();
-  
-  // Enhanced digital matrix background effect
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    
-    const ctx = canvas.getContext('2d');
-    if (!ctx) return;
-    
-    let width = window.innerWidth;
-    let height = window.innerHeight;
-    
-    canvas.width = width;
-    canvas.height = height;
-    
-    const fontSize = 14;
-    const columns = Math.floor(width / fontSize);
-    const drops: number[] = [];
-    
-    for (let i = 0; i < columns; i++) {
-      drops[i] = Math.random() * -height;
-    }
-    
-    // Enhanced matrix characters with more variety
-    const matrix = "01SAINTS0ARMY1NFT0DIVINE01ART0ZEOK#@$%^&*()!".split("");
-    
-    // Array of colors for variety
-    const colors = [
-      '#00c4ff', // Primary blue
-      '#b200ff', // Primary purple
-      '#ffd700', // Gold
-      '#00ff66', // Green accent
-      '#ff00cc'  // Pink accent
-    ];
-    
-    // Get a random color from colors array
-    const getRandomColor = () => {
-      return colors[Math.floor(Math.random() * colors.length)];
-    };
-    
-    function draw() {
-      // Semi-transparent black background to show trail
-      ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
-      ctx.fillRect(0, 0, width, height);
-      
-      for (let i = 0; i < drops.length; i++) {
-        // Use a mix of colors for more visual interest
-        ctx.fillStyle = drops[i] % 10 === 0 ? getRandomColor() : '#00c4ff'; 
-        ctx.font = `${fontSize}px monospace`;
-        
-        const text = matrix[Math.floor(Math.random() * matrix.length)];
-        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
-        
-        // Add glowing effect to some characters
-        if (Math.random() > 0.99) {
-          ctx.shadowColor = getRandomColor();
-          ctx.shadowBlur = 10;
-          ctx.fillText(text, i * fontSize, drops[i] * fontSize);
-          ctx.shadowBlur = 0;
-        }
-        
-        // Randomly reset some drops to the top
-        if (drops[i] * fontSize > height && Math.random() > 0.975) {
-          drops[i] = 0;
-        }
-        
-        // Move drop down
-        drops[i]++;
-      }
-    }
-    
-    const interval = setInterval(draw, 35);
-    
-    const handleResize = () => {
-      width = window.innerWidth;
-      height = window.innerHeight;
-      canvas.width = width;
-      canvas.height = height;
-      const newColumns = Math.floor(width / fontSize);
-      
-      // Reset drops array to match new width
-      while (drops.length < newColumns) {
-        drops.push(Math.random() * -height);
-      }
-      drops.length = newColumns;
-    };
-    
-    window.addEventListener('resize', handleResize);
-    
-    return () => {
-      clearInterval(interval);
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
   
   return (
     <header className="relative w-full overflow-hidden py-8">
-      {/* Enhanced Matrix digital background */}
-      <canvas 
-        ref={canvasRef} 
-        className="absolute top-0 left-0 w-full h-full z-0 opacity-30"
-      />
+      {/* Background overlay with SAINT1.png image */}
+      <div className="absolute top-0 left-0 w-full h-full -z-10">
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20"
+          style={{
+            backgroundImage: "url('https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/SAINT1.png')"
+          }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-saints-dark/80 via-saints-dark/60 to-saints-dark/90"></div>
+      </div>
       
       {/* Background elements */}
       <div className="absolute top-0 left-0 w-full h-full -z-10">
