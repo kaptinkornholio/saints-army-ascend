@@ -28,10 +28,10 @@ const Roadmap: React.FC = () => {
   const [selectedMission, setSelectedMission] = useState<MissionData | null>(null);
   const [selectedSideOp, setSideOpSideOp] = useState<SideOpData | null>(null);
   const [stats, setStats] = useState({
-    nftsMinted: 0,
+    nftsMinted: 1,
     missionsComplete: 0,
     sideOps: 0,
-    totalRewards: 0
+    totalRewards: 0.3
   });
 
   const missions: MissionData[] = [
@@ -205,45 +205,151 @@ const Roadmap: React.FC = () => {
         </div>
       </motion.div>
 
-      {/* Main Content */}
-      <div className="relative z-10 container mx-auto px-4 py-8">
-        <div className="relative max-w-6xl mx-auto">
-          {/* Mission Points */}
-          {missions.map((mission, index) => (
-            <motion.div
-              key={mission.id}
-              className={`absolute mission-point cursor-pointer ${
-                mission.status === 'completed' ? 'bg-green-500' : 
-                mission.status === 'available' ? 'bg-gradient-to-br from-saints-gold to-saints-purple' : 
-                'bg-gray-600 opacity-50'
-              }`}
-              style={{
-                top: `${15 + index * 15}%`,
-                left: `${30 + (index % 2) * 40}%`,
-                width: '80px',
-                height: '80px',
-                borderRadius: '50%',
-                border: '4px solid #8B4513',
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center',
-                justifyContent: 'center',
-                color: '#8B4513'
-              }}
-              onClick={() => setSelectedMission(mission)}
-              whileHover={{ scale: 1.15, boxShadow: "0 0 35px rgba(255,215,0,0.9)" }}
-              initial={{ scale: 0 }}
-              animate={{ scale: 1 }}
-              transition={{ duration: 0.5, delay: index * 0.2 }}
-            >
-              {mission.icon}
-              <span className="text-xs font-bold mt-1">M{mission.id}</span>
-            </motion.div>
-          ))}
+      {/* Main Content - Fortress Layout */}
+      <div className="relative z-10 container mx-auto px-4 py-8 min-h-screen">
+        <div className="relative w-full h-full max-w-5xl mx-auto">
+          
+          {/* Mission Points - Distributed around the fortress */}
+          <motion.div
+            className="absolute mission-point cursor-pointer bg-gradient-to-br from-saints-gold to-saints-purple"
+            style={{
+              top: '20%',
+              left: '45%',
+              width: '80px',
+              height: '80px',
+              borderRadius: '50%',
+              border: '4px solid #8B4513',
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              justifyContent: 'center',
+              color: '#8B4513'
+            }}
+            onClick={() => setSelectedMission(missions[0])}
+            whileHover={{ scale: 1.15, boxShadow: "0 0 35px rgba(255,215,0,0.9)" }}
+            initial={{ scale: 0 }}
+            animate={{ scale: 1 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          >
+            <Star className="w-8 h-8" />
+            <span className="text-xs font-bold mt-1">M1</span>
+          </motion.div>
 
-          {/* Side Operations */}
+          <motion.div
+            className="absolute mission-point cursor-pointer bg-gradient-to-br from-saints-gold to-saints-purple"
+            style={{
+              top: '35%',
+              left: '25%',
+              width: '80px',
+              height: '80px',
+              borderRadius: '50%',
+              border: '4px solid #8B4513',
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              justifyContent: 'center',
+              color: '#8B4513'
+            }}
+            onClick={() => setSelectedMission(missions[1])}
+            whileHover={{ scale: 1.15, boxShadow: "0 0 35px rgba(255,215,0,0.9)" }}
+            initial={{ scale: 0 }}
+            animate={{ scale: 1 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+          >
+            <Shield className="w-8 h-8" />
+            <span className="text-xs font-bold mt-1">M2</span>
+          </motion.div>
+
+          <motion.div
+            className="absolute mission-point cursor-pointer bg-gray-600 opacity-50"
+            style={{
+              top: '50%',
+              left: '65%',
+              width: '80px',
+              height: '80px',
+              borderRadius: '50%',
+              border: '4px solid #8B4513',
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              justifyContent: 'center',
+              color: '#8B4513'
+            }}
+            onClick={() => setSelectedMission(missions[2])}
+            whileHover={{ scale: 1.15, boxShadow: "0 0 35px rgba(255,215,0,0.9)" }}
+            initial={{ scale: 0 }}
+            animate={{ scale: 1 }}
+            transition={{ duration: 0.5, delay: 0.6 }}
+          >
+            <Sword className="w-8 h-8" />
+            <span className="text-xs font-bold mt-1">M3</span>
+          </motion.div>
+
+          <motion.div
+            className="absolute mission-point cursor-pointer bg-gray-600 opacity-50"
+            style={{
+              top: '65%',
+              left: '20%',
+              width: '80px',
+              height: '80px',
+              borderRadius: '50%',
+              border: '4px solid #8B4513',
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              justifyContent: 'center',
+              color: '#8B4513'
+            }}
+            onClick={() => setSelectedMission(missions[3])}
+            whileHover={{ scale: 1.15, boxShadow: "0 0 35px rgba(255,215,0,0.9)" }}
+            initial={{ scale: 0 }}
+            animate={{ scale: 1 }}
+            transition={{ duration: 0.5, delay: 0.8 }}
+          >
+            <Trophy className="w-8 h-8" />
+            <span className="text-xs font-bold mt-1">M4</span>
+          </motion.div>
+
+          <motion.div
+            className="absolute mission-point cursor-pointer bg-gray-600 opacity-50"
+            style={{
+              top: '80%',
+              left: '50%',
+              width: '80px',
+              height: '80px',
+              borderRadius: '50%',
+              border: '4px solid #8B4513',
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              justifyContent: 'center',
+              color: '#8B4513'
+            }}
+            onClick={() => setSelectedMission(missions[4])}
+            whileHover={{ scale: 1.15, boxShadow: "0 0 35px rgba(255,215,0,0.9)" }}
+            initial={{ scale: 0 }}
+            animate={{ scale: 1 }}
+            transition={{ duration: 0.5, delay: 1.0 }}
+          >
+            <Zap className="w-8 h-8" />
+            <span className="text-xs font-bold mt-1">M5</span>
+          </motion.div>
+
+          {/* Side Operations - Scattered around missions */}
           {sideOps.map((sideOp, index) => {
-            const isLeft = index % 2 === 0;
+            const positions = [
+              { top: '25%', left: '60%' },
+              { top: '30%', left: '10%' },
+              { top: '40%', left: '75%' },
+              { top: '45%', left: '5%' },
+              { top: '55%', left: '80%' },
+              { top: '60%', left: '40%' },
+              { top: '70%', left: '75%' },
+              { top: '75%', left: '5%' },
+              { top: '85%', left: '70%' },
+              { top: '90%', left: '25%' }
+            ];
+            
             return (
               <motion.div
                 key={sideOp.id}
@@ -253,8 +359,8 @@ const Roadmap: React.FC = () => {
                   'bg-gray-500 opacity-50'
                 }`}
                 style={{
-                  top: `${20 + Math.floor(index / 2) * 15}%`,
-                  left: isLeft ? '65%' : '5%',
+                  top: positions[index]?.top || '50%',
+                  left: positions[index]?.left || '50%',
                   width: '50px',
                   height: '50px',
                   borderRadius: '50%',
