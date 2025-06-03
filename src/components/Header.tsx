@@ -13,7 +13,7 @@ const Header: React.FC = () => {
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-40"
           style={{
-            backgroundImage: "url=(https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/SAINT1.png)"
+            backgroundImage: "(https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/SAINT1.png)"
           }}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-saints-dark/60 via-saints-dark/40 to-saints-dark/70"></div>
