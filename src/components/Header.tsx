@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
@@ -12,12 +11,12 @@ const Header: React.FC = () => {
       {/* Background overlay with SAINT1.png image */}
       <div className="absolute top-0 left-0 w-full h-full -z-10">
         <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20"
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-40"
           style={{
             backgroundImage: "url('https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/SAINT1.png')"
           }}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-saints-dark/80 via-saints-dark/60 to-saints-dark/90"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-saints-dark/60 via-saints-dark/40 to-saints-dark/70"></div>
       </div>
       
       {/* Background elements */}
