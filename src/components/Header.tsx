@@ -3,9 +3,11 @@ import React from 'react';
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { useComingSoonModal } from "@/hooks/use-coming-soon-modal";
+import { useNavigate } from "react-router-dom";
 
 const Header: React.FC = () => {
   const { ComingSoonButton } = useComingSoonModal();
+  const navigate = useNavigate();
   
   return (
     <header className="relative w-full overflow-hidden py-8 min-h-screen">
@@ -46,15 +48,28 @@ const Header: React.FC = () => {
           </div>
           
           <div className="hidden md:flex space-x-6 items-center">
-            {["About", "Join"].map((item, index) => (
-              <a 
-                key={index}
-                href={`#${item.toLowerCase()}`} 
-                className="neon-link font-poppins text-lg font-semibold tracking-wider text-white hover:text-saints-gold transition-colors border-b-2 border-transparent hover:border-saints-gold"
-              >
-                {item}
-              </a>
-            ))}
+            {["About", "Collections", "Join"].map((item, index) => {
+              if (item === "Collections") {
+                return (
+                  <button
+                    key={index}
+                    onClick={() => navigate('/collection')}
+                    className="neon-link font-poppins text-lg font-semibold tracking-wider text-white hover:text-saints-gold transition-colors border-b-2 border-transparent hover:border-saints-gold bg-transparent border-none cursor-pointer"
+                  >
+                    {item}
+                  </button>
+                );
+              }
+              return (
+                <a 
+                  key={index}
+                  href={`#${item.toLowerCase()}`} 
+                  className="neon-link font-poppins text-lg font-semibold tracking-wider text-white hover:text-saints-gold transition-colors border-b-2 border-transparent hover:border-saints-gold"
+                >
+                  {item}
+                </a>
+              );
+            })}
             
             <ComingSoonButton 
               className="neon-link font-poppins text-lg font-semibold tracking-wider text-white hover:text-saints-gold transition-colors border-b-2 border-transparent hover:border-saints-gold bg-transparent border-none p-0 h-auto"

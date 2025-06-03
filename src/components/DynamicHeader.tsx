@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
@@ -153,20 +154,37 @@ const DynamicHeader: React.FC<DynamicHeaderProps> = ({ isScrolled }) => {
               isScrolled ? 'scale-90' : 'scale-100'
             }`}
           >
-            {["About", "Join"].map((item, index) => (
-              <motion.a 
-                key={index}
-                href={`#${item.toLowerCase()}`} 
-                className="neon-link font-semibold tracking-wider text-white hover:text-saints-gold transition-colors border-b-2 border-transparent hover:border-saints-gold"
-                whileHover={{ 
-                  scale: 1.1, 
-                  textShadow: "0 0 8px rgba(255,215,0,0.7), 0 0 12px rgba(178,0,255,0.5)" 
-                }}
-                onClick={handleMobileMenuItemClick}
-              >
-                {item}
-              </motion.a>
-            ))}
+            {["About", "Collections", "Join"].map((item, index) => {
+              if (item === "Collections") {
+                return (
+                  <motion.button
+                    key={index}
+                    onClick={() => navigate('/collection')}
+                    className="neon-link font-semibold tracking-wider text-white hover:text-saints-gold transition-colors border-b-2 border-transparent hover:border-saints-gold bg-transparent border-none cursor-pointer"
+                    whileHover={{ 
+                      scale: 1.1, 
+                      textShadow: "0 0 8px rgba(255,215,0,0.7), 0 0 12px rgba(178,0,255,0.5)" 
+                    }}
+                  >
+                    {item}
+                  </motion.button>
+                );
+              }
+              return (
+                <motion.a 
+                  key={index}
+                  href={`#${item.toLowerCase()}`} 
+                  className="neon-link font-semibold tracking-wider text-white hover:text-saints-gold transition-colors border-b-2 border-transparent hover:border-saints-gold"
+                  whileHover={{ 
+                    scale: 1.1, 
+                    textShadow: "0 0 8px rgba(255,215,0,0.7), 0 0 12px rgba(178,0,255,0.5)" 
+                  }}
+                  onClick={handleMobileMenuItemClick}
+                >
+                  {item}
+                </motion.a>
+              );
+            })}
             
             {/* Updated Roadmap link to use ComingSoonButton */}
             <motion.div
@@ -284,18 +302,36 @@ const DynamicHeader: React.FC<DynamicHeaderProps> = ({ isScrolled }) => {
           >
             <div className="container mx-auto px-4">
               <div className="flex flex-col space-y-4">
-                {["About", "Join"].map((item, index) => (
-                  <motion.a 
-                    key={index}
-                    href={`#${item.toLowerCase()}`}
-                    className="font-semibold text-lg py-2 border-b border-saints-purple/20 text-white hover:text-saints-gold flex items-center justify-between"
-                    onClick={handleMobileMenuItemClick}
-                    variants={mobileMenuItemVariants}
-                  >
-                    <span>{item}</span>
-                    <span className="text-saints-gold">&rarr;</span>
-                  </motion.a>
-                ))}
+                {["About", "Collections", "Join"].map((item, index) => {
+                  if (item === "Collections") {
+                    return (
+                      <motion.button
+                        key={index}
+                        onClick={() => {
+                          navigate('/collection');
+                          setMobileMenuOpen(false);
+                        }}
+                        className="font-semibold text-lg py-2 border-b border-saints-purple/20 text-white hover:text-saints-gold flex items-center justify-between bg-transparent border-none text-left w-full"
+                        variants={mobileMenuItemVariants}
+                      >
+                        <span>{item}</span>
+                        <span className="text-saints-gold">&rarr;</span>
+                      </motion.button>
+                    );
+                  }
+                  return (
+                    <motion.a 
+                      key={index}
+                      href={`#${item.toLowerCase()}`}
+                      className="font-semibold text-lg py-2 border-b border-saints-purple/20 text-white hover:text-saints-gold flex items-center justify-between"
+                      onClick={handleMobileMenuItemClick}
+                      variants={mobileMenuItemVariants}
+                    >
+                      <span>{item}</span>
+                      <span className="text-saints-gold">&rarr;</span>
+                    </motion.a>
+                  );
+                })}
                 
                 {/* Updated Roadmap mobile link */}
                 <motion.div
