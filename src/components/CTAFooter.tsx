@@ -8,8 +8,19 @@ const CTAFooter: React.FC = () => {
   
   return (
     <section className="py-20 relative overflow-hidden">
+      {/* Background overlay with SAINTSBACK1.png image */}
+      <div className="absolute inset-0 z-0">
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-60"
+          style={{
+            backgroundImage: "url(https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/SAINTSBACK1.png)"
+          }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-saints-dark/80 via-saints-dark/60 to-saints-dark/90"></div>
+      </div>
+      
       {/* Starry background effect */}
-      <div className="absolute inset-0 -z-10 overflow-hidden">
+      <div className="absolute inset-0 z-10 overflow-hidden">
         <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-t from-saints-dark to-black/50"></div>
         {[...Array(50)].map((_, i) => (
           <div
@@ -27,7 +38,7 @@ const CTAFooter: React.FC = () => {
         ))}
       </div>
       
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="container mx-auto px-4 relative z-20">
         <div className="max-w-4xl mx-auto text-center">
           {/* Community Counter */}
           <div className="mb-8 flex justify-center">
