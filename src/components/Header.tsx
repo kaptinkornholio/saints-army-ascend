@@ -93,9 +93,14 @@ const Header: React.FC = () => {
         </nav>
         
         <div className="max-w-3xl mx-auto text-center mb-16" data-scroll data-scroll-speed="0.3">
-          <h1 className="cosmic-title text-4xl md:text-6xl lg:text-7xl mb-6 font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-saints-gold via-saints-purple to-saints-blue">
-            SAINTS ARMY NFT: Unleash Divine Art 
-          </h1>
+          {/* Replace text title with image logo */}
+          <div className="mb-6 flex justify-center">
+            <img 
+              src="https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/logo.png"
+              alt="SAINTS ARMY NFT Logo" 
+              className="max-w-full h-auto max-h-64 md:max-h-80 lg:max-h-96 object-contain filter drop-shadow-2xl"
+            />
+          </div>
           
           <p className="cosmic-subtitle text-lg md:text-xl mb-12 font-semibold tracking-wide bg-clip-text text-transparent bg-gradient-to-r from-white via-white/90 to-white/70">
             Discover the SAINTS ARMY NFT, where ethereal masterpieces evolve with our community. Become a Saint, shape the future, and own the divine.
