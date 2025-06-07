@@ -927,6 +927,18 @@ export const nftCollection: NFTDetails[] = [
     ]
   },
   {
+     id: 81,
+     image: "https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/SAINT81.png",
+     title: "THE SAINT",
+     description: "Protector of the convergence pathways, this Saint maintains the delicate balance between dimensions as reality bends toward the ultimate unity. Standing watch at the crossroads of all possibilities.",
+     traits: [
+      { trait_type: "Class", value: "Guardian Saint" },
+      { trait_type: "Rarity", value: "Legendary" },
+      { trait_type: "Power", value: "Dimensional Balance" },
+      { trait_type: "Element", value: "Nexus Energy" }
+    ]
+  },
+  {
     id: 82,
     image: "https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/SAINT82.png",
     title: "CONSCIOUSNESS FIELD SAINT",
