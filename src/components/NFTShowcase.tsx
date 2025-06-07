@@ -13,7 +13,7 @@ const NFTShowcase: React.FC = () => {
   // Featured single NFT - showcasing the best one with local image
   const featuredNFT: NFTDetails = {
     id: 1,
-    image: "https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/SAINT1.png",
+    image: "https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/nft_868.png",
     title: "CROWNED PHANTOM",
     description: "First to venture into the cosmic void, this Saint charted the pathways between dimensions. Their pioneering spirit opened routes that connect distant galaxies, making interstellar travel possible for the Saints Army.",
     traits: [
