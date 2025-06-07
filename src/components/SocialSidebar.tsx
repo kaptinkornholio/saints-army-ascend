@@ -57,78 +57,224 @@ const SocialSidebar: React.FC = () => {
 
   return (
     <>
-      {/* Toggle Button */}
+      {/* Animated Toggle Button */}
       <motion.button
         onClick={() => setIsOpen(!isOpen)}
-        className="fixed top-1/2 left-0 z-50 bg-saints-purple/80 backdrop-blur-sm text-white p-3 rounded-r-lg shadow-lg hover:bg-saints-purple transition-colors"
+        className="fixed top-1/2 left-0 z-50 bg-gradient-to-r from-saints-purple/90 to-saints-blue/90 backdrop-blur-sm text-white p-4 rounded-r-xl shadow-2xl hover:shadow-saints-purple/50 transition-all duration-300"
         style={{ transform: 'translateY(-50%)' }}
-        whileHover={{ x: 5 }}
+        whileHover={{ 
+          x: 8,
+          scale: 1.05,
+          boxShadow: "0 0 25px rgba(178, 0, 255, 0.6)"
+        }}
         whileTap={{ scale: 0.95 }}
+        animate={{ 
+          boxShadow: isOpen 
+            ? "0 0 30px rgba(178, 0, 255, 0.8)" 
+            : "0 0 15px rgba(178, 0, 255, 0.4)"
+        }}
       >
         <motion.div
-          animate={{ rotate: isOpen ? 180 : 0 }}
-          transition={{ duration: 0.3 }}
+          animate={{ 
+            rotate: isOpen ? 180 : 0,
+            scale: isOpen ? 1.2 : 1
+          }}
+          transition={{ duration: 0.4, ease: "easeInOut" }}
+          className="relative"
         >
-          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
           </svg>
+          {/* Pulsing glow effect */}
+          <motion.div
+            className="absolute inset-0 bg-saints-gold/30 rounded-full blur-sm"
+            animate={{ scale: [1, 1.5, 1] }}
+            transition={{ duration: 2, repeat: Infinity }}
+          />
         </motion.div>
       </motion.button>
 
-      {/* Sidebar */}
+      {/* Enhanced Sidebar with Background Overlay */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ x: -300 }}
-            animate={{ x: 0 }}
-            exit={{ x: -300 }}
-            transition={{ duration: 0.3, ease: "easeOut" }}
-            className="fixed top-0 left-0 h-full z-40 bg-saints-dark/95 backdrop-blur-md border-r border-saints-purple/30 shadow-xl"
-            style={{ width: isMobile ? '280px' : '320px' }}
+            initial={{ x: -400, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            exit={{ x: -400, opacity: 0 }}
+            transition={{ 
+              duration: 0.5, 
+              ease: [0.25, 0.46, 0.45, 0.94],
+              opacity: { duration: 0.3 }
+            }}
+            className="fixed top-0 left-0 h-full z-40 overflow-hidden"
+            style={{ width: isMobile ? '320px' : '380px' }}
           >
-            <div className="p-6 h-full flex flex-col">
-              {/* Header */}
-              <div className="mb-8">
-                <h3 className="font-orbitron text-saints-gold text-xl mb-2">Connect With Us</h3>
-                <p className="text-white/60 text-sm">Join the #SAINTSARMY Movement</p>
-              </div>
+            {/* Background Image Overlay - Ready for GitHub Image */}
+            <div className="absolute inset-0 bg-gradient-to-br from-saints-dark/95 via-saints-purple/20 to-saints-blue/20">
+              {/* Placeholder for background image from GitHub */}
+              <div 
+                className="absolute inset-0 opacity-20 bg-cover bg-center bg-no-repeat"
+                style={{
+                  backgroundImage: 'url("https://raw.githubusercontent.com/YOUR_USERNAME/YOUR_REPO/main/YOUR_IMAGE.jpg")',
+                  filter: 'blur(1px)'
+                }}
+              />
+              {/* Animated overlay patterns */}
+              <div className="absolute inset-0 bg-gradient-to-br from-saints-purple/30 via-transparent to-saints-gold/20 animate-aurora" />
+              <div className="absolute inset-0 backdrop-blur-sm" />
+            </div>
 
-              {/* Social Links */}
-              <div className="space-y-4 flex-1">
+            {/* Animated border */}
+            <motion.div
+              className="absolute right-0 top-0 bottom-0 w-1 bg-gradient-to-b from-saints-gold via-saints-purple to-saints-blue"
+              animate={{
+                backgroundPosition: ['0% 0%', '0% 100%', '0% 0%']
+              }}
+              transition={{
+                duration: 3,
+                repeat: Infinity,
+                ease: "linear"
+              }}
+            />
+
+            <div className="relative h-full p-8 flex flex-col">
+              {/* Animated Header */}
+              <motion.div 
+                className="mb-10"
+                initial={{ y: -30, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ delay: 0.2, duration: 0.6 }}
+              >
+                <motion.h3 
+                  className="font-heading text-saints-gold text-2xl mb-3 bg-clip-text text-transparent bg-gradient-to-r from-saints-gold to-saints-purple"
+                  animate={{ 
+                    textShadow: [
+                      "0 0 10px rgba(255, 215, 0, 0.5)",
+                      "0 0 20px rgba(255, 215, 0, 0.8)",
+                      "0 0 10px rgba(255, 215, 0, 0.5)"
+                    ]
+                  }}
+                  transition={{ duration: 2, repeat: Infinity }}
+                >
+                  Connect With Us
+                </motion.h3>
+                <motion.p 
+                  className="text-white/70 text-sm leading-relaxed"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.4 }}
+                >
+                  Join the <span className="text-saints-purple font-semibold">#SAINTSARMY</span> Movement
+                </motion.p>
+              </motion.div>
+
+              {/* Enhanced Social Links */}
+              <div className="space-y-3 flex-1">
                 {socialLinks.map((link, index) => (
                   <motion.a
                     key={link.name}
                     href={link.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-4 p-4 rounded-lg bg-white/5 hover:bg-saints-purple/20 transition-all duration-300 group"
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: index * 0.1 }}
-                    whileHover={{ x: 5 }}
+                    className="flex items-center gap-4 p-4 rounded-xl bg-white/5 hover:bg-gradient-to-r hover:from-saints-purple/20 hover:to-saints-blue/20 transition-all duration-500 group relative overflow-hidden backdrop-blur-sm border border-white/10 hover:border-saints-gold/30"
+                    initial={{ opacity: 0, x: -50, rotateY: -15 }}
+                    animate={{ opacity: 1, x: 0, rotateY: 0 }}
+                    transition={{ 
+                      delay: index * 0.15 + 0.3,
+                      duration: 0.6,
+                      ease: "easeOut"
+                    }}
+                    whileHover={{ 
+                      x: 10, 
+                      scale: 1.02,
+                      rotateY: 2,
+                      boxShadow: "0 10px 30px rgba(178, 0, 255, 0.3)"
+                    }}
+                    whileTap={{ scale: 0.98 }}
                   >
-                    <div className="text-saints-purple group-hover:text-saints-gold transition-colors">
+                    {/* Animated background shimmer */}
+                    <motion.div
+                      className="absolute inset-0 bg-gradient-to-r from-transparent via-saints-gold/10 to-transparent"
+                      initial={{ x: '-100%' }}
+                      whileHover={{ x: '100%' }}
+                      transition={{ duration: 0.8 }}
+                    />
+                    
+                    <motion.div 
+                      className="text-saints-purple group-hover:text-saints-gold transition-colors duration-300 relative z-10"
+                      whileHover={{ 
+                        rotate: [0, -10, 10, 0],
+                        scale: 1.2
+                      }}
+                      transition={{ duration: 0.5 }}
+                    >
                       {link.icon}
-                    </div>
-                    <span className="text-white group-hover:text-saints-gold transition-colors text-sm font-medium">
+                    </motion.div>
+                    
+                    <motion.span 
+                      className="text-white group-hover:text-saints-gold transition-colors duration-300 font-medium relative z-10"
+                      initial={{ opacity: 0.8 }}
+                      whileHover={{ opacity: 1 }}
+                    >
                       {link.name}
-                    </span>
+                    </motion.span>
+                    
+                    {/* Hover glow effect */}
+                    <motion.div
+                      className="absolute inset-0 rounded-xl bg-gradient-to-r from-saints-purple/20 to-saints-blue/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                      style={{
+                        boxShadow: "inset 0 0 20px rgba(178, 0, 255, 0.3)"
+                      }}
+                    />
                   </motion.a>
                 ))}
               </div>
 
-              {/* Footer */}
-              <div className="mt-8 pt-6 border-t border-saints-purple/20">
-                <p className="text-white/40 text-xs text-center">
-                  Divine art that evolves with #SAINTSARMY
-                </p>
-              </div>
+              {/* Animated Footer */}
+              <motion.div 
+                className="mt-8 pt-6 border-t border-saints-purple/30 relative"
+                initial={{ y: 30, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ delay: 0.8, duration: 0.6 }}
+              >
+                <motion.p 
+                  className="text-white/50 text-xs text-center font-medium"
+                  animate={{ 
+                    opacity: [0.5, 0.8, 0.5]
+                  }}
+                  transition={{ duration: 3, repeat: Infinity }}
+                >
+                  Divine art that evolves with <span className="text-saints-gold">#SAINTSARMY</span>
+                </motion.p>
+                
+                {/* Floating particles */}
+                {[...Array(3)].map((_, i) => (
+                  <motion.div
+                    key={i}
+                    className="absolute w-1 h-1 bg-saints-gold rounded-full"
+                    style={{
+                      left: `${30 + i * 20}%`,
+                      top: '20%'
+                    }}
+                    animate={{
+                      y: [-10, 10, -10],
+                      opacity: [0.3, 1, 0.3],
+                      scale: [0.5, 1, 0.5]
+                    }}
+                    transition={{
+                      duration: 2 + i * 0.5,
+                      repeat: Infinity,
+                      delay: i * 0.3
+                    }}
+                  />
+                ))}
+              </motion.div>
             </div>
           </motion.div>
         )}
       </AnimatePresence>
 
-      {/* Overlay for mobile */}
+      {/* Enhanced Mobile Overlay */}
       <AnimatePresence>
         {isOpen && isMobile && (
           <motion.div
@@ -136,8 +282,22 @@ const SocialSidebar: React.FC = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={() => setIsOpen(false)}
-            className="fixed inset-0 bg-black/50 z-30"
-          />
+            className="fixed inset-0 bg-black/60 backdrop-blur-sm z-30"
+            transition={{ duration: 0.3 }}
+          >
+            {/* Animated overlay pattern */}
+            <motion.div
+              className="absolute inset-0 bg-gradient-to-br from-saints-purple/10 to-saints-blue/10"
+              animate={{
+                backgroundPosition: ['0% 0%', '100% 100%', '0% 0%']
+              }}
+              transition={{
+                duration: 5,
+                repeat: Infinity,
+                ease: "linear"
+              }}
+            />
+          </motion.div>
         )}
       </AnimatePresence>
     </>
