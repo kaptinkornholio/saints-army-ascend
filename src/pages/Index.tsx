@@ -3,10 +3,10 @@ import React, { useEffect } from 'react';
 import Header from '@/components/Header';
 import AboutZeok from '@/components/AboutZeok';
 import NFTShowcase from '@/components/NFTShowcase';
-import JoinCommunity from '@/components/JoinCommunity';
 import CTAFooter from '@/components/CTAFooter';
 import DropCountdown from '@/components/DropCountdown'; 
 import SmoothScroll, { ParallaxSection } from '@/components/SmoothScroll';
+import SocialSidebar from '@/components/SocialSidebar';
 import { motion } from 'framer-motion';
 import { useIsMobile } from '@/hooks/use-mobile';
 import { useComingSoonModal } from '@/hooks/use-coming-soon-modal';
@@ -77,6 +77,9 @@ const Index = () => {
         {/* Fixed position elements */}
         <div className="fixed top-0 left-0 w-full h-full -z-20 bg-gradient-to-b from-black to-saints-dark"></div>
         
+        {/* Social Sidebar */}
+        <SocialSidebar />
+        
         {/* Content sections with parallax */}
         <Header />
         
@@ -113,17 +116,6 @@ const Index = () => {
         >
           <ParallaxSection speed={isMobile ? 0 : 0.4}>
             <NFTShowcase />
-          </ParallaxSection>
-        </motion.div>
-        
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={fadeIn}
-        >
-          <ParallaxSection speed={isMobile ? 0 : 0.3}>
-            <JoinCommunity />
           </ParallaxSection>
         </motion.div>
         
