@@ -15,7 +15,7 @@ const NFTShowcase: React.FC = () => {
     id: 1,
     image: "https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/nft_868.png",
     title: "CROWNED PHANTOM",
-    description: "Crowned Phantom | 888 Exclusive NFTs on Solana, forged for the Saints Army community: Freedom, Faith, Unity. Exclusive holder rewards. Join us👑",
+    description: "888 Exclusive NFTs on Solana, forged for the Saints Army community: Freedom, Faith, Unity. Exclusive holder rewards. Join us👑",
     traits: [
       { trait_type: "Class", value: "Pioneer" },
       { trait_type: "Rarity", value: "Genesis" },
