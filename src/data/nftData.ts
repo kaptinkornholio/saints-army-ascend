@@ -830,7 +830,6 @@ export const nftCollection: NFTDetails[] = [
     ]
   },
   {
-    
     id: 71,
     image: "https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/SAINT71.png",
     title: "BRANE WORLD SAINT",
@@ -961,6 +960,209 @@ export const nftCollection: NFTDetails[] = [
       { trait_type: "Power", value: "Ultimate Convergence" },
       { trait_type: "Element", value: "Omega Energy" }
     ]
+  },
+  {
+    id: 84,
+    image: "https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/SAINT84.png",
+    title: "AXIOM DESTROYER",
+    description: "Breaker of mathematical certainties, this Saint challenges the fundamental axioms of logic and reality, creating new possibilities by questioning what was thought to be absolute truth.",
+    traits: [
+      { trait_type: "Class", value: "Destroyer" },
+      { trait_type: "Rarity", value: "Axiom" },
+      { trait_type: "Power", value: "Logic Deconstruction" },
+      { trait_type: "Element", value: "Pure Logic" }
+    ]
+  },
+  {
+    id: 85,
+    image: "https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/SAINT85.png",
+    title: "ENTROPY REVERSER",
+    description: "Master of impossible thermodynamics, this Saint can reverse entropy itself, restoring order from chaos and breathing new life into dying stars and civilizations.",
+    traits: [
+      { trait_type: "Class", value: "Reverser" },
+      { trait_type: "Rarity", value: "Thermodynamic" },
+      { trait_type: "Power", value: "Entropy Reversal" },
+      { trait_type: "Element", value: "Negative Entropy" }
+    ]
+  },
+  {
+    id: 86,
+    image: "https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/SAINT86.png",
+    title: "PROBABILITY WEAVER",
+    description: "Seamstress of chance and fate, this Saint weaves the threads of probability into patterns that ensure favorable outcomes while maintaining the delicate balance of cosmic justice.",
+    traits: [
+      { trait_type: "Class", value: "Weaver" },
+      { trait_type: "Rarity", value: "Probabilistic" },
+      { trait_type: "Power", value: "Fate Manipulation" },
+      { trait_type: "Element", value: "Probability" }
+    ]
+  },
+  {
+    id: 87,
+    image: "https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/SAINT87.png",
+    title: "EMERGENT PROPERTY SAINT",
+    description: "Guardian of complexity arising from simplicity, this Saint nurtures the emergence of consciousness, intelligence, and beauty from basic physical laws.",
+    traits: [
+      { trait_type: "Class", value: "Emergent Saint" },
+      { trait_type: "Rarity", value: "Complex" },
+      { trait_type: "Power", value: "Emergence Facilitation" },
+      { trait_type: "Element", value: "Complexity" }
+    ]
+  },
+  {
+    id: 88,
+    image: "https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/SAINT88.png",
+    title: "QUANTUM ENTANGLEMENT SAGE",
+    description: "Master of instantaneous connection, this Saint uses quantum entanglement to create unbreakable bonds across infinite distances, uniting consciousness across the cosmos.",
+    traits: [
+      { trait_type: "Class", value: "Entanglement Sage" },
+      { trait_type: "Rarity", value: "Quantum" },
+      { trait_type: "Power", value: "Instant Connection" },
+      { trait_type: "Element", value: "Entangled Particles" }
+    ]
+  },
+  {
+    id: 89,
+    image: "https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/SAINT89.png",
+    title: "DARK ENERGY SHEPHERD",
+    description: "Herder of cosmic expansion, this Saint guides dark energy's influence on universal growth, ensuring that the cosmos expands at the perfect rate for life to flourish.",
+    traits: [
+      { trait_type: "Class", value: "Shepherd" },
+      { trait_type: "Rarity", value: "Dark Energy" },
+      { trait_type: "Power", value: "Expansion Control" },
+      { trait_type: "Element", value: "Dark Energy" }
+    ]
+  },
+  {
+    id: 90,
+    image: "https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/SAINT90.png",
+    title: "METAMATHEMATICAL ORACLE",
+    description: "Seer beyond the bounds of formal systems, this Saint perceives truths that cannot be proven within any mathematical framework, accessing knowledge that transcends logic itself.",
+    traits: [
+      { trait_type: "Class", value: "Oracle" },
+      { trait_type: "Rarity", value: "Metamathematical" },
+      { trait_type: "Power", value: "Transcendent Truth" },
+      { trait_type: "Element", value: "Beyond Mathematics" }
+    ]
+  },
+  {
+    id: 91,
+    image: "https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/SAINT91.png",
+    title: "RECURSIVE REALITY ARCHITECT",
+    description: "Builder of self-referential universes, this Saint creates realities that contain perfect models of themselves, establishing infinite loops of existence within existence.",
+    traits: [
+      { trait_type: "Class", value: "Architect" },
+      { trait_type: "Rarity", value: "Recursive" },
+      { trait_type: "Power", value: "Self-Reference Creation" },
+      { trait_type: "Element", value: "Recursive Logic" }
+    ]
+  },
+  {
+    id: 92,
+    image: "https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/SAINT92.png",
+    title: "PLATONIC FORM GUARDIAN",
+    description: "Keeper of perfect ideals, this Saint protects the realm of pure forms that serve as templates for all imperfect manifestations in the physical universe.",
+    traits: [
+      { trait_type: "Class", value: "Guardian" },
+      { trait_type: "Rarity", value: "Platonic" },
+      { trait_type: "Power", value: "Ideal Protection" },
+      { trait_type: "Element", value: "Perfect Forms" }
+    ]
+  },
+  {
+    id: 93,
+    image: "https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/SAINT93.png",
+    title: "CATEGORY THEORY SAINT",
+    description: "Mapper of universal relationships, this Saint reveals the hidden connections between all structures and concepts, finding unity in the morphisms that bind all knowledge.",
+    traits: [
+      { trait_type: "Class", value: "Category Saint" },
+      { trait_type: "Rarity", value: "Structural" },
+      { trait_type: "Power", value: "Universal Mapping" },
+      { trait_type: "Element", value: "Abstract Structure" }
+    ]
+  },
+  {
+    id: 94,
+    image: "https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/SAINT94.png",
+    title: "INCOMPLETENESS HERALD",
+    description: "Messenger of fundamental limitations, this Saint announces the boundaries of what can be known or proven, teaching humility in the face of infinite mystery.",
+    traits: [
+      { trait_type: "Class", value: "Herald" },
+      { trait_type: "Rarity", value: "Incomplete" },
+      { trait_type: "Power", value: "Limitation Revelation" },
+      { trait_type: "Element", value: "Unknown Unknowns" }
+    ]
+  },
+  {
+    id: 95,
+    image: "https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/SAINT95.png",
+    title: "SELF-ORGANIZING SAINT",
+    description: "Catalyst of spontaneous order, this Saint triggers the emergence of complex patterns from simple rules, demonstrating how intelligence arises naturally from chaos.",
+    traits: [
+      { trait_type: "Class", value: "Self-Organizing Saint" },
+      { trait_type: "Rarity", value: "Emergent" },
+      { trait_type: "Power", value: "Spontaneous Organization" },
+      { trait_type: "Element", value: "Self-Organization" }
+    ]
+  },
+  {
+    id: 96,
+    image: "https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/SAINT96.png",
+    title: "NONLINEAR DYNAMICS SAGE",
+    description: "Master of sensitive dependence, this Saint understands how tiny changes can create vast consequences, wielding the butterfly effect to reshape entire timelines.",
+    traits: [
+      { trait_type: "Class", value: "Dynamics Sage" },
+      { trait_type: "Rarity", value: "Nonlinear" },
+      { trait_type: "Power", value: "Chaos Mastery" },
+      { trait_type: "Element", value: "Sensitive Dependence" }
+    ]
+  },
+  {
+    id: 97,
+    image: "https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/SAINT97.png",
+    title: "COMPUTATIONAL IRREDUCIBILITY MONK",
+    description: "Contemplator of processes that must be experienced to be understood, this Saint teaches that some truths can only be known by living through them completely.",
+    traits: [
+      { trait_type: "Class", value: "Monk" },
+      { trait_type: "Rarity", value: "Irreducible" },
+      { trait_type: "Power", value: "Experience Wisdom" },
+      { trait_type: "Element", value: "Pure Process" }
+    ]
+  },
+  {
+    id: 98,
+    image: "https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/SAINT98.png",
+    title: "ALGORITHMIC INFORMATION KEEPER",
+    description: "Librarian of compressed knowledge, this Saint maintains the shortest possible descriptions of all phenomena, finding the most elegant expressions of infinite complexity.",
+    traits: [
+      { trait_type: "Class", value: "Keeper" },
+      { trait_type: "Rarity", value: "Algorithmic" },
+      { trait_type: "Power", value: "Optimal Compression" },
+      { trait_type: "Element", value: "Pure Information" }
+    ]
+  },
+  {
+    id: 99,
+    image: "https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/SAINT99.png",
+    title: "UNIVERSAL TURING MACHINE",
+    description: "Computer of all possible computations, this Saint can simulate any conceivable process or reality, serving as the ultimate calculator of what could be.",
+    traits: [
+      { trait_type: "Class", value: "Universal Machine" },
+      { trait_type: "Rarity", value: "Computational" },
+      { trait_type: "Power", value: "Universal Computation" },
+      { trait_type: "Element", value: "Computation" }
+    ]
+  },
+  {
+    id: 100,
+    image: "https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/SAINT100.png",
+    title: "ABSOLUTE INFINITY SAINT",
+    description: "Embodiment of the concept beyond all concepts, this Saint represents the ultimate transcendence - infinity so complete that it contains all possibilities, including its own negation, in perfect eternal unity.",
+    traits: [
+      { trait_type: "Class", value: "Absolute Saint" },
+      { trait_type: "Rarity", value: "Absolute Infinity" },
+      { trait_type: "Power", value: "Infinite Transcendence" },
+      { trait_type: "Element", value: "All and Nothing" }
+    ]
   }
-  
 ];
