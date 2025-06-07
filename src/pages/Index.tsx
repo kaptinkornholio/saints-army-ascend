@@ -6,13 +6,26 @@ import CTAFooter from '@/components/CTAFooter';
 import DropCountdown from '@/components/DropCountdown'; 
 import SmoothScroll, { ParallaxSection } from '@/components/SmoothScroll';
 import SocialSidebar from '@/components/SocialSidebar';
+import DynamicHeader from '@/components/DynamicHeader';
 import { motion } from 'framer-motion';
 import { useIsMobile } from '@/hooks/use-mobile';
 import { useComingSoonModal } from '@/hooks/use-coming-soon-modal';
+import { Button } from '@/components/ui/button';
+import { useState } from 'react';
 
 const Index = () => {
+  const [isScrolled, setIsScrolled] = useState(false);
   const isMobile = useIsMobile();
-  const { ComingSoonModal } = useComingSoonModal();
+  const { ComingSoonModal, openModal } = useComingSoonModal();
+  
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
   
   useEffect(() => {
     // Update the document title
@@ -70,8 +83,19 @@ const Index = () => {
   const dropDate = new Date();
   dropDate.setDate(dropDate.getDate() + 30);
 
+  const handleMintComingSoon = () => {
+    openModal("Minting Coming Soon", "We're preparing something special for you. The SAINTS ARMY NFT minting will be available soon.");
+  };
+
+  const handleViewRoadmap = () => {
+    openModal("Roadmap Coming Soon", "Our comprehensive roadmap will be revealed soon. Stay tuned for exciting updates!");
+  };
+
   return (
     <div className="min-h-screen bg-saints-dark text-white overflow-hidden">
+      {/* Dynamic Header */}
+      <DynamicHeader isScrolled={isScrolled} />
+      
       <SmoothScroll>
         {/* Fixed position elements */}
         <div className="fixed top-0 left-0 w-full h-full -z-20 bg-gradient-to-b from-black to-saints-dark"></div>
@@ -119,6 +143,33 @@ const Index = () => {
                 <p className="cosmic-subtitle text-lg md:text-xl mb-12 font-semibold tracking-wide bg-clip-text text-transparent bg-gradient-to-r from-white via-white/90 to-white/70">
                   Discover the SAINTS ARMY NFT, where ethereal masterpieces evolve with our community. Become a Saint, shape the future, and own the divine.
                 </p>
+
+                {/* CTA Buttons */}
+                <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
+                  <motion.div
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    <Button 
+                      onClick={handleMintComingSoon}
+                      className="bg-gradient-to-r from-yellow-500 to-yellow-600 hover:from-yellow-600 hover:to-yellow-700 text-black font-bold py-4 px-8 rounded-lg text-lg min-w-[200px] transition-all duration-300"
+                    >
+                      🎨 MINT COMING SOON
+                    </Button>
+                  </motion.div>
+                  
+                  <motion.div
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    <Button 
+                      onClick={handleViewRoadmap}
+                      className="bg-gradient-to-r from-saints-purple to-saints-blue hover:from-saints-purple/80 hover:to-saints-blue/80 text-white font-bold py-4 px-8 rounded-lg text-lg min-w-[200px] transition-all duration-300"
+                    >
+                      VIEW ROADMAP
+                    </Button>
+                  </motion.div>
+                </div>
               </div>
             </div>
           </section>
