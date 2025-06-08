@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 import AboutZeok from '@/components/AboutZeok';
 import NFTShowcase from '@/components/NFTShowcase';
@@ -12,11 +11,13 @@ import { useIsMobile } from '@/hooks/use-mobile';
 import { useComingSoonModal } from '@/hooks/use-coming-soon-modal';
 import { Button } from '@/components/ui/button';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Index = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const isMobile = useIsMobile();
   const { ComingSoonModal, openModal } = useComingSoonModal();
+  const navigate = useNavigate();
   
   useEffect(() => {
     const handleScroll = () => {
@@ -168,6 +169,33 @@ const Index = () => {
                     >
                       VIEW ROADMAP
                     </Button>
+                  </motion.div>
+                </div>
+
+                {/* Collection Explorer Button with Background Overlay */}
+                <div className="mb-8">
+                  <motion.div
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="relative overflow-hidden rounded-xl"
+                  >
+                    <button
+                      onClick={() => navigate('/collection')}
+                      className="relative w-full max-w-lg mx-auto block bg-gradient-to-r from-saints-purple/80 to-saints-blue/80 hover:from-saints-purple hover:to-saints-blue text-white font-bold py-6 px-8 rounded-xl text-lg transition-all duration-300 border border-saints-purple/30 hover:border-saints-gold/50"
+                      style={{
+                        backgroundImage: `linear-gradient(rgba(178, 0, 255, 0.8), rgba(0, 123, 255, 0.8)), url(https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/SAINT20.png)`,
+                        backgroundSize: 'cover',
+                        backgroundPosition: 'center',
+                        backgroundBlendMode: 'overlay'
+                      }}
+                    >
+                      <div className="relative z-10">
+                        <div className="text-2xl font-bold mb-2">Explore SAINTS Collection</div>
+                        <div className="text-sm opacity-90">
+                          Choose your path: Dark Saints master shadow and void, while Light Saints command illumination and order
+                        </div>
+                      </div>
+                    </button>
                   </motion.div>
                 </div>
               </div>
