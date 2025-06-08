@@ -25,7 +25,13 @@ const Collection: React.FC = () => {
   return (
     <div className="min-h-screen bg-saints-dark text-white pt-16 sm:pt-20 pb-6 sm:pb-10">
       <div className="absolute inset-0 -z-10">
-        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-black to-saints-dark"></div>
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-40"
+          style={{
+            backgroundImage: "url(https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/SAINT1.png)"
+          }}
+        />
+        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-black via-saints-purple/20 to-saints-dark"></div>
       </div>
 
       <div className="container mx-auto px-3 sm:px-4">
