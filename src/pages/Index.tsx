@@ -11,6 +11,8 @@ import JoinCommunity from '@/components/JoinCommunity';
 import CTAFooter from '@/components/CTAFooter';
 import SocialMediaBar from '@/components/SocialMediaBar';
 import { useComingSoonModal } from "@/hooks/use-coming-soon-modal";
+import { Button } from '@/components/ui/button';
+import { Moon, Sun } from 'lucide-react';
 
 const Index: React.FC = () => {
   const navigate = useNavigate();
@@ -75,16 +77,17 @@ const Index: React.FC = () => {
             </button>
           </motion.div>
 
-          {/* Dark and Light Saints Preview */}
+          {/* Collection Selector - Moved from CollectionSelector page */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6, duration: 0.8 }}
-            className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto mb-16"
+            className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto mb-16"
           >
-            {/* Dark Saints */}
-            <div 
-              className="relative group cursor-pointer p-6 rounded-xl bg-gradient-to-br from-black/60 to-saints-purple/20 border border-saints-purple/30 overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-[0_0_25px_rgba(178,0,255,0.5)]"
+            {/* Dark Saints Collection */}
+            <motion.div
+              className="cosmic-card p-6 lg:p-8 rounded-xl bg-gradient-to-br from-black/80 to-saints-purple/10 border border-saints-purple/30 group cursor-pointer relative overflow-hidden"
+              whileHover={{ scale: 1.02, boxShadow: "0 0 30px rgba(178,0,255,0.5)" }}
               onClick={() => navigate('/collection/dark')}
             >
               <div 
@@ -95,17 +98,23 @@ const Index: React.FC = () => {
               />
               <div className="absolute inset-0 bg-gradient-to-br from-black/60 to-saints-purple/20"></div>
               <div className="relative z-10">
-                <h3 className="text-2xl font-bold mb-3 text-saints-purple">Dark Saints</h3>
-                <p className="text-white/70 mb-4">
+                <div className="flex items-center justify-center mb-6">
+                  <div className="p-4 rounded-full bg-saints-purple/20 group-hover:bg-saints-purple/30 transition-colors">
+                    <Moon className="w-12 h-12 text-saints-purple" />
+                  </div>
+                </div>
+                <h2 className="text-2xl font-bold mb-4 text-white">Dark Saints</h2>
+                <p className="text-white/70 mb-6">
                   Masters of shadow, void, and the mysteries of the unknown. These Saints harness the power of darkness and chaos.
                 </p>
                 <span className="text-saints-purple font-semibold">50 Unique Saints →</span>
               </div>
-            </div>
+            </motion.div>
 
-            {/* Light Saints */}
-            <div 
-              className="relative group cursor-pointer p-6 rounded-xl bg-gradient-to-br from-black/60 to-saints-gold/20 border border-saints-gold/30 overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-[0_0_25px_rgba(255,215,0,0.5)]"
+            {/* Light Saints Collection */}
+            <motion.div
+              className="cosmic-card p-6 lg:p-8 rounded-xl bg-gradient-to-br from-black/80 to-saints-gold/10 border border-saints-gold/30 group cursor-pointer relative overflow-hidden"
+              whileHover={{ scale: 1.02, boxShadow: "0 0 30px rgba(255,215,0,0.5)" }}
               onClick={() => navigate('/collection/light')}
             >
               <div 
@@ -116,13 +125,18 @@ const Index: React.FC = () => {
               />
               <div className="absolute inset-0 bg-gradient-to-br from-black/60 to-saints-gold/20"></div>
               <div className="relative z-10">
-                <h3 className="text-2xl font-bold mb-3 text-saints-gold">Light Saints</h3>
-                <p className="text-white/70 mb-4">
+                <div className="flex items-center justify-center mb-6">
+                  <div className="p-4 rounded-full bg-saints-gold/20 group-hover:bg-saints-gold/30 transition-colors">
+                    <Sun className="w-12 h-12 text-saints-gold" />
+                  </div>
+                </div>
+                <h2 className="text-2xl font-bold mb-4 text-white">Light Saints</h2>
+                <p className="text-white/70 mb-6">
                   Guardians of light, creation, and divine wisdom. These Saints channel the power of illumination and order.
                 </p>
                 <span className="text-saints-gold font-semibold">50 Unique Saints →</span>
               </div>
-            </div>
+            </motion.div>
           </motion.div>
         </div>
       </section>
