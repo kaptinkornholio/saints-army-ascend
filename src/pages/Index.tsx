@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
@@ -18,6 +19,10 @@ const Index: React.FC = () => {
   const handleJoinDiscord = () => {
     openModal("Join Our Discord", "Connect with the SAINTS ARMY community on Discord for exclusive updates, discussions, and more!");
   };
+
+  // Set target date for NFT drop (example: 30 days from now)
+  const dropDate = new Date();
+  dropDate.setDate(dropDate.getDate() + 30);
 
   return (
     <div className="min-h-screen bg-saints-dark text-white relative overflow-hidden">
@@ -126,7 +131,7 @@ const Index: React.FC = () => {
       <NFTShowcase />
 
       {/* Drop Countdown */}
-      <DropCountdown />
+      <DropCountdown targetDate={dropDate} />
 
       {/* About Zeok */}
       <AboutZeok />

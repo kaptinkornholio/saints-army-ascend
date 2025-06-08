@@ -8,7 +8,7 @@ import LightSaints from './pages/LightSaints';
 import Roadmap from './pages/Roadmap';
 import NotFound from './pages/NotFound';
 import Header from './components/Header';
-import { ComingSoonModal } from "@/components/ComingSoonModal";
+import ComingSoonModal from "@/components/ComingSoonModal";
 import { Toaster } from "@/components/ui/sonner";
 
 function App() {
