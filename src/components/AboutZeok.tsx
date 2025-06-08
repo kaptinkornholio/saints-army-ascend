@@ -11,7 +11,7 @@ const AboutZeok: React.FC = () => {
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-60"
           style={{
-            backgroundImage: "url(https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/animate_this_crowned_anime_character_with_cyberpunk.mp4)"
+            backgroundImage: "url(https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/SAINTback2.png)"
           }}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-saints-dark/80 via-saints-dark/60 to-saints-dark/90"></div>
@@ -29,7 +29,7 @@ const AboutZeok: React.FC = () => {
             <div className="w-full md:w-2/5 cosmic-card p-4 animate-float group hover:transform hover:scale-105 transition-all duration-500">
               <div className="relative aspect-square overflow-hidden rounded-lg glow-border group-hover:shadow-[0_0_30px_rgba(178,0,255,0.6)]">
                 <img 
-                  src="https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/animate_this_crowned_anime_character_with_cyberpunk.mp4" 
+                  src="https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/SAINTZEOK.png" 
                   alt="Zeok - General of the SAINT NEOS ARMY"
                   className="object-cover w-full h-full transform transition-transform duration-700 group-hover:scale-110"
                 />
