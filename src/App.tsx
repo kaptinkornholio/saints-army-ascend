@@ -8,10 +8,12 @@ import LightSaints from './pages/LightSaints';
 import Roadmap from './pages/Roadmap';
 import NotFound from './pages/NotFound';
 import Header from './components/Header';
-import ComingSoonModal from "@/components/ComingSoonModal";
 import { Toaster } from "@/components/ui/sonner";
+import { useComingSoonModal } from "@/hooks/use-coming-soon-modal";
 
 function App() {
+  const { ComingSoonModal } = useComingSoonModal();
+
   return (
     <Router>
       <div className="min-h-screen bg-saints-dark">
