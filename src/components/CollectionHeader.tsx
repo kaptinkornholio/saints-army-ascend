@@ -7,9 +7,17 @@ import { useComingSoonModal } from "@/hooks/use-coming-soon-modal";
 
 interface CollectionHeaderProps {
   totalNFTs: number;
+  collectionName?: string;
+  collectionDescription?: string;
+  backPath?: string;
 }
 
-const CollectionHeader: React.FC<CollectionHeaderProps> = ({ totalNFTs }) => {
+const CollectionHeader: React.FC<CollectionHeaderProps> = ({ 
+  totalNFTs, 
+  collectionName = "SAINTS ARMY Collection",
+  collectionDescription = "Explore the complete collection of divine NFTs",
+  backPath = "/"
+}) => {
   const navigate = useNavigate();
   const { openModal } = useComingSoonModal();
 
@@ -24,18 +32,18 @@ const CollectionHeader: React.FC<CollectionHeaderProps> = ({ totalNFTs }) => {
       <div className="mb-4 lg:mb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div className="flex-1">
           <Button 
-            onClick={() => navigate('/')} 
+            onClick={() => navigate(backPath)} 
             variant="ghost" 
             className="mb-3 text-saints-gold hover:bg-saints-purple/20 text-sm"
           >
             <ArrowLeft className="mr-2 h-4 w-4" />
-            Back to Home
+            Back
           </Button>
           <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-saints-gold via-saints-purple to-saints-blue">
-            SAINTS ARMY Collection
+            {collectionName}
           </h1>
           <p className="text-white/70 mt-2 text-xs sm:text-sm">
-            Explore the complete collection of 80 divine NFTs
+            {collectionDescription}
           </p>
         </div>
 
