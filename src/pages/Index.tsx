@@ -1,256 +1,144 @@
-import React, { useEffect } from 'react';
-import AboutZeok from '@/components/AboutZeok';
-import NFTShowcase from '@/components/NFTShowcase';
-import CTAFooter from '@/components/CTAFooter';
-import DropCountdown from '@/components/DropCountdown'; 
-import SmoothScroll, { ParallaxSection } from '@/components/SmoothScroll';
-import SocialSidebar from '@/components/SocialSidebar';
-import DynamicHeader from '@/components/DynamicHeader';
-import { motion } from 'framer-motion';
-import { useIsMobile } from '@/hooks/use-mobile';
-import { useComingSoonModal } from '@/hooks/use-coming-soon-modal';
-import { Button } from '@/components/ui/button';
-import { useState } from 'react';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import { motion } from 'framer-motion';
+import ParticleBackground from '@/components/ParticleBackground';
+import InteractiveBackground from '@/components/InteractiveBackground';
+import NFTShowcase from '@/components/NFTShowcase';
+import DropCountdown from '@/components/DropCountdown';
+import AboutZeok from '@/components/AboutZeok';
+import JoinCommunity from '@/components/JoinCommunity';
+import CTAFooter from '@/components/CTAFooter';
+import SocialMediaBar from '@/components/SocialMediaBar';
+import { useComingSoonModal } from "@/hooks/use-coming-soon-modal";
 
-const Index = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const isMobile = useIsMobile();
-  const { ComingSoonModal, openModal } = useComingSoonModal();
+const Index: React.FC = () => {
   const navigate = useNavigate();
-  
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
+  const { openModal } = useComingSoonModal();
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-  
-  useEffect(() => {
-    // Update the document title
-    document.title = "SAINTS ARMY NFT | Unleash Divine Art with #SAINTSARMY";
-    
-    // Add viewport meta tag for better mobile support
-    let viewportMeta = document.querySelector('meta[name="viewport"]');
-    if (!viewportMeta) {
-      viewportMeta = document.createElement('meta');
-      viewportMeta.setAttribute('name', 'viewport');
-      document.head.appendChild(viewportMeta);
-    }
-    viewportMeta.setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no');
-    
-    // Update meta description
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute('content', 'Join SAINTS ARMY NFT where ethereal masterpieces evolve with our community. Become a Saint, shape the future, and own divine art.');
-    }
-    
-    // Update OpenGraph tags
-    const ogTitle = document.querySelector('meta[property="og:title"]');
-    const ogDesc = document.querySelector('meta[property="og:description"]');
-    
-    if (ogTitle) {
-      ogTitle.setAttribute('content', 'SAINTS ARMY NFT | Unleash Divine Art with #OneArmy');
-    }
-    
-    if (ogDesc) {
-      ogDesc.setAttribute('content', 'Join SAINTS ARMY NFT where ethereal masterpieces evolve with our community. Become a Saint, shape the future, and own divine art.');
-    }
-    
-    // Add smooth scrolling behavior
-    document.documentElement.style.scrollBehavior = 'smooth';
-    
-    return () => {
-      document.documentElement.style.scrollBehavior = '';
-    };
-  }, []);
-
-  // Animation variants for section transitions
-  const fadeIn = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { 
-      opacity: 1, 
-      y: 0,
-      transition: { 
-        duration: 0.8,
-        ease: [0.22, 1, 0.36, 1]
-      }
-    }
-  };
-
-  // Set drop date to 30 days from now
-  const dropDate = new Date();
-  dropDate.setDate(dropDate.getDate() + 30);
-
-  const handleMintComingSoon = () => {
-    openModal("Minting Coming Soon", "We're preparing something special for you. The SAINTS ARMY NFT minting will be available soon.");
-  };
-
-  const handleViewRoadmap = () => {
-    openModal("Roadmap Coming Soon", "Our comprehensive roadmap will be revealed soon. Stay tuned for exciting updates!");
+  const handleJoinDiscord = () => {
+    openModal("Join Our Discord", "Connect with the SAINTS ARMY community on Discord for exclusive updates, discussions, and more!");
   };
 
   return (
-    <div className="min-h-screen bg-saints-dark text-white overflow-hidden">
-      {/* Dynamic Header */}
-      <DynamicHeader isScrolled={isScrolled} />
+    <div className="min-h-screen bg-saints-dark text-white relative overflow-hidden">
+      {/* Background Effects */}
+      <ParticleBackground />
+      <InteractiveBackground />
       
-      <SmoothScroll>
-        {/* Fixed position elements */}
-        <div className="fixed top-0 left-0 w-full h-full -z-20 bg-gradient-to-b from-black to-saints-dark"></div>
-        
-        {/* Social Sidebar */}
-        <SocialSidebar />
-        
-        {/* Main content with proper spacing for DynamicHeader */}
-        <div className="pt-20 md:pt-24">
-          {/* Hero section to replace removed Header */}
-          <section className="relative w-full overflow-hidden py-12 md:py-20 min-h-screen">
-            {/* Background overlay with SAINT1.png image */}
-            <div className="absolute inset-0 z-0">
+      {/* Hero Section */}
+      <section className="relative pt-20 pb-16 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="mb-8"
+          >
+            <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold mb-6 cosmic-title">
+              SAINTS ARMY
+            </h1>
+            <p className="text-lg sm:text-xl lg:text-2xl text-white/80 mb-8 max-w-4xl mx-auto leading-relaxed">
+              Ascend to digital divinity with the ultimate NFT collection. 100 unique Saints, each wielding cosmic powers and bearing the mark of eternal glory.
+            </p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4, duration: 0.6 }}
+            className="flex flex-col sm:flex-row gap-4 justify-center mb-12"
+          >
+            <button
+              onClick={() => navigate('/collection/selector')}
+              className="relative group px-8 py-4 bg-gradient-to-r from-saints-purple via-saints-blue to-saints-gold rounded-lg font-semibold text-white transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(178,0,255,0.6)] overflow-hidden"
+            >
               <div 
-                className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-60"
+                className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20 group-hover:opacity-30 transition-opacity"
                 style={{
-                  backgroundImage: "url(https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/SAINT1.png)"
+                  backgroundImage: "url(https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/SAINT20.png)"
                 }}
               />
-              <div className="absolute inset-0 bg-gradient-to-b from-saints-dark/80 via-saints-dark/60 to-saints-dark/90"></div>
-            </div>
+              <div className="absolute inset-0 bg-gradient-to-r from-saints-purple/60 to-saints-blue/60"></div>
+              <span className="relative z-10">Explore Collections</span>
+            </button>
             
-            {/* Background elements */}
-            <div className="absolute top-0 left-0 w-full h-full z-10">
-              <div className="absolute top-1/4 left-1/3 w-64 h-64 bg-gradient-to-br from-saints-purple/40 to-saints-blue/30 rounded-full filter blur-3xl"></div>
-              <div className="absolute bottom-1/4 right-1/3 w-80 h-80 bg-gradient-to-br from-saints-gold/30 to-saints-purple/30 rounded-full filter blur-3xl"></div>
-              <div className="absolute top-0 left-0 w-full h-full">
-                <div className="absolute top-10 left-1/4 w-2 h-2 bg-saints-gold rounded-full"></div>
-                <div className="absolute top-1/3 right-1/4 w-1 h-1 bg-white rounded-full"></div>
-                <div className="absolute bottom-1/4 left-1/5 w-1.5 h-1.5 bg-saints-blue rounded-full"></div>
-              </div>
-            </div>
-            
-            <div className="container mx-auto px-4 relative z-20">
-              <div className="max-w-3xl mx-auto text-center" data-scroll data-scroll-speed="0.3">
-                {/* Logo image */}
-                <div className="mb-6 flex justify-center">
-                  <img 
-                    src="https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/SAINTSLOGO3.png"
-                    alt="SAINTS ARMY NFT Logo" 
-                    className="max-w-full h-auto max-h-64 md:max-h-80 lg:max-h-96 object-contain filter drop-shadow-2xl"
-                  />
-                </div>
-                
-                <p className="cosmic-subtitle text-lg md:text-xl mb-12 font-semibold tracking-wide bg-clip-text text-transparent bg-gradient-to-r from-white via-white/90 to-white/70">
-                  Discover the SAINTS ARMY NFT, where ethereal masterpieces evolve with our community. Become a Saint, shape the future, and own the divine.
+            <button
+              onClick={handleJoinDiscord}
+              className="px-8 py-4 border-2 border-saints-gold text-saints-gold rounded-lg font-semibold hover:bg-saints-gold hover:text-saints-dark transition-all duration-300 hover:scale-105"
+            >
+              Join Community
+            </button>
+          </motion.div>
+
+          {/* Dark and Light Saints Preview */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.6, duration: 0.8 }}
+            className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto mb-16"
+          >
+            {/* Dark Saints */}
+            <div 
+              className="relative group cursor-pointer p-6 rounded-xl bg-gradient-to-br from-black/60 to-saints-purple/20 border border-saints-purple/30 overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-[0_0_25px_rgba(178,0,255,0.5)]"
+              onClick={() => navigate('/collection/dark')}
+            >
+              <div 
+                className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-30 group-hover:opacity-40 transition-opacity"
+                style={{
+                  backgroundImage: "url(https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/SAINT15.png)"
+                }}
+              />
+              <div className="absolute inset-0 bg-gradient-to-br from-black/60 to-saints-purple/20"></div>
+              <div className="relative z-10">
+                <h3 className="text-2xl font-bold mb-3 text-saints-purple">Dark Saints</h3>
+                <p className="text-white/70 mb-4">
+                  Masters of shadow, void, and the mysteries of the unknown. These Saints harness the power of darkness and chaos.
                 </p>
-
-                {/* CTA Buttons */}
-                <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
-                  <motion.div
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    <Button 
-                      onClick={handleMintComingSoon}
-                      className="bg-gradient-to-r from-yellow-500 to-yellow-600 hover:from-yellow-600 hover:to-yellow-700 text-black font-bold py-4 px-8 rounded-lg text-lg min-w-[200px] transition-all duration-300"
-                    >
-                      🎨 MINT COMING SOON
-                    </Button>
-                  </motion.div>
-                  
-                  <motion.div
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    <Button 
-                      onClick={handleViewRoadmap}
-                      className="bg-gradient-to-r from-saints-purple to-saints-blue hover:from-saints-purple/80 hover:to-saints-blue/80 text-white font-bold py-4 px-8 rounded-lg text-lg min-w-[200px] transition-all duration-300"
-                    >
-                      VIEW ROADMAP
-                    </Button>
-                  </motion.div>
-                </div>
-
-                {/* Collection Explorer Button with Background Overlay */}
-                <div className="mb-8">
-                  <motion.div
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="relative overflow-hidden rounded-xl"
-                  >
-                    <button
-                      onClick={() => navigate('/collection')}
-                      className="relative w-full max-w-lg mx-auto block bg-gradient-to-r from-saints-purple/80 to-saints-blue/80 hover:from-saints-purple hover:to-saints-blue text-white font-bold py-6 px-8 rounded-xl text-lg transition-all duration-300 border border-saints-purple/30 hover:border-saints-gold/50"
-                      style={{
-                        backgroundImage: `linear-gradient(rgba(178, 0, 255, 0.8), rgba(0, 123, 255, 0.8)), url(https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/SAINT20.png)`,
-                        backgroundSize: 'cover',
-                        backgroundPosition: 'center',
-                        backgroundBlendMode: 'overlay'
-                      }}
-                    >
-                      <div className="relative z-10">
-                        <div className="text-2xl font-bold mb-2">Explore SAINTS Collection</div>
-                        <div className="text-sm opacity-90">
-                          Choose your path: Dark Saints master shadow and void, while Light Saints command illumination and order
-                        </div>
-                      </div>
-                    </button>
-                  </motion.div>
-                </div>
+                <span className="text-saints-purple font-semibold">50 Unique Saints →</span>
               </div>
             </div>
-          </section>
-          
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={fadeIn}
-          >
-            <ParallaxSection speed={isMobile ? 0 : 0.2}>
-              <AboutZeok />
-            </ParallaxSection>
-          </motion.div>
-          
-          {/* Add countdown timer */}
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={fadeIn}
-          >
-            <ParallaxSection speed={isMobile ? 0 : 0.3}>
-              <div className="max-w-6xl mx-auto px-4 py-8 md:py-20">
-                <DropCountdown targetDate={dropDate} />
+
+            {/* Light Saints */}
+            <div 
+              className="relative group cursor-pointer p-6 rounded-xl bg-gradient-to-br from-black/60 to-saints-gold/20 border border-saints-gold/30 overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-[0_0_25px_rgba(255,215,0,0.5)]"
+              onClick={() => navigate('/collection/light')}
+            >
+              <div 
+                className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-30 group-hover:opacity-40 transition-opacity"
+                style={{
+                  backgroundImage: "url(https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/SAINT35.png)"
+                }}
+              />
+              <div className="absolute inset-0 bg-gradient-to-br from-black/60 to-saints-gold/20"></div>
+              <div className="relative z-10">
+                <h3 className="text-2xl font-bold mb-3 text-saints-gold">Light Saints</h3>
+                <p className="text-white/70 mb-4">
+                  Guardians of light, creation, and divine wisdom. These Saints channel the power of illumination and order.
+                </p>
+                <span className="text-saints-gold font-semibold">50 Unique Saints →</span>
               </div>
-            </ParallaxSection>
-          </motion.div>
-          
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={fadeIn}
-          >
-            <ParallaxSection speed={isMobile ? 0 : 0.4}>
-              <NFTShowcase />
-            </ParallaxSection>
-          </motion.div>
-          
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={fadeIn}
-          >
-            <CTAFooter />
+            </div>
           </motion.div>
         </div>
-      </SmoothScroll>
-      
-      {/* Global Coming Soon Modal */}
-      <ComingSoonModal />
+      </section>
+
+      {/* NFT Showcase */}
+      <NFTShowcase />
+
+      {/* Drop Countdown */}
+      <DropCountdown />
+
+      {/* About Zeok */}
+      <AboutZeok />
+
+      {/* Join Community */}
+      <JoinCommunity />
+
+      {/* CTA Footer */}
+      <CTAFooter />
+
+      {/* Social Media Bar */}
+      <SocialMediaBar />
     </div>
   );
 };
