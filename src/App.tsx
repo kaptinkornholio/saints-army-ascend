@@ -16,7 +16,7 @@ function App() {
 
   return (
     <Router>
-      <div className="min-h-screen bg-saints-dark">
+      <div className="min-h-screen bg-saints-dark w-full">
         <Header />
         <Routes>
           <Route path="/" element={<Index />} />

@@ -11,7 +11,6 @@ import JoinCommunity from '@/components/JoinCommunity';
 import CTAFooter from '@/components/CTAFooter';
 import SocialMediaBar from '@/components/SocialMediaBar';
 import { useComingSoonModal } from "@/hooks/use-coming-soon-modal";
-import { Button } from '@/components/ui/button';
 import { Moon, Sun } from 'lucide-react';
 
 const Index: React.FC = () => {
@@ -32,8 +31,11 @@ const Index: React.FC = () => {
       <ParticleBackground />
       <InteractiveBackground />
       
+      {/* Social Media Sidebar */}
+      <SocialMediaBar />
+      
       {/* Hero Section */}
-      <section className="relative pt-20 pb-16 px-4 sm:px-6 lg:px-8">
+      <section className="relative pt-24 pb-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -41,11 +43,17 @@ const Index: React.FC = () => {
             transition={{ duration: 0.8 }}
             className="mb-8"
           >
-            <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold mb-6 cosmic-title">
-              SAINTS ARMY
-            </h1>
+            {/* Replace text title with image logo */}
+            <div className="mb-6 flex justify-center">
+              <img 
+                src="https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/SAINTSBACK1.png"
+                alt="SAINTS ARMY NFT Logo" 
+                className="max-w-full h-auto max-h-64 md:max-h-80 lg:max-h-96 object-contain filter drop-shadow-2xl"
+              />
+            </div>
+            
             <p className="text-lg sm:text-xl lg:text-2xl text-white/80 mb-8 max-w-4xl mx-auto leading-relaxed">
-              Ascend to digital divinity with the ultimate NFT collection. 100 unique Saints, each wielding cosmic powers and bearing the mark of eternal glory.
+              Discover the SAINTS ARMY NFT, where ethereal masterpieces evolve with our community. Become a Saint, shape the future, and own the divine.
             </p>
           </motion.div>
 
@@ -77,7 +85,7 @@ const Index: React.FC = () => {
             </button>
           </motion.div>
 
-          {/* Collection Selector - Moved from CollectionSelector page */}
+          {/* Collection Selector */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -155,9 +163,6 @@ const Index: React.FC = () => {
 
       {/* CTA Footer */}
       <CTAFooter />
-
-      {/* Social Media Bar */}
-      <SocialMediaBar />
     </div>
   );
 };
