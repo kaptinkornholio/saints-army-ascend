@@ -32,7 +32,15 @@ const CollectionSelector: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-saints-dark text-white pt-16 sm:pt-20 pb-6 sm:pb-10 flex items-center justify-center">
+    <div className="min-h-screen bg-saints-dark text-white pt-16 sm:pt-20 pb-6 sm:pb-10 flex items-center justify-center relative overflow-hidden">
+      {/* GitHub Image Background Overlay */}
+      <div 
+        className="fixed inset-0 bg-cover bg-center bg-no-repeat opacity-10 z-0"
+        style={{
+          backgroundImage: "url(https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/SAINTZEOK2.png)"
+        }}
+      />
+      
       <div className="absolute inset-0 -z-10">
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-30"
@@ -43,7 +51,7 @@ const CollectionSelector: React.FC = () => {
         <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-black to-saints-dark"></div>
       </div>
 
-      <div className="container mx-auto px-3 sm:px-4">
+      <div className="container mx-auto px-3 sm:px-4 relative z-10">
         <motion.div 
           className="max-w-4xl mx-auto text-center"
           variants={containerVariants}
