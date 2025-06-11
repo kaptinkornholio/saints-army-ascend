@@ -31,11 +31,19 @@ const Index: React.FC = () => {
       <ParticleBackground />
       <InteractiveBackground />
       
+      {/* GitHub Image Background Overlay */}
+      <div 
+        className="fixed inset-0 bg-cover bg-center bg-no-repeat opacity-10 z-0"
+        style={{
+          backgroundImage: "url(https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/SAINTSBACK4.png)"
+        }}
+      />
+      
       {/* Social Media Sidebar */}
       <SocialMediaBar />
       
       {/* Hero Section */}
-      <section className="relative pt-24 pb-16 px-4 sm:px-6 lg:px-8">
+      <section className="relative pt-24 pb-16 px-4 sm:px-6 lg:px-8 z-10">
         <div className="max-w-7xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}

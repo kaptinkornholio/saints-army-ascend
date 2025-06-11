@@ -3,13 +3,14 @@ import React from 'react';
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { useComingSoonModal } from "@/hooks/use-coming-soon-modal";
-import { useNavigate } from "react-router-dom";
-import { Menu, X } from "lucide-react";
+import { useNavigate, useLocation } from "react-router-dom";
+import { Menu, X, Home } from "lucide-react";
 import { useState } from "react";
 
 const Header: React.FC = () => {
   const { ComingSoonButton } = useComingSoonModal();
   const navigate = useNavigate();
+  const location = useLocation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   
   return (
@@ -32,6 +33,17 @@ const Header: React.FC = () => {
           
           {/* Desktop Navigation */}
           <div className="hidden md:flex space-x-6 items-center">
+            {/* Home/Back button - show when not on home page */}
+            {location.pathname !== '/' && (
+              <button
+                onClick={() => navigate('/')}
+                className="neon-link font-poppins text-lg font-semibold tracking-wider text-white hover:text-saints-gold transition-colors border-b-2 border-transparent hover:border-saints-gold bg-transparent border-none cursor-pointer flex items-center gap-2"
+              >
+                <Home className="w-4 h-4" />
+                Home
+              </button>
+            )}
+            
             <a 
               href="#about" 
               className="neon-link font-poppins text-lg font-semibold tracking-wider text-white hover:text-saints-gold transition-colors border-b-2 border-transparent hover:border-saints-gold"
@@ -40,7 +52,7 @@ const Header: React.FC = () => {
             </a>
             
             <button
-              onClick={() => navigate('/collection')}
+              onClick={() => navigate('/collection/selector')}
               className="neon-link font-poppins text-lg font-semibold tracking-wider text-white hover:text-saints-gold transition-colors border-b-2 border-transparent hover:border-saints-gold bg-transparent border-none cursor-pointer"
             >
               Collections
@@ -85,6 +97,20 @@ const Header: React.FC = () => {
             exit={{ opacity: 0, height: 0 }}
           >
             <div className="flex flex-col space-y-4">
+              {/* Home/Back button for mobile - show when not on home page */}
+              {location.pathname !== '/' && (
+                <button
+                  onClick={() => {
+                    navigate('/');
+                    setMobileMenuOpen(false);
+                  }}
+                  className="font-semibold text-lg py-2 text-white hover:text-saints-gold bg-transparent border-none text-left flex items-center gap-2"
+                >
+                  <Home className="w-4 h-4" />
+                  Home
+                </button>
+              )}
+              
               <a 
                 href="#about"
                 className="font-semibold text-lg py-2 text-white hover:text-saints-gold"
@@ -95,7 +121,7 @@ const Header: React.FC = () => {
               
               <button
                 onClick={() => {
-                  navigate('/collection');
+                  navigate('/collection/selector');
                   setMobileMenuOpen(false);
                 }}
                 className="font-semibold text-lg py-2 text-white hover:text-saints-gold bg-transparent border-none text-left"
