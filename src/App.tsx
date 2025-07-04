@@ -5,6 +5,7 @@ import CollectionSelector from './pages/CollectionSelector';
 import DarkSaints from './pages/DarkSaints';
 import LightSaints from './pages/LightSaints';
 import WhiteList from './pages/WhiteList';
+import WhitePaper from './pages/WhitePaper';
 import Roadmap from './pages/Roadmap';
 import NotFound from './pages/NotFound';
 import Header from './components/Header';
@@ -24,6 +25,7 @@ function App() {
           <Route path="/collection/dark" element={<DarkSaints />} />
           <Route path="/collection/light" element={<LightSaints />} />
           <Route path="/whitelist" element={<WhiteList />} />
+          <Route path="/whitepaper" element={<WhitePaper />} />
           <Route path="/roadmap" element={<Roadmap />} />
           <Route path="*" element={<NotFound />} />
         </Routes>

@@ -67,6 +67,16 @@ const Header: React.FC = () => {
             >
               White List
             </button>
+
+            <button
+              onClick={() => navigate('/whitepaper')}
+              className="neon-link font-poppins text-lg font-semibold tracking-wider text-white hover:text-saints-gold transition-colors border-b-2 border-transparent hover:border-saints-gold bg-transparent border-none cursor-pointer"
+              style={{
+                textShadow: "0 0 10px rgba(255,215,0,0.8)"
+              }}
+            >
+              White Paper
+            </button>
             
             <a 
               href="#join" 
@@ -150,6 +160,19 @@ const Header: React.FC = () => {
                 }}
               >
                 White List
+              </button>
+
+              <button
+                onClick={() => {
+                  navigate('/whitepaper');
+                  setMobileMenuOpen(false);
+                }}
+                className="font-semibold text-lg py-2 text-white hover:text-saints-gold bg-transparent border-none text-left"
+                style={{
+                  textShadow: "0 0 10px rgba(255,215,0,0.8)"
+                }}
+              >
+                White Paper
               </button>
               
               <a 
