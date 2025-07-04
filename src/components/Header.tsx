@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
@@ -117,6 +116,16 @@ const Header: React.FC = () => {
             >
               Roadmap
             </button>
+
+            <button
+              onClick={() => navigate('/collaborations')}
+              className="neon-link font-poppins text-lg font-semibold tracking-wider text-white hover:text-saints-gold transition-colors border-b-2 border-transparent hover:border-saints-gold bg-transparent border-none cursor-pointer"
+              style={{
+                textShadow: "0 0 10px rgba(255,215,0,0.8)"
+              }}
+            >
+              Collaborations
+            </button>
             
             <ComingSoonButton className="cosmic-button btn-primary">
               MINT NOW
@@ -222,6 +231,19 @@ const Header: React.FC = () => {
                 className="font-semibold text-lg py-2 text-white hover:text-saints-gold bg-transparent border-none text-left"
               >
                 Roadmap
+              </button>
+
+              <button
+                onClick={() => {
+                  navigate('/collaborations');
+                  setMobileMenuOpen(false);
+                }}
+                className="font-semibold text-lg py-2 text-white hover:text-saints-gold bg-transparent border-none text-left"
+                style={{
+                  textShadow: "0 0 10px rgba(255,215,0,0.8)"
+                }}
+              >
+                Collaborations
               </button>
               
               <ComingSoonButton 

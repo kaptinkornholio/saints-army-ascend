@@ -7,6 +7,7 @@ import LightSaints from './pages/LightSaints';
 import WhiteList from './pages/WhiteList';
 import WhitePaper from './pages/WhitePaper';
 import Roadmap from './pages/Roadmap';
+import Collaborations from './pages/Collaborations';
 import NotFound from './pages/NotFound';
 import Header from './components/Header';
 import { Toaster } from "@/components/ui/sonner";
@@ -27,6 +28,7 @@ function App() {
           <Route path="/whitelist" element={<WhiteList />} />
           <Route path="/whitepaper" element={<WhitePaper />} />
           <Route path="/roadmap" element={<Roadmap />} />
+          <Route path="/collaborations" element={<Collaborations />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
         <ComingSoonModal />
