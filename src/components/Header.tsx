@@ -13,6 +13,32 @@ const Header: React.FC = () => {
   const location = useLocation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   
+  const handleAboutClick = () => {
+    if (location.pathname === '/') {
+      // If on home page, scroll to about section
+      const aboutSection = document.getElementById('about');
+      if (aboutSection) {
+        aboutSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    } else {
+      // If on other pages, navigate to home and then scroll
+      navigate('/#about');
+    }
+  };
+
+  const handleJoinClick = () => {
+    if (location.pathname === '/') {
+      // If on home page, scroll to join section
+      const joinSection = document.getElementById('join');
+      if (joinSection) {
+        joinSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    } else {
+      // If on other pages, navigate to home and then scroll
+      navigate('/#join');
+    }
+  };
+  
   return (
     <header className="fixed top-0 left-0 w-full z-50 bg-saints-dark/90 backdrop-blur-sm border-b border-saints-purple/20">
       <div className="container mx-auto px-4">
@@ -44,12 +70,12 @@ const Header: React.FC = () => {
               </button>
             )}
             
-            <a 
-              href="#about" 
-              className="neon-link font-poppins text-lg font-semibold tracking-wider text-white hover:text-saints-gold transition-colors border-b-2 border-transparent hover:border-saints-gold"
+            <button 
+              onClick={handleAboutClick}
+              className="neon-link font-poppins text-lg font-semibold tracking-wider text-white hover:text-saints-gold transition-colors border-b-2 border-transparent hover:border-saints-gold bg-transparent border-none cursor-pointer"
             >
               About
-            </a>
+            </button>
             
             <button
               onClick={() => navigate('/collection/selector')}
@@ -78,18 +104,19 @@ const Header: React.FC = () => {
               White Paper
             </button>
             
-            <a 
-              href="#join" 
-              className="neon-link font-poppins text-lg font-semibold tracking-wider text-white hover:text-saints-gold transition-colors border-b-2 border-transparent hover:border-saints-gold"
+            <button 
+              onClick={handleJoinClick}
+              className="neon-link font-poppins text-lg font-semibold tracking-wider text-white hover:text-saints-gold transition-colors border-b-2 border-transparent hover:border-saints-gold bg-transparent border-none cursor-pointer"
             >
               Join
-            </a>
+            </button>
             
-            <ComingSoonButton 
-              className="neon-link font-poppins text-lg font-semibold tracking-wider text-white hover:text-saints-gold transition-colors border-b-2 border-transparent hover:border-saints-gold bg-transparent border-none p-0 h-auto"
+            <button
+              onClick={() => navigate('/roadmap')}
+              className="neon-link font-poppins text-lg font-semibold tracking-wider text-white hover:text-saints-gold transition-colors border-b-2 border-transparent hover:border-saints-gold bg-transparent border-none cursor-pointer"
             >
               Roadmap
-            </ComingSoonButton>
+            </button>
             
             <ComingSoonButton className="cosmic-button btn-primary">
               MINT NOW
@@ -131,13 +158,15 @@ const Header: React.FC = () => {
                 </button>
               )}
               
-              <a 
-                href="#about"
-                className="font-semibold text-lg py-2 text-white hover:text-saints-gold"
-                onClick={() => setMobileMenuOpen(false)}
+              <button
+                onClick={() => {
+                  handleAboutClick();
+                  setMobileMenuOpen(false);
+                }}
+                className="font-semibold text-lg py-2 text-white hover:text-saints-gold bg-transparent border-none text-left"
               >
                 About
-              </a>
+              </button>
               
               <button
                 onClick={() => {
@@ -175,20 +204,25 @@ const Header: React.FC = () => {
                 White Paper
               </button>
               
-              <a 
-                href="#join"
-                className="font-semibold text-lg py-2 text-white hover:text-saints-gold"
-                onClick={() => setMobileMenuOpen(false)}
+              <button
+                onClick={() => {
+                  handleJoinClick();
+                  setMobileMenuOpen(false);
+                }}
+                className="font-semibold text-lg py-2 text-white hover:text-saints-gold bg-transparent border-none text-left"
               >
                 Join
-              </a>
+              </button>
               
-              <ComingSoonButton 
-                className="font-semibold text-lg py-2 text-white hover:text-saints-gold bg-transparent border-none text-left p-0 h-auto"
-                onClick={() => setMobileMenuOpen(false)}
+              <button
+                onClick={() => {
+                  navigate('/roadmap');
+                  setMobileMenuOpen(false);
+                }}
+                className="font-semibold text-lg py-2 text-white hover:text-saints-gold bg-transparent border-none text-left"
               >
                 Roadmap
-              </ComingSoonButton>
+              </button>
               
               <ComingSoonButton 
                 className="cosmic-button btn-primary w-full mt-4"

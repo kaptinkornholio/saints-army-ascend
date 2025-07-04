@@ -78,16 +78,17 @@ const WhitePaper: React.FC = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-saints-dark text-white pt-16 sm:pt-20 pb-10 relative overflow-hidden">
+    <div className="min-h-screen text-white pt-16 sm:pt-20 pb-10 relative overflow-hidden">
       {/* GitHub Background Overlay */}
       <div 
-        className="fixed inset-0 bg-cover bg-center bg-no-repeat opacity-15 z-0"
+        className="fixed inset-0 bg-cover bg-center bg-no-repeat z-0"
         style={{
-          backgroundImage: "url(https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/SAINT30.png)"
+          backgroundImage: "url(https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/OIP%20(20).jpeg)",
+          filter: 'brightness(0.3) sepia(20%) saturate(150%) hue-rotate(25deg)'
         }}
       />
       
-      <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-saints-dark/90 to-saints-dark z-10"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-saints-dark/60 to-black/90 z-10"></div>
 
       <div className="container mx-auto px-4 relative z-20">
         <Button 
