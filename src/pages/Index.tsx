@@ -54,7 +54,7 @@ const Index: React.FC = () => {
             {/* Replace text title with image logo */}
             <div className="mb-6 flex justify-center">
               <img 
-                src="https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/saintsbackgroun1.png"
+                src="https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/SAINTS (22).png"
                 alt="SAINTS ARMY NFT Logo" 
                 className="max-w-full h-auto max-h-64 md:max-h-80 lg:max-h-96 object-contain filter drop-shadow-2xl"
               />
