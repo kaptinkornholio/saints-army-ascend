@@ -36,25 +36,25 @@ const Collaborations: React.FC = () => {
       name: "Ming",
       handle: "@Merciless365",
       xLink: "https://x.com/Merciless365",
-      bgImage: "https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/SAINT15.png"
+      bgImage: "https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/MING.jpg"
     },
     {
       name: "Skyes744 🍓",
       handle: "@Skyes744",
       xLink: "https://x.com/Skyes744",
-      bgImage: "https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/SAINT25.png"
+      bgImage: "https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/SKYS744.jpg"
     },
     {
       name: "NutzNFT",
       handle: "@NutzBaseNFT",
       xLink: "https://x.com/NutzBaseNFT",
-      bgImage: "https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/SAINT35.png"
+      bgImage: "https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/NUTZNFT.jpg"
     },
     {
       name: "StonedRabbits 🐰",
       handle: "@StonedRabbitts",
       xLink: "https://x.com/StonedRabbitts",
-      bgImage: "https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/SAINT45.png"
+      bgImage: "https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/STONEDRABBITS.jpg"
     }
   ];
 
