@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
@@ -12,30 +13,8 @@ const Header: React.FC = () => {
   const location = useLocation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   
-  const handleAboutClick = () => {
-    if (location.pathname === '/') {
-      // If on home page, scroll to about section
-      const aboutSection = document.getElementById('about');
-      if (aboutSection) {
-        aboutSection.scrollIntoView({ behavior: 'smooth' });
-      }
-    } else {
-      // If on other pages, navigate to home and then scroll
-      navigate('/#about');
-    }
-  };
-
-  const handleJoinClick = () => {
-    if (location.pathname === '/') {
-      // If on home page, scroll to join section
-      const joinSection = document.getElementById('join');
-      if (joinSection) {
-        joinSection.scrollIntoView({ behavior: 'smooth' });
-      }
-    } else {
-      // If on other pages, navigate to home and then scroll
-      navigate('/#join');
-    }
+  const handleRoadmapClick = () => {
+    navigate('/roadmap');
   };
   
   return (
@@ -69,13 +48,6 @@ const Header: React.FC = () => {
               </button>
             )}
             
-            <button 
-              onClick={handleAboutClick}
-              className="neon-link font-poppins text-lg font-semibold tracking-wider text-white hover:text-saints-gold transition-colors border-b-2 border-transparent hover:border-saints-gold bg-transparent border-none cursor-pointer"
-            >
-              About
-            </button>
-            
             <button
               onClick={() => navigate('/collection/selector')}
               className="neon-link font-poppins text-lg font-semibold tracking-wider text-white hover:text-saints-gold transition-colors border-b-2 border-transparent hover:border-saints-gold bg-transparent border-none cursor-pointer"
@@ -104,14 +76,7 @@ const Header: React.FC = () => {
             </button>
             
             <button 
-              onClick={handleJoinClick}
-              className="neon-link font-poppins text-lg font-semibold tracking-wider text-white hover:text-saints-gold transition-colors border-b-2 border-transparent hover:border-saints-gold bg-transparent border-none cursor-pointer"
-            >
-              Join
-            </button>
-            
-            <button
-              onClick={() => navigate('/roadmap')}
+              onClick={handleRoadmapClick}
               className="neon-link font-poppins text-lg font-semibold tracking-wider text-white hover:text-saints-gold transition-colors border-b-2 border-transparent hover:border-saints-gold bg-transparent border-none cursor-pointer"
             >
               Roadmap
@@ -169,16 +134,6 @@ const Header: React.FC = () => {
               
               <button
                 onClick={() => {
-                  handleAboutClick();
-                  setMobileMenuOpen(false);
-                }}
-                className="font-semibold text-lg py-2 text-white hover:text-saints-gold bg-transparent border-none text-left"
-              >
-                About
-              </button>
-              
-              <button
-                onClick={() => {
                   navigate('/collection/selector');
                   setMobileMenuOpen(false);
                 }}
@@ -211,16 +166,6 @@ const Header: React.FC = () => {
                 }}
               >
                 White Paper
-              </button>
-              
-              <button
-                onClick={() => {
-                  handleJoinClick();
-                  setMobileMenuOpen(false);
-                }}
-                className="font-semibold text-lg py-2 text-white hover:text-saints-gold bg-transparent border-none text-left"
-              >
-                Join
               </button>
               
               <button

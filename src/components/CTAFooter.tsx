@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Button } from "@/components/ui/button";
 import { useComingSoonModal } from "@/hooks/use-coming-soon-modal";
@@ -89,6 +90,9 @@ const CTAFooter: React.FC = () => {
               </a>
               <a href="https://www.instagram.com/saintsonearmynft/" target="_blank" rel="noopener noreferrer" className="text-white/50 hover:text-saints-gold transition-colors">
                 Instagram
+              </a>
+              <a href="https://t.me/+z3TgYl4QAaUxNDk0" target="_blank" rel="noopener noreferrer" className="text-white/50 hover:text-saints-gold transition-colors">
+                Telegram
               </a>
             </div>
           </div>
