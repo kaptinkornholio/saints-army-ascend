@@ -303,6 +303,7 @@ const WhitePaper: React.FC = () => {
                 className="cosmic-button btn-primary px-8 py-4 text-lg font-bold"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
+                onClick={() => navigate('/whitepaper/full')}
               >
                 Read Full Whitepaper
               </motion.button>
@@ -311,6 +312,7 @@ const WhitePaper: React.FC = () => {
                 className="cosmic-button bg-saints-purple hover:bg-saints-purple/80 px-8 py-4 text-lg font-bold"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
+                onClick={() => navigate('/collaborations')}
               >
                 Join Community
               </motion.button>
