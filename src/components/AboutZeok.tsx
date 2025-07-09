@@ -29,7 +29,7 @@ const AboutZeok: React.FC = () => {
             <div className="w-full md:w-2/5 cosmic-card p-4 animate-float group hover:transform hover:scale-105 transition-all duration-500">
               <div className="relative aspect-square overflow-hidden rounded-lg glow-border group-hover:shadow-[0_0_30px_rgba(178,0,255,0.6)]">
                 <img 
-                  src="https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/SAINTZEOK.png" 
+                  src="https://raw.githubusercontent.com/kaptinkornholio/saints-army-ascend/main/ZEOK775.png" 
                   alt="Zeok - General of the SAINT NEOS ARMY"
                   className="object-cover w-full h-full transform transition-transform duration-700 group-hover:scale-110"
                 />
